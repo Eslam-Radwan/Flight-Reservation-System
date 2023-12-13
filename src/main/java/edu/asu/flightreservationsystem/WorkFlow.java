@@ -1,10 +1,10 @@
 package edu.asu.mainPackage;
-
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public class WorkFlow implements UserWork, AdminWork, LoginMenu, SignupMenu, LoadData, UploadData{
+public class WorkFlow implements UserWork, AdminWork, LoginMenu, SignupMenu, LoadData, UploadData,Serializable{
     public static ArrayList<Flight> Flights = new ArrayList<>();
     public static ArrayList<ApplicationUser> appUsers = new ArrayList<>();
     public void preWork(){
@@ -63,15 +63,6 @@ public class WorkFlow implements UserWork, AdminWork, LoginMenu, SignupMenu, Loa
         }
         return false;
     }
-
-
-
-
-
-
-
-
-
 
 
     private int firstPage(){

@@ -1,6 +1,8 @@
 package edu.asu.mainPackage;
 
-public abstract class ApplicationUser {
+import java.io.Serializable;
+
+public abstract class ApplicationUser implements Serializable {
     private String firstName;
     private String lastName;
     private String username;

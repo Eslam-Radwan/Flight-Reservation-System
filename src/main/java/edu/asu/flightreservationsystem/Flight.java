@@ -1,12 +1,13 @@
 package edu.asu.mainPackage;
 
+import java.io.Serializable;
 import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Flight {
+public class Flight implements Serializable {
     private int flightNumber;
     private String departureAirport;
     private String arrivalAirport;
@@ -20,12 +21,40 @@ public class Flight {
     private int[] numberOfAvailableSeat ;
 //    ArrayList<String>  passenger = new ArrayList<>();
 
+    public void setEconomySeats(Seat[][] economySeats) {
+        this.economySeats = economySeats;
+    }
+
+    public void setBusinessClass(Seat[][] businessClass) {
+        this.businessClass = businessClass;
+    }
+
+    public void setFirstClass(Seat[][] firstClass) {
+        this.firstClass = firstClass;
+    }
+
     public Flight(){
         seatPrice = new double[3];
         numberOfAvailableSeat = new int[]{30, 30, 30};
+
         economySeats = new Seat[5][6];
+        for (int i=0;i<5;i++){
+            for (int j=0;j<6;j++){
+                economySeats[i][j]=new Seat(i+j,0,true,i,j);
+            }
+        }
         businessClass = new Seat[5][6];
+        for (int i=0;i<5;i++){
+            for (int j=0;j<6;j++){
+                businessClass[i][j]=new Seat(i+j,0,true,i,j);
+            }
+        }
         firstClass = new Seat[5][6];
+        for (int i=0;i<5;i++){
+            for (int j=0;j<6;j++){
+                firstClass[i][j]=new Seat(i+j,0,true,i,j);
+            }
+        }
     }
     public int getNumberOfAvailableSeat(int classType){
         return this.numberOfAvailableSeat[classType];

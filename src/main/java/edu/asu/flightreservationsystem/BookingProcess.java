@@ -4,11 +4,13 @@ import java.rmi.server.ExportException;
 import java.util.Scanner;
 
 public interface BookingProcess extends PaymentProcess, SeatSelection{
-    default void bookingProcess(Booking booking) {
+    default Booking bookingProcess(Booking booking) {
         Scanner input = new Scanner(System.in);
         System.out.println("===============welcome to booking===============");
         Flight flight = booking.getFlight();
         double ticketFare = flight.getSeatPrice(booking.getFlightClass());
+
+
         for (int i = 0; i < booking.getNumberOfPassengers(); i++) {
             System.out.printf("please Enter passenger %d first name:", i + 1);
             String firstName = input.next();
@@ -22,9 +24,8 @@ public interface BookingProcess extends PaymentProcess, SeatSelection{
             booking.addTicket(ticket);
 
         }
+
         seatSelection(booking);
-        paymentProcess(booking);
+        return paymentProcess(booking);
     }
-
-
 }

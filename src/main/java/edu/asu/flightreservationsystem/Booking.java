@@ -1,9 +1,10 @@
 package edu.asu.mainPackage;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Timer;
 
-public class Booking {
+public class Booking implements Serializable {
     private int bookingID;
     private int numberOfPassengers;
     private int flightClass;

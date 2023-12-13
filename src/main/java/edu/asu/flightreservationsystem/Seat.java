@@ -1,6 +1,8 @@
 package edu.asu.mainPackage;
 
-public class Seat {
+import java.io.Serializable;
+
+public class Seat implements Serializable {
 
     private int seatNumber ;
     private int seatClass ;

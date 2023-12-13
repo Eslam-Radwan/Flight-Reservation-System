@@ -1,6 +1,8 @@
 package edu.asu.mainPackage;
 
-public class Ticket {
+import java.io.Serializable;
+
+public class Ticket implements Serializable {
     private static int previousTicketNumber;
     private int ticketNumber;
     private double ticketFare;

@@ -19,14 +19,18 @@ public interface FlightSearch {
 
         System.out.print("Enter your Desired arrival Airport: ");
         Seleceted_Flight.setArrivalAirport(input.next());
-        System.out.print("Enter year and month and day: ");
+
         int year,month,day;
+        System.out.print("Enter year: ");
         year = input.nextInt();
+        System.out.print("month: ");
         month = input.nextInt();
+        System.out.print("day: ");
         day = input.nextInt();
+
         LocalDate departureDate = LocalDate.of(year,month,day);
         Seleceted_Flight.setDepartureDate(departureDate);
-        System.out.print("Enter your Desired Seat Class: ");
+        System.out.println("Enter your Desired Seat Class: ");
         System.out.println("Press 0 for Economic Class");
         System.out.println("Press 1 for Business Class");
         System.out.println("Press 2 for First Class");
@@ -73,3 +77,4 @@ public interface FlightSearch {
     }
 
 }
+

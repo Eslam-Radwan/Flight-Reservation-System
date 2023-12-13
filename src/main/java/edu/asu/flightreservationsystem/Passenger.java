@@ -1,6 +1,8 @@
 package edu.asu.mainPackage;
 
-public class Passenger {
+import java.io.Serializable;
+
+public class Passenger implements Serializable {
     private String firstName;
     private String lastName;
     private int ID;

@@ -4,7 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public interface PaymentProcess {
-    default Payment paymentProcess(Booking booking) {
+    default Booking paymentProcess(Booking booking) {
         Payment unvalidPayment = new Payment(booking.getNumberOfPassengers(), booking.getFlight().getSeatPrice(booking.getFlightClass()));
         Scanner scanner = new Scanner(System.in);
         int paymentMethodChoice = 0;
@@ -56,7 +56,7 @@ public interface PaymentProcess {
 
         //valid payment
         unvalidPayment.ValidPayment(paymentMethod, cardNumber, expiryDate, cvv);
-
-        return unvalidPayment;
+        booking.setBookingStatus("VAlid");
+        return booking;
     }
 }

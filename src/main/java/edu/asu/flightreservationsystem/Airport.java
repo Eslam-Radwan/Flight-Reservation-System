@@ -1,6 +1,8 @@
 package edu.asu.mainPackage;
 
-public class Airport {
+import java.io.Serializable;
+
+public class Airport implements Serializable {
     private int airportCode;
     private String airportName;
     private String airportLocation;
