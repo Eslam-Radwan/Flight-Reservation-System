@@ -61,7 +61,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                edu.asu.flightreservationsystem/edu.asu.flightreservationsystem.HelloApplication
+                                edu.asu.flightreservationsystem/edu.asu.flightreservationsystem.MainApplication
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

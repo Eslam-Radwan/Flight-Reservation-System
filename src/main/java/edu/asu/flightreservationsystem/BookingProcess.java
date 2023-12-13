@@ -1,6 +1,5 @@
-package edu.asu.mainPackage;
+package edu.asu.flightreservationsystem;
 
-import java.rmi.server.ExportException;
 import java.util.Scanner;
 
 public interface BookingProcess extends PaymentProcess, SeatSelection{

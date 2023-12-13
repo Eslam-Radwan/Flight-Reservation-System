@@ -1,11 +1,11 @@
-package edu.asu.mainPackage;
+package edu.asu.flightreservationsystem;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.concurrent.Callable;
 
-import static edu.asu.mainPackage.WorkFlow.Flights;
+import static edu.asu.flightreservationsystem.WorkFlow.Flights;
 
 public interface FlightSearch {
     default boolean flightSearch(Booking booking) {
