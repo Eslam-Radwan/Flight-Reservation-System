@@ -1,4 +1,4 @@
-package edu.asu.mainPackage;
+package edu.asu.flightreservationsystem;
 
 import java.util.ArrayList;
 import java.util.Scanner;

@@ -1,4 +1,5 @@
-package edu.asu.mainPackage;
+package edu.asu.flightreservationsystem;
+
 
 import java.io.File;
 import java.io.FileOutputStream;
