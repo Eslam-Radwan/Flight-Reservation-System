@@ -14,7 +14,7 @@ public interface UserWork {
             if(bookingCheck){
                 booking.setBookingID(user.getBookings().size() + 1);
                 booking.setBookingStatus("pending");
-                user.bookingProcess(booking);
+                user.setBookings(user.bookingProcess(booking));
             }
             return 2;
         } else if (choice == 2) {

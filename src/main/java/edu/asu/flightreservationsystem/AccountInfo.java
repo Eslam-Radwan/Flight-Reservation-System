@@ -1,6 +1,8 @@
 package edu.asu.mainPackage;
 
-public class AccountInfo {
+import java.io.Serializable;
+
+public class AccountInfo implements Serializable {
     private String username;
     private String password;
     private boolean isUser; //  1 for user, 0 for admin

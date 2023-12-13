@@ -1,8 +1,9 @@
 package edu.asu.mainPackage;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class User extends ApplicationUser implements FlightSearch, BookingProcess {
+public class User extends ApplicationUser implements FlightSearch, BookingProcess, Serializable {
 
     private ArrayList<Booking> Bookings = new ArrayList<Booking>();
 

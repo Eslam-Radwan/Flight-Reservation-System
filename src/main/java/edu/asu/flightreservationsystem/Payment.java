@@ -1,6 +1,8 @@
 package edu.asu.mainPackage;
 
-public class Payment  {
+import java.io.Serializable;
+
+public class Payment  implements Serializable {
     private static int previousPaymentId;
     private int paymentId;
     private double paymentAmount;
