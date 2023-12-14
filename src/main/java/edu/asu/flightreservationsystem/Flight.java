@@ -1,4 +1,4 @@
-package edu.asu.flightreservationsystem;
+package com.example.flightsearch;
 
 import java.io.Serializable;
 import java.time.LocalDate;

@@ -1,9 +1,6 @@
-package edu.asu.flightreservationsystem;
+package com.example.flightsearch;
 
-
-import java.io.Serializable;
-
-public class Payment  implements Serializable {
+public class Payment  {
     private static int previousPaymentId;
     private int paymentId;
     private double paymentAmount;

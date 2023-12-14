@@ -1,5 +1,7 @@
 package edu.asu.flightreservationsystem;
 
+import javafx.stage.Stage;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -8,34 +10,43 @@ import java.util.Scanner;
 public class WorkFlow implements UserWork, AdminWork, LoginMenu, SignupMenu, LoadData, UploadData,Serializable{
     public static ArrayList<Flight> Flights = new ArrayList<>();
     public static ArrayList<ApplicationUser> appUsers = new ArrayList<>();
-    public void preWork(){
+    public void preWork(Stage priamryStage){
+        loadData();
         Admin localAdmin = makeLocalAdmin();
         appUsers.add(localAdmin);
         User localUser = makelocalUser();
         appUsers.add(localUser);
-        loadData();
         boolean doWork;
         do {
             doWork = work();
         }while(doWork);
         uploadData();
     }
-    public boolean work()
+    public boolean work(Stage priamryStage)
     {
-        int firstPageCheck;
-        do {
-            firstPageCheck = firstPage();// 1 for login, 2 for signup
-            if (firstPageCheck == 2) {
-                ApplicationUser user = new User();
-                signupMenu(user);
-                appUsers.add(user);
-                continue;
-            }
-        }while(firstPageCheck == 2);
 
+        Admin localAdmin = makeLocalAdmin();
+        appUsers.add(localAdmin);
+
+
+
+
+//        int firstPageCheck;
+//        do {
+//            firstPageCheck = firstPage();// 1 for login, 2 for signup
+//            if (firstPageCheck == 2) {
+//                ApplicationUser user = new User();
+//                signupMenu(user);
+//                appUsers.add(user);
+//                continue;
+//            }
+//        }while(firstPageCheck == 2);
+
+        LoginPage login = new LoginPage();
+        login.loginPage(priamryStage,appUsers);
+
+/*
         ApplicationUser appUser = loginMenu(appUsers);
-
-
         if(appUser instanceof User){
             User user = (User)appUser;
             int gotToWork = userWork(user); //0 -> the program upload the data and exit, 1 -> logout
@@ -63,6 +74,8 @@ public class WorkFlow implements UserWork, AdminWork, LoginMenu, SignupMenu, Loa
             }
         }
         return false;
+        */
+
     }
 
 
@@ -85,7 +98,7 @@ public class WorkFlow implements UserWork, AdminWork, LoginMenu, SignupMenu, Loa
         return admin;
     }
 
-    private User makelocalUser(){
+    private User makeLocalUser(){
         User user = new User();
         user.setFirstName("Mostafa");
         user.setLastName("Ali");

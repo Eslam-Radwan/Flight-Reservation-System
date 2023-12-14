@@ -1,0 +1,5 @@
+Button{
+    -fx-cursor: hand;
+    -fx-background-color: blue;
+    -fx-text-fill: white;
+}
