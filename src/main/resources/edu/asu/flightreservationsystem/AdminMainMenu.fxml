@@ -15,6 +15,7 @@
                   <Font name="Arial Bold" size="45.0" />
                </font>
             </Label>
+            <Button layoutX="825.0" layoutY="23.0" mnemonicParsing="false" text="Log Out" />
          </children>
       </Pane>
       <Pane prefHeight="500.0" prefWidth="900.0">

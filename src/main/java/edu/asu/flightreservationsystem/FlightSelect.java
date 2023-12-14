@@ -1,4 +1,5 @@
-package com.example.flightsearch;
+package edu.asu.flightreservationsystem;
+
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,6 +22,8 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+
+import static edu.asu.flightreservationsystem.WorkFlow.Flights;
 
 public class FlightSelect implements Initializable {
 
@@ -65,8 +68,7 @@ public class FlightSelect implements Initializable {
         selectedFlights = new ArrayList<>();
 
         for (Flight flights : ArbitraryData()) {
-            if (bookingData.getBookingData().getFlight().getDepartureAirport().equals(flights.getDepartureAirport()) && bookingData.getBookingData().getFlight().getArrivalAirport().equals(flights.getArrivalAirport())
-                    && bookingData.getBookingData().getFlight().getDepartureDate().equals(flights.getDepartureDate()) && bookingData.getBookingData().getNumberOfPassengers() <= flights.getNumberOfAvailableSeat(bookingData.getBookingData().getFlightClass())) {
+            if (bookingData.getBookingData().getFlight().equals(flights) && bookingData.getBookingData().getNumberOfPassengers() <= flights.getNumberOfAvailableSeat(bookingData.getBookingData().getFlightClass())) {
                 selectedFlights.add(flights);
             }
         }
@@ -91,8 +93,10 @@ public class FlightSelect implements Initializable {
         if (iterator + 1 < selectedFlights.size()) {
             SetNextFlight();
         }
-        if (iterator == selectedFlights.size() - 1) nextFlight.setVisible(false);
-        if (iterator >= 0) previousFlight.setVisible(true);
+        if (iterator == selectedFlights.size() - 1)
+            nextFlight.setVisible(false);
+        if (iterator >= 0)
+            previousFlight.setVisible(true);
 
     }
 
@@ -101,13 +105,14 @@ public class FlightSelect implements Initializable {
         if (iterator - 1 >= 0) {
             SetPreviousFlight();
         }
-        if (iterator < selectedFlights.size()) nextFlight.setVisible(true);
-        if (iterator == 0) previousFlight.setVisible(false);
+        if (iterator < selectedFlights.size())
+            nextFlight.setVisible(true);
+        if (iterator == 0)
+            previousFlight.setVisible(false);
     }
 
     @FXML
     private void SwitchToBookingScene(ActionEvent event) throws Exception {
-
         Parent root = FXMLLoader.load(getClass().getResource("BookingScene.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
@@ -139,29 +144,14 @@ public class FlightSelect implements Initializable {
 
     private void SetNextFlight() {
         iterator++;
-        flightFrom.setText(selectedFlights.get(iterator).getDepartureAirport());
-        flightTo.setText(selectedFlights.get(iterator).getArrivalAirport());
-        departureDate.setText(selectedFlights.get(iterator).getDepartureDate().toString());
-        textFromFlight.setText(selectedFlights.get(iterator).getDepartureAirport());
-        textToFlight.setText(selectedFlights.get(iterator).getArrivalAirport());
-        departureTime.setText(selectedFlights.get(iterator).getDepartureTime().toString());
-        arrivalTime.setText(selectedFlights.get(iterator).getArrivalTime().toString());
-        double Price = (bookingData.getBookingData().getNumberOfPassengers()) * selectedFlights.get(iterator).getSeatPrice(bookingData.getBookingData().getFlightClass());
-        totalPrice.setText(String.valueOf(Price));
+        SetFirstFlight();
     }
 
     private void SetPreviousFlight() {
         iterator--;
-        flightFrom.setText(selectedFlights.get(iterator).getDepartureAirport());
-        flightTo.setText(selectedFlights.get(iterator).getArrivalAirport());
-        departureDate.setText(selectedFlights.get(iterator).getDepartureDate().toString());
-        textFromFlight.setText(selectedFlights.get(iterator).getDepartureAirport());
-        textToFlight.setText(selectedFlights.get(iterator).getArrivalAirport());
-        departureTime.setText(selectedFlights.get(iterator).getDepartureTime().toString());
-        arrivalTime.setText(selectedFlights.get(iterator).getArrivalTime().toString());
-        double Price = (bookingData.getBookingData().getNumberOfPassengers()) * selectedFlights.get(iterator).getSeatPrice(bookingData.getBookingData().getFlightClass());
-        totalPrice.setText(String.valueOf(Price));
+        SetFirstFlight();
     }
+
 
     private ArrayList<Flight> ArbitraryData() {
         Flight fl1 = new Flight();
@@ -203,4 +193,6 @@ public class FlightSelect implements Initializable {
         availableFlights.add(fl4);
         return availableFlights;
     }
+
+
 }

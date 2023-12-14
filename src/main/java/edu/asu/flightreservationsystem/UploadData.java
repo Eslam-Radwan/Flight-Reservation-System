@@ -8,8 +8,8 @@ import java.io.ObjectOutputStream;
 
 public interface UploadData {
     default void uploadData(){
-        File users = new File("users.txt");
-        File flights = new File("Flights.txt");
+        File users = new File("src/main/resources/users.txt");
+        File flights = new File("src/main/resources/Flights.txt");
         ObjectOutputStream userOutputStream=null;
         ObjectOutputStream flightsOutputStream=null;
         try{

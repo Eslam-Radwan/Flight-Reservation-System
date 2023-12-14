@@ -6,10 +6,10 @@ import java.util.ArrayList;
 
 public interface LoadData {
     default void loadData() {
-        File users = new File("users.txt");
-        File flights = new File("Flights.txt");
-        ObjectInputStream userInputStream=null;
-        ObjectInputStream flightsInputStream=null;
+        File users = new File("src/main/resources/users.txt");
+        File flights = new File("src/main/resources/Flights.txt");
+        ObjectInputStream userInputStream = null;
+        ObjectInputStream flightsInputStream = null;
         try {
             userInputStream = new ObjectInputStream(new FileInputStream(users));
             WorkFlow.appUsers = (ArrayList<ApplicationUser>) userInputStream.readObject();
@@ -26,11 +26,10 @@ public interface LoadData {
         } catch (IOException e) {
             System.out.println(e.toString());
 
-        }
-        finally {
-            try{
+        } finally {
+            try {
                 userInputStream.close();
-            }catch (IOException e){
+            } catch (IOException e) {
                 System.out.println(e);
             }
 
@@ -52,11 +51,10 @@ public interface LoadData {
             }
         } catch (IOException e) {
             System.out.println(e.toString());
-        }
-        finally {
-            try{
+        } finally {
+            try {
                 flightsInputStream.close();
-            }catch (IOException e){
+            } catch (IOException e) {
                 System.out.println(e);
             }
 

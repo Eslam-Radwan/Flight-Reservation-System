@@ -1,4 +1,4 @@
-package com.example.flightsearch;
+package edu.asu.flightreservationsystem;
 
 public class BookingData {
     private static final BookingData instane = new BookingData();

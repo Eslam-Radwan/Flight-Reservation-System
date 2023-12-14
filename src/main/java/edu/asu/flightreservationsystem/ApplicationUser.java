@@ -9,7 +9,6 @@ public abstract class ApplicationUser implements Serializable {
     private String username;
     private String emailAddress;
     private String password;
-    private boolean isUser; // true for users, false for admins
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
@@ -31,9 +30,6 @@ public abstract class ApplicationUser implements Serializable {
         this.password = password;
     }
 
-    public void setUser(boolean user) {
-        isUser = user;
-    }
 
     public String getFirstName() {
         return firstName;
@@ -55,9 +51,6 @@ public abstract class ApplicationUser implements Serializable {
         return password;
     }
 
-    public boolean isUser() {
-        return isUser;
-    }
 
     @Override
     public boolean equals(Object obj) {

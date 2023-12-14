@@ -1,4 +1,4 @@
-package com.example.flightsearch;
+package edu.asu.flightreservationsystem;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

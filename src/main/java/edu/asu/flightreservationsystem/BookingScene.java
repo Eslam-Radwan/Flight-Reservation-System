@@ -1,4 +1,4 @@
-package com.example.flightsearch;
+package edu.asu.flightreservationsystem;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -81,7 +81,7 @@ public class BookingScene implements Initializable {
     private void SwitchToSeatSelectionScene(ActionEvent event){
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         FlightSeatsPage flightSeatsPage= new FlightSeatsPage();
-        flightSeatsPage.start(stage);
+        flightSeatsPage.flightSeatsPage(stage);
     }
 
 

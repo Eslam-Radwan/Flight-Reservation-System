@@ -4,9 +4,9 @@ package edu.asu.flightreservationsystem;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class User extends ApplicationUser implements FlightSearch, BookingProcess, Serializable {
+public class User extends ApplicationUser implements FlightSearchInterface, BookingProcess, Serializable {
 
-    private ArrayList<Booking> Bookings = new ArrayList<Booking>();
+    private ArrayList<Booking> Bookings = new ArrayList<>();
 
 //    public User(ApplicationUser user){
 //        this.setFirstName(user.getFirstName());
