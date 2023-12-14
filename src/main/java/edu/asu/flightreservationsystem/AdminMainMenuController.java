@@ -17,10 +17,13 @@ public class AdminMainMenuController {
         Stage stage;
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
-        System.out.println("2");
     }
 
-    public void editFlight(){
-
+    public void editFlight(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("AdminEditFlight.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage;
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
     }
 }

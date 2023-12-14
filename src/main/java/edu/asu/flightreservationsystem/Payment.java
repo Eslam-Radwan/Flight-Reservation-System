@@ -1,4 +1,4 @@
-package com.example.flightsearch;
+package edu.asu.flightreservationsystem;
 
 public class Payment  {
     private static int previousPaymentId;

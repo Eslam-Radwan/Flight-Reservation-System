@@ -16,6 +16,5 @@ public interface SignupMenu {
         user.setEmailAddress(input.next());
         System.out.print("Password: ");
         user.setPassword(input.next());
-        user.setUser(true);
     }
 }

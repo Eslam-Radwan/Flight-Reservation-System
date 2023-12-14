@@ -1,13 +1,17 @@
 package edu.asu.flightreservationsystem;
+
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class LoginPage {
@@ -20,10 +24,11 @@ public class LoginPage {
         private ApplicationUser appUser;
 
 
+
         public void loginPage(Stage primaryStage, ArrayList<ApplicationUser> appUsers) {
 
             GridPane grid = layout();
-
+            Scene scene = new Scene(grid);
 
             loginButton.setOnAction(e -> {
                 if(usernameTextField.getText().trim().isEmpty() || passwordField.getText().trim().isEmpty()) {
@@ -33,9 +38,24 @@ public class LoginPage {
                      boolean check = isValidLogin(primaryStage,usernameTextField.getText(),passwordField.getText(),appUsers);
                      if(check){
                          if(appUser instanceof User){
-
+                             User user = (User)appUser;
+                             UserData userData = UserData.getInstance();
+                             userData.setUserData(user);
+                             try {
+                                 goToSearchPage(primaryStage);
+                             } catch (IOException ex) {
+                                 throw new RuntimeException(ex);
+                             }
                          }
                          if(appUser instanceof Admin){
+                            Admin admin = (Admin)appUser;
+                            AdminData adminData = AdminData.getInstance();
+                            adminData.setAdmin(admin);
+                             try {
+                                 goToAdminPage(primaryStage);
+                             } catch (IOException ex) {
+                                 throw new RuntimeException(ex);
+                             }
 
                          }
                      }
@@ -47,20 +67,16 @@ public class LoginPage {
             });
 
             signupButton.setOnAction(e -> {
-
+                SignupPage signup = new SignupPage();
+                signup.signupPage(primaryStage,scene,grid);
             });
 
-            Scene scene = new Scene(grid, primaryStage.getWidth(), primaryStage.getHeight());
 
             primaryStage.setScene(scene);
 
             primaryStage.show();
         }
 
-        private void openSignupPage(Stage primaryStage) {
-            SignupInterface1 signupInterface = new SignupInterface1();
-            signupInterface.start(new Stage());
-        }
 
         private boolean isValidLogin(Stage primaryStage,String username, String password,ArrayList<ApplicationUser> appUsers) {
             for (ApplicationUser appUserCheck : appUsers) {
@@ -83,18 +99,28 @@ public class LoginPage {
 
 
     private GridPane layout() {
-        Image backgroundImage = new Image("back.jpg");
-
-        BackgroundSize backgroundSize = new BackgroundSize(1.0, 1.0, true, true, false, false);
-        BackgroundImage background = new BackgroundImage(backgroundImage, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, backgroundSize);
-        Background backgroundObject = new Background(background);
 
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
         grid.setHgap(10);
         grid.setVgap(10);
         grid.setPadding(new Insets(25, 25, 25, 25));
-        grid.setBackground(backgroundObject);
+
+
+    try {
+        Image backgroundImage = new Image("Background.jpeg");
+        BackgroundImage background = new BackgroundImage(
+                backgroundImage,
+                BackgroundRepeat.REPEAT,   // Set the repeat type
+                BackgroundRepeat.REPEAT,
+                BackgroundPosition.CENTER,
+                BackgroundSize.DEFAULT);
+
+        grid.setBackground(new Background(background));
+    }catch (Exception e){
+        System.out.println(e);
+    }
+
 
         Label frsLabel = new Label("Login");
         frsLabel.setStyle("-fx-font-size: 24px; -fx-font-weight: bold;");
@@ -127,5 +153,15 @@ public class LoginPage {
         return grid;
     }
 
+    private void goToSearchPage(Stage primaryStage) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("FlightSearch.fxml"));
+        Scene scene = new Scene(root);
+        primaryStage.setScene(scene);
+    }
+    private void goToAdminPage(Stage primaryStage) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("AdminMainMenu.fxml"));
+        Scene scene = new Scene(root);
+        primaryStage.setScene(scene);
+    }
 
 }

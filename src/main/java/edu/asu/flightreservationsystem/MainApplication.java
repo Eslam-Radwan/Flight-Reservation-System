@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 
 public class MainApplication extends Application implements UploadData, LoadData{
@@ -22,10 +23,11 @@ public class MainApplication extends Application implements UploadData, LoadData
         WorkFlow workFlow = new WorkFlow();
         workFlow.work(stage);
 
-
     }
 
     public static void main(String[] args) {
+//        File file = new File("src/main/resources/Background.jpeg");
+//        System.out.println(file.exists());
         launch();
     }
 }

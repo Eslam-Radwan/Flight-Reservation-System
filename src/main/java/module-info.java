@@ -3,6 +3,7 @@ module com.example.flightsearch {
     requires javafx.fxml;
 
 
-    opens com.example.flightsearch to javafx.fxml;
-    exports com.example.flightsearch;
+    opens edu.asu.flightreservationsystem to javafx.fxml;
+    exports edu.asu.flightreservationsystem;
 }
+

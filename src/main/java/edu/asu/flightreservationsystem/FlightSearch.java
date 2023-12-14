@@ -1,4 +1,5 @@
-package com.example.flightsearch;
+package edu.asu.flightreservationsystem;
+
 
 
 import javafx.fxml.FXML;
@@ -31,14 +32,15 @@ public class FlightSearch implements Initializable {
     private RadioButton businessClass;
     @FXML
     private Spinner<Integer> numOfPassengers;
-    private BookingData bookingData = BookingData.getInstane();
+    private BookingData booking = BookingData.getInstane();
+    private UserData user = UserData.getInstance();
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        bookingData.setBookingData(new Booking());
-        bookingData.getBookingData().setFlight(new Flight());
-        SpinnerValueFactory<Integer> valueFactory =
-                new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 10);
+
+        booking.setBookingData(new Booking());
+        booking.getBookingData().setFlight(new Flight());
+        SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 10);
         valueFactory.setValue(1);
         numOfPassengers.setValueFactory(valueFactory);
     }
@@ -49,13 +51,13 @@ public class FlightSearch implements Initializable {
             Alert_Box alertBox = new Alert_Box();
             alertBox.display("Warning!", "Please fill all the data inputs!");
         } else {
-            bookingData.getBookingData().getFlight().setArrivalAirport(arrivalAirport.getCharacters().toString());
-            bookingData.getBookingData().getFlight().setDepartureAirport(departureAirport.getCharacters().toString());
-            bookingData.getBookingData().getFlight().setDepartureDate(departureDate.getValue());
-            bookingData.getBookingData().setNumberOfPassengers(numOfPassengers.getValue().intValue());
-            if (economicClass.isSelected()) bookingData.getBookingData().setFlightClass(0);
-            else if (businessClass.isSelected()) bookingData.getBookingData().setFlightClass(1);
-            else bookingData.getBookingData().setFlightClass(2);
+            booking.getBookingData().getFlight().setArrivalAirport(arrivalAirport.getCharacters().toString());
+            booking.getBookingData().getFlight().setDepartureAirport(departureAirport.getCharacters().toString());
+            booking.getBookingData().getFlight().setDepartureDate(departureDate.getValue());
+            booking.getBookingData().setNumberOfPassengers(numOfPassengers.getValue().intValue());
+            if (economicClass.isSelected()) booking.getBookingData().setFlightClass(0);
+            else if (businessClass.isSelected()) booking.getBookingData().setFlightClass(1);
+            else booking.getBookingData().setFlightClass(2);
             SwitchToSelectScene(event);
         }
     }

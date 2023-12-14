@@ -14,20 +14,25 @@ public class WorkFlow implements UserWork, AdminWork, LoginMenu, SignupMenu, Loa
         loadData();
         Admin localAdmin = makeLocalAdmin();
         appUsers.add(localAdmin);
-        User localUser = makelocalUser();
+        User localUser = makeLocalUser();
         appUsers.add(localUser);
+
+        /*
         boolean doWork;
         do {
             doWork = work();
         }while(doWork);
         uploadData();
+
+         */
     }
     public boolean work(Stage priamryStage)
     {
 
         Admin localAdmin = makeLocalAdmin();
         appUsers.add(localAdmin);
-
+        User localUser = makeLocalUser();
+        appUsers.add(localUser);
 
 
 
@@ -73,8 +78,10 @@ public class WorkFlow implements UserWork, AdminWork, LoginMenu, SignupMenu, Loa
                 return true;
             }
         }
-        return false;
         */
+
+        return false;
+
 
     }
 

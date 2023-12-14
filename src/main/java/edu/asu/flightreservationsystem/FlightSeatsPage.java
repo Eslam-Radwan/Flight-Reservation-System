@@ -1,8 +1,12 @@
-package com.example.flightsearch;
+package edu.asu.flightreservationsystem;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -14,13 +18,14 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Stack;
 
-public class FlightSeatsPage extends Application {
+public class FlightSeatsPage {
 
     private BookingData bookingData = BookingData.getInstane();
-    private ArrayList<String> passengers = new ArrayList<String>();
+    private ArrayList<String> passengers = new ArrayList<>();
 
     String imagePath1 = "/Seat1.jpeg";
     Image image1 = new Image(getClass().getResource(imagePath1).toExternalForm());
@@ -28,34 +33,40 @@ public class FlightSeatsPage extends Application {
     Image image2 = new Image(getClass().getResource(imagepath2).toExternalForm());
     VBox vbox;
     int selectedseats = 0;
-    ArrayList<Image> images = new ArrayList<Image>();
+    ArrayList<Image> images = new ArrayList<>();
     private static final int ROWS = 5;
     private static final int SEATS_PER_ROW = 6;
 
-    public static void main(String[] args) {
-        launch(args);
-    }
-
-    @Override
-    public void start(Stage primaryStage) {
+    public void flightSeatsPage(Stage primaryStage) {
         try {
-            primaryStage.setTitle("Flight Seats Page");
-            primaryStage.setHeight(700);
-            primaryStage.setWidth(900);
+
             CheckBox b1 = new CheckBox();
             Label label1 = new Label("pasenger info");
             b1.setSelected(true);
+
             CheckBox b2 = new CheckBox();
             b2.setSelected(true);
             Label label2 = new Label("seat selection");
+
             CheckBox b3 = new CheckBox();
             Label label3 = new Label("payment");
+
             b1.setDisable(true);
             b2.setDisable(true);
             b3.setDisable(true);
 
 
             Button next = new Button("Next");
+
+            next.setOnAction(e -> {
+                try {
+                    SwitchToPaymentScene(e);
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+            });
+
+
             next.setStyle("-fx-padding:20 20 20 20");
             next.setAlignment(Pos.CENTER_LEFT);
 
@@ -64,7 +75,6 @@ public class FlightSeatsPage extends Application {
             hbox.setSpacing(20);
             hbox.getChildren().addAll(b1, label1, b2, label2, b3, label3, next);
             hbox.setAlignment(Pos.CENTER);
-//            HBox.setMargin(hbox, new Insets(10, 20, 10, 20));
             label1.setStyle("-fx-font-size: 30; -fx-padding:0 20 0 0");
             label2.setStyle("-fx-font-size: 30; -fx-padding:0 20 0 0");
             label3.setStyle("-fx-font-size: 30; -fx-padding:0 0 0 0");
@@ -99,6 +109,14 @@ public class FlightSeatsPage extends Application {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void SwitchToPaymentScene(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("payment.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
 
