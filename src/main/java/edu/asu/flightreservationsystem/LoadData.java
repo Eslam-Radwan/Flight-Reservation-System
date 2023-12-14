@@ -8,41 +8,58 @@ public interface LoadData {
     default void loadData() {
         File users = new File("users.txt");
         File flights = new File("Flights.txt");
+        ObjectInputStream userInputStream=null;
+        ObjectInputStream flightsInputStream=null;
         try {
-            ObjectInputStream userInputStream = new ObjectInputStream(new FileInputStream(users));
+            userInputStream = new ObjectInputStream(new FileInputStream(users));
             WorkFlow.appUsers = (ArrayList<ApplicationUser>) userInputStream.readObject();
             userInputStream.close();
         } catch (ClassNotFoundException e) {
-            System.out.println("11");
+
             System.out.println("File Not found");
             try {
                 users.createNewFile();
             } catch (IOException exp) {
                 System.out.println(exp);
-                System.out.println("12");
+
             }
         } catch (IOException e) {
             System.out.println(e.toString());
-            System.out.println("2");
+
+        }
+        finally {
+            try{
+                userInputStream.close();
+            }catch (IOException e){
+                System.out.println(e);
+            }
+
         }
 
 
         try {
-            ObjectInputStream flightsInputStream = new ObjectInputStream(new FileInputStream(flights));
+            flightsInputStream = new ObjectInputStream(new FileInputStream(flights));
             WorkFlow.Flights = (ArrayList<Flight>) flightsInputStream.readObject();
             flightsInputStream.close();
         } catch (ClassNotFoundException e) {
             System.out.println("File Not found");
-            System.out.println("31");
+
             try {
                 flights.createNewFile();
             } catch (IOException exp) {
                 System.out.println(exp);
-                System.out.println("32");
+
             }
         } catch (IOException e) {
             System.out.println(e.toString());
-            System.out.println("4");
+        }
+        finally {
+            try{
+                flightsInputStream.close();
+            }catch (IOException e){
+                System.out.println(e);
+            }
+
         }
     }
 }

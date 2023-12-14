@@ -10,20 +10,34 @@ public interface UploadData {
     default void uploadData(){
         File users = new File("users.txt");
         File flights = new File("Flights.txt");
+        ObjectOutputStream userOutputStream=null;
+        ObjectOutputStream flightsOutputStream=null;
         try{
-            ObjectOutputStream userOutputStream = new ObjectOutputStream(new FileOutputStream(users));
+            userOutputStream = new ObjectOutputStream(new FileOutputStream(users));
             userOutputStream.writeObject(WorkFlow.appUsers);
         }catch (IOException ioException){
             System.out.println(ioException.toString());
-            System.out.println("3");
+        }finally {
+            try{
+                userOutputStream.close();
+            }catch (IOException e){
+                System.out.println(e);
+            }
         }
 
         try{
-            ObjectOutputStream flightsOutputStream = new ObjectOutputStream(new FileOutputStream(flights));
+            flightsOutputStream = new ObjectOutputStream(new FileOutputStream(flights));
             flightsOutputStream.writeObject(WorkFlow.Flights);
         }catch (IOException ioException){
             System.out.println(ioException.toString());
-            System.out.println("4");
+
+        }finally {
+            try{
+                flightsOutputStream.close();
+            }catch (IOException e){
+                System.out.println(e);
+            }
         }
+
     }
 }
