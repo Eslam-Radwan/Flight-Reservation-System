@@ -1,0 +1,60 @@
+.root {
+    -fx-background-size: cover, cover, cover, cover, cover, cover;
+    -fx-background-position: center, center, center, center, center, center;
+    -fx-background-image:
+        url("Background.jpeg");
+
+}
+Button {
+    -fx-padding: 10px 20px;
+    -fx-font-size: 16px;
+    -fx-text-fill: white;
+    -fx-background-color: #3498db;
+    -fx-border-radius: 4px;
+}
+Button:hover {
+    -fx-background-color: #000000;
+}
+* {
+	-fx-primary-color: #007acc;
+	-fx-secondary-color: #4B6EAF;
+	-fx-grey-color: #b9b9b9;
+
+	-fx-focus-color: -fx-secondary-color;
+}
+
+.text-field {
+	-fx-accent: -fx-primary-color;
+	-fx-background-color: -fx-grey-color, white;
+	-fx-background-insets: 0, 0 0 1 0;
+	-fx-background-radius: 0;
+}
+.text-field:focused {
+	-fx-background-color: -fx-primary-color, white;
+}
+* {
+	-fx-primary-color: #007acc;
+	-fx-secondary-color: #4B6EAF;
+
+	-fx-focus-color: -fx-secondary-color;
+}
+
+.spinner .increment-arrow-button,
+.spinner .decrement-arrow-button {
+	-fx-background-color: -fx-primary-color;
+	-fx-background-radius: 0;
+}
+.spinner .increment-arrow-button:hover,
+.spinner .decrement-arrow-button:hover {
+	-fx-background-color: -fx-secondary-color;
+}
+.spinner .increment-arrow-button:hover:pressed,
+.spinner .decrement-arrow-button:hover:pressed,
+.spinner .increment-arrow-button:pressed,
+.spinner .decrement-arrow-button:pressed {
+	-fx-background-color: -fx-secondary-color;
+}
+.spinner .increment-arrow-button .increment-arrow,
+.spinner .decrement-arrow-button .decrement-arrow {
+	-fx-background-color: white;
+}
