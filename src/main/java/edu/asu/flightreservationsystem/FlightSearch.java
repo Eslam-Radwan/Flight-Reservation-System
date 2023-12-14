@@ -1,80 +1,78 @@
-package edu.asu.flightreservationsystem;
-
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Scanner;
-import java.util.concurrent.Callable;
-
-import static edu.asu.flightreservationsystem.WorkFlow.Flights;
-
-public interface FlightSearch {
-    default boolean flightSearch(Booking booking) {
-        Flight Seleceted_Flight = new Flight();
-
-        Scanner input = new Scanner(System.in);
-
-        // Setting the Attributes that the user searched for
-        System.out.print("Enter your Desired departure Airport: ");
-        Seleceted_Flight.setDepartureAirport(input.next());
-
-        System.out.print("Enter your Desired arrival Airport: ");
-        Seleceted_Flight.setArrivalAirport(input.next());
-
-        int year,month,day;
-        System.out.print("Enter year: ");
-        year = input.nextInt();
-        System.out.print("month: ");
-        month = input.nextInt();
-        System.out.print("day: ");
-        day = input.nextInt();
-
-        LocalDate departureDate = LocalDate.of(year,month,day);
-        Seleceted_Flight.setDepartureDate(departureDate);
-        System.out.println("Enter your Desired Seat Class: ");
-        System.out.println("Press 0 for Economic Class");
-        System.out.println("Press 1 for Business Class");
-        System.out.println("Press 2 for First Class");
-        int SeatClass = input.nextInt();
-        booking.setFlightClass(SeatClass);
-        System.out.print("Enter your Desired number of seats: ");
-        int NumberOfSeats = input.nextInt();
-        booking.setNumberOfPassengers(NumberOfSeats);
+package com.example.flightsearch;
 
 
-        // searching the database for flights with the same attributes that the user selected
-        for (Flight flights : Flights) {
-            if (Seleceted_Flight.equals(flights) && flights.getNumberOfAvailableSeat(SeatClass) >= NumberOfSeats) {
-                int Choice = 0;
-                FlightSearchRepresentation(flights);
-                System.out.println("----------------------------------------------------");
-                System.out.println("Press 1 to select the current flight");
-                System.out.println("Press 2 to show the next available flight");
-                Choice = input.nextInt();
-                while (Choice != 1 && Choice != 2) {
-                    System.out.println("Invalid Choice!!");
-                    System.out.println("Press 1 to select the current flight");
-                    System.out.println("Press 2 to show the next available flight");
-                    Choice = input.nextInt();
-                }
-                if (Choice == 1) {
-                    Seleceted_Flight = flights;
-                    booking.setFlight(Seleceted_Flight);
-                    return true;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.stage.Stage;
+import javafx.event.ActionEvent;
 
-                }
-            }
-        }
-        System.out.println("You haven't selected a flight!");
-        return false;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class FlightSearch implements Initializable {
+    @FXML
+    private TextField departureAirport;
+    @FXML
+    private TextField arrivalAirport;
+    @FXML
+    private DatePicker departureDate;
+    @FXML
+    private RadioButton firstClass;
+    @FXML
+    private RadioButton economicClass;
+    @FXML
+    private RadioButton businessClass;
+    @FXML
+    private Spinner<Integer> numOfPassengers;
+    private BookingData bookingData = BookingData.getInstane();
+
+    @Override
+    public void initialize(URL arg0, ResourceBundle arg1) {
+        bookingData.setBookingData(new Booking());
+        bookingData.getBookingData().setFlight(new Flight());
+        SpinnerValueFactory<Integer> valueFactory =
+                new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 10);
+        valueFactory.setValue(1);
+        numOfPassengers.setValueFactory(valueFactory);
     }
 
-    private void FlightSearchRepresentation(Flight flight) {
-        System.out.println("Flight Informations: ");
-        System.out.println("Flight Number: " + flight.getFlightNumber());
-        System.out.println("Departure Airport: " + flight.getDepartureAirport());
-        System.out.println("Arrival Airport: " + flight.getArrivalAirport());
-        System.out.println("Departure Date: " + flight.getDepartureDate());
+    @FXML
+    private void ClickSearchButton(ActionEvent event) throws IOException {
+        if (DataInputValidation()) {
+            Alert_Box alertBox = new Alert_Box();
+            alertBox.display("Warning!", "Please fill all the data inputs!");
+        } else {
+            bookingData.getBookingData().getFlight().setArrivalAirport(arrivalAirport.getCharacters().toString());
+            bookingData.getBookingData().getFlight().setDepartureAirport(departureAirport.getCharacters().toString());
+            bookingData.getBookingData().getFlight().setDepartureDate(departureDate.getValue());
+            bookingData.getBookingData().setNumberOfPassengers(numOfPassengers.getValue().intValue());
+            if (economicClass.isSelected()) bookingData.getBookingData().setFlightClass(0);
+            else if (businessClass.isSelected()) bookingData.getBookingData().setFlightClass(1);
+            else bookingData.getBookingData().setFlightClass(2);
+            SwitchToSelectScene(event);
+        }
+    }
+
+    private boolean DataInputValidation() {
+        return departureAirport.getCharacters().toString().isEmpty() || arrivalAirport.getCharacters().toString().isEmpty()
+                || departureDate.getEditor().getCharacters().toString().isEmpty() || (!firstClass.isSelected() && !businessClass.isSelected() && !economicClass.isSelected());
+    }
+
+    @FXML
+    private void SwitchToSelectScene(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("FlightSelection.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
     }
 
 }
-

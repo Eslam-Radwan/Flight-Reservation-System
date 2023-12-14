@@ -1,4 +1,4 @@
-package edu.asu.flightreservationsystem;
+package com.example.flightsearch;
 
 import java.io.Serializable;
 
@@ -38,6 +38,14 @@ public class Ticket implements Serializable {
 
     public void setPassengerSeat(Seat passengerSeat) {
         this.passengerSeat = passengerSeat;
+    }
+
+    public Passenger getPassenger() {
+        return passenger;
+    }
+
+    public void setPassenger(Passenger passenger) {
+        this.passenger = passenger;
     }
 
     @Override

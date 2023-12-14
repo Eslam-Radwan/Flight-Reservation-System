@@ -1,4 +1,4 @@
-package edu.asu.flightreservationsystem;
+package com.example.flightsearch;
 
 
 import java.io.Serializable;
@@ -24,6 +24,7 @@ public class Booking implements Serializable {
         this.bookingStatus = "pending payment";
         this.flight = flight;
         this.flightClass=flightClass;
+        this.numberOfPassengers=numberOfPassengers;
     }
 
     //Getters

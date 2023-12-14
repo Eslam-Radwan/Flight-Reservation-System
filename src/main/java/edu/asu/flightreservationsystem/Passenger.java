@@ -1,4 +1,4 @@
-package edu.asu.flightreservationsystem;
+package com.example.flightsearch;
 
 
 import java.io.Serializable;
@@ -56,6 +56,6 @@ public class Passenger implements Serializable {
     public void setBookingInfo(Booking bookingInfo) {
         this.bookingInfo = bookingInfo;
     }
-    
+
 
 }
