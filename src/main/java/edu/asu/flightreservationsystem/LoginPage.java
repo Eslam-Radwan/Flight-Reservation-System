@@ -23,16 +23,19 @@ public class LoginPage {
         private Button signupButton;
         private ApplicationUser appUser;
 
+        private Label errorLabel = new Label();
 
 
-        public void loginPage(Stage primaryStage, ArrayList<ApplicationUser> appUsers) {
+
+
+    public void loginPage(Stage primaryStage, ArrayList<ApplicationUser> appUsers) {
 
             GridPane grid = layout();
             Scene scene = new Scene(grid);
 
             loginButton.setOnAction(e -> {
                 if(usernameTextField.getText().trim().isEmpty() || passwordField.getText().trim().isEmpty()) {
-                    showError(primaryStage,"Please enter the username and the password");
+                    showError("Please enter the username and the password");
                 }
                 else {
                      boolean check = isValidLogin(primaryStage,usernameTextField.getText(),passwordField.getText(),appUsers);
@@ -60,7 +63,7 @@ public class LoginPage {
                          }
                      }
                      else {
-                         showError(primaryStage,"The username or the password is wrong");
+                         showError("The username or the password is wrong");
                      }
                 }
 
@@ -88,13 +91,8 @@ public class LoginPage {
             return false;
         }
 
-        private static void showError(Stage primaryStage, String message) {
-            Label errorLabel = new Label(message);
-            errorLabel.setStyle("-fx-text-fill: red;");
-            GridPane.setConstraints(errorLabel, 0, 4, 2, 1);
-            errorLabel.setAlignment(Pos.CENTER);
-            errorLabel.setPadding(new Insets(10, 0, 0, 0));
-            ((GridPane) primaryStage.getScene().getRoot()).getChildren().add(errorLabel);
+        private  void showError(String message) {
+            errorLabel.setText(message);
         }
 
 
@@ -121,6 +119,10 @@ public class LoginPage {
         System.out.println(e);
     }
 
+        errorLabel.setStyle("-fx-text-fill: red;");
+        GridPane.setConstraints(errorLabel, 0, 4, 2, 1);
+        errorLabel.setAlignment(Pos.CENTER);
+        errorLabel.setPadding(new Insets(10, 0, 0, 0));
 
         Label frsLabel = new Label("Login");
         frsLabel.setStyle("-fx-font-size: 24px; -fx-font-weight: bold;");
