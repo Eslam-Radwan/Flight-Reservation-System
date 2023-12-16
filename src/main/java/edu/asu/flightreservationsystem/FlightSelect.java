@@ -67,7 +67,7 @@ public class FlightSelect implements Initializable {
 
         selectedFlights = new ArrayList<>();
 
-        for (Flight flights : ArbitraryData()) {
+        for (Flight flights : Flights) {
             if (bookingData.getBookingData().getFlight().equals(flights) && bookingData.getBookingData().getNumberOfPassengers() <= flights.getNumberOfAvailableSeat(bookingData.getBookingData().getFlightClass())) {
                 selectedFlights.add(flights);
             }

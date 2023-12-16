@@ -32,7 +32,7 @@ import static edu.asu.flightreservationsystem.WorkFlow.appUsers;
 
 public class SignupPage {
 
-
+    private Label errorLabel = new Label();
         public void signupPage(Stage primaryStage,Scene loginScene,GridPane loginLayout) {
             GridPane grid = layout(primaryStage,loginScene,loginLayout);
             loginScene.setRoot(grid);
@@ -58,7 +58,10 @@ public class SignupPage {
             // Set the background to the grid
             grid.setBackground(new Background(background));
 
-
+            errorLabel.setStyle("-fx-text-fill: red;");
+            GridPane.setConstraints(errorLabel, 0, 7, 5, 1);
+            errorLabel.setAlignment(Pos.CENTER);
+            errorLabel.setPadding(new Insets(10, 0, 0, 0));
 
             Label firstNameLabel = new Label("First Name:");
             firstNameLabel.setStyle("-fx-text-fill: white;");
@@ -124,11 +127,12 @@ public class SignupPage {
             });
 
             // Add controls to the grid
-            grid.getChildren().addAll(firstNameLabel,firstNameInput,lastNameLabel,lastNameInput, usernameLabel, usernameInput, passwordLabel, passwordInput, emailLabel, emailInput, signUpButton);
+            grid.getChildren().addAll(firstNameLabel,firstNameInput,lastNameLabel,lastNameInput, usernameLabel, usernameInput, passwordLabel, passwordInput, emailLabel, emailInput, signUpButton, errorLabel);
             return grid;
         }
 
         private boolean signUpButtonClicked(Stage primaryStage, TextField firstNameInput,TextField lastNameInput, TextField usernameInput, PasswordField passwordInput,TextField emailInput) {
+
             User user = new User();
             user.setFirstName(firstNameInput.getText());
             user.setLastName(lastNameInput.getText());
@@ -136,23 +140,30 @@ public class SignupPage {
             user.setPassword(passwordInput.getText());
             user.setEmailAddress(emailInput.getText());
             if(firstNameInput.getText().trim().isEmpty() || lastNameInput.getText().trim().isEmpty() || usernameInput.getText().trim().isEmpty() || passwordInput.getText().trim().isEmpty() || emailInput.getText().trim().isEmpty()){
-                showError(primaryStage,"Please enter the fileds");
+                showError("Please Enter All The Fields");
                 return false;
             }
             else {
-                appUsers.add(user);
-                return true;
+                boolean check = true;
+                for(ApplicationUser appUser:appUsers){
+                    if(appUser.getUsername().equals(usernameInput.getText())){
+                        check = false;
+                    }
+                }
+                if(check) {
+                    appUsers.add(user);
+                    return true;
+                }
+                else {
+                    showError("the username is not available please enter another username");
+                    return false;
+                }
             }
 
         }
 
-    private static void showError(Stage primaryStage, String message) {
-        Label errorLabel = new Label(message);
-        errorLabel.setStyle("-fx-text-fill: red;");
-        GridPane.setConstraints(errorLabel, 0, 7, 2, 1);
-        errorLabel.setAlignment(Pos.CENTER);
-        errorLabel.setPadding(new Insets(10, 0, 0, 0));
-        ((GridPane) primaryStage.getScene().getRoot()).getChildren().add(errorLabel);
+    private void showError(String message) {
+         errorLabel.setText(message);
     }
 
 

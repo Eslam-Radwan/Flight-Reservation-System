@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" stylesheets="@AdminStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.asu.flightreservationsystem.AdminAddFlightController">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" stylesheets="@AdminStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.asu.flightreservationsystem.AdminAddFlightController">
     <children>
-        <Pane prefHeight="200.0" prefWidth="900.0">
+        <Pane prefHeight="200.0" prefWidth="900.0" style="-fx-background-color: #ffffff;">
             <children>
                 <Label layoutX="187.0" layoutY="48.0" text="Flight Reservation System">
                     <font>
@@ -21,48 +21,11 @@
                 <Button layoutX="777.0" layoutY="137.0" mnemonicParsing="false" onAction="#addFlightButton" text="Add New Flight" />
                 <Button layoutX="32.0" layoutY="23.0" mnemonicParsing="false" onAction="#backButton" text="&lt;" />
             </children></Pane>
-        <ScrollPane prefHeight="500.0" prefWidth="900.0">
+        <ScrollPane>
             <content>
-                <VBox fx:id="vbox" alignment="TOP_CENTER" prefHeight="498.0" prefWidth="898.0" spacing="20.0">
-               <children>
-                  <Pane maxWidth="850.0" prefHeight="200.0" style="-fx-background-color: blue; -fx-background-radius: 15px;">
-                     <children>
-                        <Label layoutX="242.0" layoutY="86.0" text="Cairo" textFill="WHITE">
-                           <font>
-                              <Font name="Arial Bold" size="30.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="250.0" layoutY="41.0" text="Cairo" textFill="WHITE">
-                           <font>
-                              <Font size="30.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="415.0" layoutY="86.0" text="Cairo" textFill="WHITE">
-                           <font>
-                              <Font size="30.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="338.0" layoutY="86.0" text="Cairo" textFill="WHITE">
-                           <font>
-                              <Font size="30.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="320.0" layoutY="41.0" text="Cairo" textFill="WHITE">
-                           <font>
-                              <Font size="30.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="415.0" layoutY="41.0" text="Cairo" textFill="WHITE">
-                           <font>
-                              <Font size="30.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <Pane maxWidth="850.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: blue; -fx-background-radius: 15;" />
-               </children>
+                <VBox fx:id="vbox" alignment="TOP_CENTER" prefHeight="499.0" prefWidth="884.0" spacing="35.0" style="-fx-background-color: #ecf0f1;">
                <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  <Insets bottom="10.0" top="10.0" />
                </padding></VBox>
             </content>
         </ScrollPane>

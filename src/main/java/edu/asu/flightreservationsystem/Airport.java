@@ -4,39 +4,37 @@ package edu.asu.flightreservationsystem;
 import java.io.Serializable;
 
 public class Airport implements Serializable {
-    private int airportCode;
-    private String airportName;
-    private String airportLocation;
-//   private Flight [] flightsInfo ;
+    private String airportCode;//CAI
+    private String airportCountry;//egypt
+    private String airportCity;//cairo
 
-    public void setAirportCode(int airportCode) {
+
+    public void setAirportCode(String airportCode) {
         this.airportCode = airportCode;
     }
 
-    public void setAirportName(String airportName) {
-        this.airportName = airportName;
+    public void setAirportCountry(String airportCountry) {
+        this.airportCountry = airportCountry;
     }
 
-    public void setAirportLocation(String airportLocation) {
-        this.airportLocation = airportLocation;
+    public void setAirportCity(String airportCity) {
+        this.airportCity = airportCity;
     }
 
-    public int getAirportCode() {
+    public String getAirportCode() {
         return airportCode;
     }
 
-    public String getAirportName() {
-        return airportName;
+    public String getAirportCountry() {
+        return airportCountry;
     }
 
-    public String getAirportLocation() {
-        return airportLocation;
+    public String getAirportCity() {
+        return airportCity;
     }
 
-//     public void setFlightsInfo(Flight[] flightsInfo)
-//     {
-//        this.flightsInfo = flightsInfo;
-//        //comment
-//
-//     }
+    @Override
+    public String toString() {    //Cairo, Egypt (CAI)
+        return airportCity + ", " + airportCountry + " (" + airportCode + ')';
+    }
 }

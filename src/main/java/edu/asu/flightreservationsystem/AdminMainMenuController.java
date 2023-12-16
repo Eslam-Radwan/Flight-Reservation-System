@@ -9,11 +9,14 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import static edu.asu.flightreservationsystem.WorkFlow.appUsers;
+
 public class AdminMainMenuController {
 
     public void addFlight(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("AdminAddFlight.fxml"));
         Scene scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("AdminAddFlight.css").toExternalForm());
         Stage stage;
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
@@ -25,5 +28,11 @@ public class AdminMainMenuController {
         Stage stage;
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
+    }
+    public void logoutButton(ActionEvent event) throws IOException {
+        LoginPage login = new LoginPage();
+        Stage stage;
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        login.loginPage(stage,appUsers);
     }
 }

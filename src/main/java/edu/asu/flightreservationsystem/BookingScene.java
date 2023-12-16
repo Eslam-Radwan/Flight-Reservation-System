@@ -27,6 +27,7 @@ public class BookingScene implements Initializable {
     private Button submitButton=new Button();
     private VBox createsmallform() {
         VBox form = new VBox();
+        form.setStyle("-fx-background-color: transparent;");
 
         VBox.setMargin(form, new Insets(20, 20, 20, 20));
 

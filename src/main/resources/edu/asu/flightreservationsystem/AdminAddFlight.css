@@ -1,0 +1,80 @@
+.MainPane{
+    -fx-background-color: #323357;
+    -fx-background-radius: 15px;
+    -fx-border-radius: 15px;
+    -fx-border-width: 2px;
+    -fx-border-color: #121220;
+    -fx-min-width:850px;
+    -fx-min-height:200px;
+    -fx-pref-width:850px;
+    -fx-pref-height:200px;
+    -fx-max-width:850px;
+    -fx-max-height:200px;
+}
+.PricePane{
+    -fx-background-color: #323357;
+    -fx-background-radius: 15px;
+    -fx-border-color: #5d5fa3;
+    -fx-border-width: 6px;
+    -fx-border-radius: 20px;
+}
+.AirportLabel{
+    -fx-font-family: candara;
+    -fx-font-style: italic;
+    -fx-font-weight: bold;
+    -fx-font-size: 40px;
+    -fx-text-fill: white;
+}
+.TimeLabel{
+    -fx-font-family: arial;
+    -fx-font-size: 15px;
+    -fx-text-fill: white;
+
+}
+.PriceLabel{
+    -fx-background-color: #6a8fb3;
+    -fx-background-radius: 25px;
+    -fx-padding: 10px;
+    -fx-font-family: arial;
+    -fx-font-size: 18px;
+    -fx-pref-width:365px;
+    -fx-pref-height:45px;
+    -fx-max-width:365px;
+    -fx-max-height:45px;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+
+
+}
+.FlightNumberLabel{
+    -fx-font-family: "Arial Rounded MT Bold";
+    -fx-font-size: 15px;
+    -fx-text-fill: white;
+
+}
+.FlightNumber{
+    -fx-font-family: "Arial Rounded MT Bold";
+    -fx-font-size: 25px;
+    -fx-text-fill: white;
+
+}
+.departureDate{
+    -fx-font-family: "Arial Rounded MT Bold";
+    -fx-font-size: 25px;
+    -fx-text-fill: white;
+
+}
+.AvailableSeats{
+    -fx-background-color: #323357;
+    -fx-background-radius: 20px;
+    -fx-font-family: arial;
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
+    -fx-text-fill: white;
+    -fx-pref-width:50px;
+    -fx-pref-height:35px;
+    -fx-max-width:50px;
+    -fx-max-height:35px;
+    -fx-alignment: center;
+}
+
