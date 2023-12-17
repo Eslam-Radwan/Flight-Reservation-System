@@ -1,0 +1,35 @@
+.root{
+    -fx-background-color:#5872b4;
+}
+.pane{
+    -fx-background-color:#4663ac;
+     -fx-background-radius: 20px;
+    -fx-pref-width:850px;
+    -fx-max-width:850px;
+     -fx-alignment: center;
+     -fx-padding: 10px;
+      -fx-border-color: #233156;
+         -fx-border-width: 5px;
+         -fx-border-radius: 20px;
+}
+.backbutton{
+    -fx-text-fill:white;
+    -fx-font-weight: bold;
+    -fx-background-color:#4663ac;
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+    -fx-border-radius: 8px;
+}
+.label{
+    -fx-text-fill:white;
+    -fx-font-weight: bold;
+}
+.labela{
+    -fx-text-fill:white;
+    -fx-font-size:25px;
+    -fx-font-weight: bold;
+}
+.alertlabel{
+    -fx-text-fill:red;
+    -fx-font-weight: bold;
+}
