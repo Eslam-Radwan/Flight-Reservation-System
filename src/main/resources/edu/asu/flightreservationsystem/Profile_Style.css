@@ -5,9 +5,9 @@
     -fx-max-width:850px;
      -fx-alignment: center;
      -fx-padding: 10px;
-      -fx-border-color: #233156;
-         -fx-border-width: 5px;
-         -fx-border-radius: 20px;
+     -fx-border-color: #233156;
+     -fx-border-width: 5px;
+     -fx-border-radius: 20px;
 }
 
 .vbox{
@@ -38,6 +38,7 @@
     -fx-text-fill:white;
     -fx-font-weight: bold;
     -fx-background-color:#4663ac;
+    -fx-background-radius: 8px;
     -fx-border-color: black;
     -fx-border-width: 2px;
     -fx-border-radius: 8px;
