@@ -25,6 +25,8 @@ public class MainApplication extends Application implements UploadData, LoadData
     public void start(Stage stage) throws IOException {
 
         loadData();
+        System.out.println(WorkFlow.airports);
+
         stage.setTitle("Flight Reservation System");
         stage.setWidth(915);
         stage.setHeight(700);
