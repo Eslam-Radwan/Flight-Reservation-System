@@ -27,10 +27,10 @@ public class FlightSeatsPage {
     private BookingData bookingData = BookingData.getInstane();
     private ArrayList<String> passengers = new ArrayList<>();
 
-    String imagePath1 = "/Seat1.jpeg";
-    Image image1 = new Image(getClass().getResource(imagePath1).toExternalForm());
-    String imagepath2 = "/Seat2.jpeg";
-    Image image2 = new Image(getClass().getResource(imagepath2).toExternalForm());
+    String imagePath1 = "/Seat1.png";
+    Image image1 = new Image(imagePath1);
+    String imagepath2 = "/Seat2.png";
+    Image image2 = new Image(imagepath2);
     VBox vbox;
     int selectedseats = 0;
     ArrayList<Image> images = new ArrayList<>();

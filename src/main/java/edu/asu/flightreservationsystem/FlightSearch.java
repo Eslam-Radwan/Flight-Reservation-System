@@ -9,6 +9,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 
@@ -16,6 +19,8 @@ import javafx.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import static edu.asu.flightreservationsystem.WorkFlow.appUsers;
 
 public class FlightSearch implements Initializable {
     @FXML
@@ -35,6 +40,9 @@ public class FlightSearch implements Initializable {
     private BookingData booking = BookingData.getInstane();
     private UserData user = UserData.getInstance();
 
+    @FXML
+    ImageView profile;
+
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
 
@@ -43,6 +51,15 @@ public class FlightSearch implements Initializable {
         SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 10);
         valueFactory.setValue(1);
         numOfPassengers.setValueFactory(valueFactory);
+        profile.setImage(new Image("/Default_pfp.svg.png"));
+
+        profile.setOnMouseClicked(event -> {
+            try {
+                SwitchToProfileScene(event);
+            } catch (IOException e) {
+                e.printStackTrace(); // Handle the exception according to your needs
+            }
+        });
     }
 
     @FXML
@@ -75,6 +92,23 @@ public class FlightSearch implements Initializable {
         stage.setScene(scene);
         stage.show();
 
+    }
+
+    @FXML
+    private void SwitchToProfileScene(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("Profile.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
+    public void logoutButton(ActionEvent event) throws IOException {
+        LoginPage login = new LoginPage();
+        Stage stage;
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        login.loginPage(stage,appUsers);
     }
 
 }

@@ -19,17 +19,18 @@ import java.util.ResourceBundle;
 
 public class PaymentScene implements Initializable {
     @FXML
-    private TextField paymentAmount=new TextField();
+    private TextField paymentamount=new TextField();
     @FXML
     private RadioButton visa,paypal,mastercard;
     @FXML
     private Button confirmPayment;
 
     private BookingData bookingData = BookingData.getInstane();
+    private UserData userData = UserData.getInstance();
     private Payment unvalidPayment=new Payment(bookingData.getBookingData().getNumberOfPassengers(),bookingData.getBookingData().getFlight().getSeatPrice(bookingData.getBookingData().getFlightClass()));
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        paymentAmount.setText( Double.toString( unvalidPayment.getPaymentAmount() ) );
+        paymentamount.setText( Double.toString(unvalidPayment.getPaymentAmount()) );
     }
     public String GetPayMethod(ActionEvent event){
         if(paypal.isSelected()){
@@ -44,10 +45,16 @@ public class PaymentScene implements Initializable {
     }
     @FXML
     private void SwitchToPaymentSuccess(ActionEvent event) throws IOException {
+        bookingData.getBookingData().setPayment(unvalidPayment);
+        bookingData.getBookingData().setBookingStatus("completed");
+        bookingData.getBookingData().getFlight().setNumberOfAvailableSeat(bookingData.getBookingData().getFlightClass(), bookingData.getBookingData().getNumberOfPassengers());
+        userData.getUserData().getBookings().add(bookingData.getBookingData());
         Parent root = FXMLLoader.load(getClass().getResource("paymentSuccess.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
+
+
 }

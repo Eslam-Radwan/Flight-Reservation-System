@@ -52,6 +52,20 @@ public class Booking implements Serializable {
         return flightClass;
     }
 
+    public Payment getPayment() {
+        return payment;
+    }
+    public  String getClassString(){
+        if(this.flightClass==0){
+            return "Economy";
+        }
+        else if(this.flightClass==1){
+            return "Business";
+        }
+        else{
+            return "First class";
+        }
+    }
     //setters
     public void setBookingID(int bookingID) {
         this.bookingID = bookingID;
@@ -79,8 +93,16 @@ public class Booking implements Serializable {
         ticket.setPassengerSeat(seat);
         this.Tickets.set(index, ticket);
     }
+
+    public void setPayment(Payment payment) {
+        this.payment = payment;
+    }
+
     //adding
     public void addTicket(Ticket ticket){
         this.Tickets.add(ticket);
     }
+
+
+
 }
