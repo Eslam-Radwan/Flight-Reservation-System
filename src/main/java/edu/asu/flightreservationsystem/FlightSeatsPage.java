@@ -112,7 +112,7 @@ public class FlightSeatsPage {
     }
 
     private void SwitchToPaymentScene(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("payment.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("PaymentInfo.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -173,6 +173,7 @@ public class FlightSeatsPage {
             seatImageView.setImage(images.get(1));  // Set the new image when the seat is selected
             vbox.getChildren().get(selectedseats + 1).setDisable(true);
             bookingData.getBookingData().getFlight().getSeats(bookingData.getBookingData().getFlightClass())[row][col].setSeatAvailability(false);
+            bookingData.getBookingData().getTicketinfo().get(selectedseats).setPassengerSeat(bookingData.getBookingData().getFlight().getSeats(bookingData.getBookingData().getFlightClass())[row][col]);
             selectedseats++;  // Increment the selected seats counter
         }
     }

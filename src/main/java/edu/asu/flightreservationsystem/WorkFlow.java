@@ -10,6 +10,8 @@ import java.util.Scanner;
 public class WorkFlow implements UserWork, AdminWork, LoginMenu, SignupMenu, LoadData, UploadData,Serializable{
     public static ArrayList<Flight> Flights = new ArrayList<>();
     public static ArrayList<ApplicationUser> appUsers = new ArrayList<>();
+    public static ArrayList<Airport> airports = new ArrayList<>();
+
     public void preWork(Stage priamryStage){
         loadData();
         Admin localAdmin = makeLocalAdmin();

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.asu.flightreservationsystem.PaymentInfoController">
+   <children>
+      <Pane prefHeight="115.0" prefWidth="900.0" />
+      <Pane layoutY="102.0" prefHeight="584.0" prefWidth="900.0">
+         <children>
+            <Pane prefHeight="182.0" prefWidth="900.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" layoutX="25.0" layoutY="38.0" prefHeight="25.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Booking ID :" />
+                        <Label fx:id="DBookingId" prefHeight="24.0" prefWidth="19.0" />
+                     </children>
+                  </HBox>
+                  <Label layoutX="473.0" layoutY="83.0" text="Label" />
+                  <Label layoutX="473.0" layoutY="42.0" text="Label" />
+                  <Line endX="100.0" layoutX="669.0" layoutY="50.0" startX="-100.0" />
+                  <Label layoutX="819.0" layoutY="42.0" text="Label" />
+                  <Label layoutX="819.0" layoutY="83.0" text="Label" />
+                  <Label layoutX="25.0" layoutY="83.0" text="Label" />
+               </children>
+            </Pane>
+            <ScrollPane layoutY="182.0" prefHeight="414.0" prefWidth="900.0">
+               <content>
+                  <VBox maxWidth="-Infinity" prefHeight="414.0" prefWidth="900.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="900.0" style="-fx-spacing: 200;">
+                           <children>
+                              <Label style="-fx-padding: 10;" text="Passenger Name " />
+                              <Label text="ID" />
+                              <Label text="Seat Number" />
+                              <Label text="Phone number " />
+                           </children>
+                        </HBox>
+                        <VBox fx:id="passengers" prefHeight="342.0" prefWidth="900.0" />
+                     </children>
+                  </VBox>
+               </content>
+            </ScrollPane>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
