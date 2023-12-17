@@ -67,6 +67,7 @@ public class BookingScene implements Initializable {
         submitButton.setPadding(new Insets(20));
         forms.setPadding(new Insets(20));
         forms.getChildren().add(submitButton);
+//        submitButton.setOnAction(e -> SwitchToSeatSelectionScene(e));
     }
     @FXML
     private void AddDatas(ActionEvent event) throws IOException {

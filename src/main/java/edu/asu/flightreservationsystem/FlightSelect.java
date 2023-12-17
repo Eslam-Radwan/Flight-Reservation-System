@@ -113,6 +113,7 @@ public class FlightSelect implements Initializable {
 
     @FXML
     private void SwitchToBookingScene(ActionEvent event) throws Exception {
+        bookingData.getBookingData().setFlight(selectedFlights.get(iterator));
         Parent root = FXMLLoader.load(getClass().getResource("BookingScene.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);

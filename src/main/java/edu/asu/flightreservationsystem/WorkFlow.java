@@ -29,8 +29,8 @@ public class WorkFlow implements UserWork, AdminWork, LoginMenu, SignupMenu, Loa
     public boolean work(Stage priamryStage)
     {
 
-//        Admin localAdmin = makeLocalAdmin();
-//        appUsers.add(localAdmin);
+        Admin localAdmin = makeLocalAdmin();
+        appUsers.add(localAdmin);
 //        User localUser = makeLocalUser();
 //        appUsers.add(localUser);
 

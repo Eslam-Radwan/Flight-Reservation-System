@@ -26,14 +26,15 @@ public interface LoadData {
         } catch (IOException e) {
             System.out.println(e.toString());
 
-        } finally {
-            try {
-                userInputStream.close();
-            } catch (IOException e) {
-                System.out.println(e);
-            }
-
         }
+//        finally {
+//            try {
+//                userInputStream.close();
+//            } catch (IOException e) {
+//                System.out.println(e);
+//            }
+//
+//        }
 
 
         try {
@@ -45,19 +46,20 @@ public interface LoadData {
 
             try {
                 flights.createNewFile();
-            } catch (IOException exp) {
+            } catch (Exception exp) {
                 System.out.println(exp);
 
             }
         } catch (IOException e) {
             System.out.println(e.toString());
-        } finally {
-            try {
-                flightsInputStream.close();
-            } catch (IOException e) {
-                System.out.println(e);
-            }
-
         }
+//        finally {
+//            try {
+//                flightsInputStream.close();
+//            } catch (IOException e) {
+//                System.out.println(e);
+//            }
+//
+//        }
     }
 }

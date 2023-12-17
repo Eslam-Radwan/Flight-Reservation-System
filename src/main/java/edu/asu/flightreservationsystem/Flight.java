@@ -141,6 +141,9 @@ public class Flight implements Serializable {
         }
     }
 
+    public void setNumberOfAvailableSeat(int seatClass, int numberOfSeats) {
+        numberOfAvailableSeat[seatClass] = numberOfAvailableSeat[seatClass] - numberOfSeats;
+    }
 
     @Override
     public String toString() {
