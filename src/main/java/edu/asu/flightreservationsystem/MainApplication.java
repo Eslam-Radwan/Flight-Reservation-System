@@ -7,7 +7,7 @@ public class MainApplication extends Application implements UploadData, LoadData
     @Override
     public void start(Stage stage) {
         loadData();
-        System.out.println(WorkFlow.airports);
+
 
         stage.setTitle("Flight Reservation System");
         stage.setWidth(915);

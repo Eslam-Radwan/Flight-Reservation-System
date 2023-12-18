@@ -27,10 +27,9 @@ public class PaymentScene implements Initializable {
 
     private BookingData bookingData = BookingData.getInstane();
     private UserData userData = UserData.getInstance();
-    private Payment unvalidPayment=new Payment(bookingData.getBookingData().getNumberOfPassengers(),bookingData.getBookingData().getFlight().getSeatPrice(bookingData.getBookingData().getFlightClass()));
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        paymentamount.setText( Double.toString(unvalidPayment.getPaymentAmount()) );
+        paymentamount.setText( Double.toString(bookingData.getBookingData().getPayment().getPaymentAmount()) );
     }
     public String GetPayMethod(ActionEvent event){
         if(paypal.isSelected()){
@@ -45,7 +44,7 @@ public class PaymentScene implements Initializable {
     }
     @FXML
     private void SwitchToPaymentSuccess(ActionEvent event) throws IOException {
-        bookingData.getBookingData().setPayment(unvalidPayment);
+        //bookingData.getBookingData().setPayment(unvalidPayment);
         bookingData.getBookingData().setBookingStatus("completed");
         bookingData.getBookingData().getFlight().setNumberOfAvailableSeat(bookingData.getBookingData().getFlightClass(), bookingData.getBookingData().getNumberOfPassengers());
         userData.getUserData().getBookings().add(bookingData.getBookingData());
