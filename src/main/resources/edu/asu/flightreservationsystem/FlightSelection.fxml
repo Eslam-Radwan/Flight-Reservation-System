@@ -4,85 +4,56 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.shape.Circle?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" stylesheets="@../../../Viper.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.asu.flightreservationsystem.FlightSelect">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" style="-fx-background-radius: 10px;" stylesheets="@CommonStyling.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.asu.flightreservationsystem.FlightSelect">
    <children>
-      <Label layoutX="223.0" layoutY="9.0" prefHeight="110.0" prefWidth="626.0" text="Pick up your flight!">
+      <Label layoutX="327.0" layoutY="14.0" prefHeight="110.0" prefWidth="246.0" text="AirLink" textFill="WHITE">
          <font>
-            <Font name="Comic Sans MS Bold" size="67.0" />
+            <Font name="Arial Bold" size="67.0" />
          </font>
       </Label>
-      <Label layoutX="106.0" layoutY="182.0" prefHeight="51.0" prefWidth="185.0" text="Flight from:">
+      <Label layoutX="104.0" layoutY="168.0" prefHeight="51.0" prefWidth="185.0" text="Flight from:" textFill="WHITE">
          <font>
             <Font name="Comic Sans MS Bold" size="30.0" />
          </font>
       </Label>
-      <TextField fx:id="flightFrom" editable="false" layoutX="106.0" layoutY="241.0" prefHeight="51.0" prefWidth="186.0">
+      <TextField fx:id="flightFrom" editable="false" layoutX="104.0" layoutY="227.0" prefHeight="51.0" prefWidth="186.0">
          <font>
             <Font size="14.0" />
          </font>
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
-         <effect>
-            <DropShadow spread="0.66">
-               <color>
-                  <Color red="0.1894736886024475" green="0.014035088010132313" blue="0.014035088010132313" />
-               </color>
-            </DropShadow>
-         </effect>
       </TextField>
-      <Label layoutX="373.0" layoutY="182.0" prefHeight="51.0" prefWidth="154.0" text="Flight To:">
+      <Label layoutX="371.0" layoutY="168.0" prefHeight="51.0" prefWidth="154.0" text="Flight To:" textFill="WHITE">
          <font>
             <Font name="Comic Sans MS Bold" size="30.0" />
          </font>
       </Label>
-      <TextField fx:id="flightTo" editable="false" layoutX="357.0" layoutY="241.0" prefHeight="51.0" prefWidth="186.0">
+      <TextField fx:id="flightTo" editable="false" layoutX="355.0" layoutY="227.0" prefHeight="51.0" prefWidth="186.0">
          <font>
             <Font size="14.0" />
          </font>
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
-         <effect>
-            <DropShadow spread="0.66">
-               <color>
-                  <Color red="0.1894736886024475" green="0.014035088010132313" blue="0.014035088010132313" />
-               </color>
-            </DropShadow>
-         </effect>
       </TextField>
-      <Label layoutX="631.0" layoutY="181.0" prefHeight="51.0" prefWidth="198.0" text="Travel Date:">
+      <Label layoutX="629.0" layoutY="167.0" prefHeight="51.0" prefWidth="198.0" text="Travel Date:" textFill="WHITE">
          <font>
             <Font name="Comic Sans MS Bold" size="30.0" />
          </font>
       </Label>
-      <TextField fx:id="departureDate" editable="false" layoutX="615.0" layoutY="241.0" prefHeight="51.0" prefWidth="198.0">
+      <TextField fx:id="departureDate" editable="false" layoutX="613.0" layoutY="227.0" prefHeight="51.0" prefWidth="198.0">
          <font>
             <Font size="20.0" />
          </font>
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
-         <effect>
-            <DropShadow spread="0.66">
-               <color>
-                  <Color red="0.1894736886024475" green="0.014035088010132313" blue="0.014035088010132313" />
-               </color>
-            </DropShadow>
-         </effect>
       </TextField>
-      <Circle fill="DODGERBLUE" layoutX="506.0" layoutY="415.0" radius="31.0" stroke="BLACK" strokeType="INSIDE" />
-      <Line endX="206.99996948242188" endY="-3.0517578125E-5" layoutX="267.0" layoutY="415.0" startX="-147.0" startY="1.0" />
       <Text fx:id="departureTime" layoutX="63.0" layoutY="481.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="86.40000000000003">
          <font>
             <Font size="24.0" />
@@ -92,7 +63,7 @@
             <Font name="Verdana" size="24.0" />
          </font>
       </Text>
-      <Label layoutX="630.0" layoutY="358.0" prefHeight="51.0" prefWidth="138.0" text="Price:">
+      <Label layoutX="638.0" layoutY="365.0" prefHeight="51.0" prefWidth="138.0" text="Price:" textFill="WHITE">
          <font>
             <Font name="Comic Sans MS Bold" size="32.0" />
          </font>
@@ -104,13 +75,6 @@
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
-         <effect>
-            <DropShadow spread="0.66">
-               <color>
-                  <Color red="0.1894736886024475" green="0.014035088010132313" blue="0.014035088010132313" />
-               </color>
-            </DropShadow>
-         </effect>
       </TextField>
       <Label fx:id="textToFlight" layoutX="475.0" layoutY="327.0" textFill="#1b1919">
          <font>
@@ -122,23 +86,17 @@
             <Font name="Gabriola" size="30.0" />
          </font>
       </Label>
-      <Button fx:id="nextFlight" layoutX="631.0" layoutY="512.0" mnemonicParsing="false" onAction="#NextFlight" prefHeight="73.0" prefWidth="163.0" text="Next Flight">
+      <Button fx:id="nextFlight" layoutX="656.0" layoutY="512.0" mnemonicParsing="false" onAction="#NextFlight" prefHeight="62.0" prefWidth="154.0" text="Next Flight">
          <font>
             <Font size="23.0" />
          </font></Button>
-      <Button fx:id="previousFlight" layoutX="74.0" layoutY="512.0" mnemonicParsing="false" onAction="#PreviousFlight" prefHeight="74.0" prefWidth="177.0" text="Previous Flight" />
-      <Button layoutX="20.8" layoutY="27.2" mnemonicParsing="false" onAction="#SwitchToSearchScene" prefHeight="110.0" prefWidth="154.0" text="&lt;-Search" AnchorPane.bottomAnchor="563.0" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="725.0" AnchorPane.topAnchor="27.0" />
-      <Button fx:id="bookButton" layoutX="381.0" layoutY="512.0" mnemonicParsing="false" onAction="#SwitchToBookingScene" prefHeight="74.0" prefWidth="127.0" text="Book it!" />
-      <Circle fill="DODGERBLUE" layoutX="89.0" layoutY="416.0" radius="31.0" stroke="BLACK" strokeType="INSIDE" />
-      <Label fx:id="warningLabel" layoutX="199.0" layoutY="323.0" text="No Flights Available! Search for Another one" textFill="RED">
+      <Button fx:id="previousFlight" layoutX="74.0" layoutY="512.0" mnemonicParsing="false" onAction="#PreviousFlight" prefHeight="62.0" prefWidth="127.0" text="Previous Flight" />
+      <Button layoutX="32.0" layoutY="34.0" mnemonicParsing="false" onAction="#SwitchToSearchScene" prefHeight="43.0" prefWidth="62.0" text="&lt;" AnchorPane.bottomAnchor="623.6" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="805.5999999999999" AnchorPane.topAnchor="34.0" />
+      <Button fx:id="bookButton" layoutX="381.0" layoutY="512.0" mnemonicParsing="false" onAction="#SwitchToBookingScene" prefHeight="62.0" prefWidth="110.0" text="Book it!" />
+      <Label fx:id="warningLabel" layoutX="119.0" layoutY="391.0" style="-fx-background-color: white;" text="No Flights Available! Search for Another one" textFill="RED">
          <font>
-            <Font name="System Bold" size="27.0" />
+            <Font size="22.0" />
          </font>
       </Label>
-      <ImageView fx:id="warningImage" fitHeight="38.0" fitWidth="62.0" layoutX="130.0" layoutY="324.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../warning.png" />
-         </image>
-      </ImageView>
    </children>
 </AnchorPane>

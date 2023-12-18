@@ -50,8 +50,7 @@ public class FlightSelect implements Initializable {
     private Button previousFlight;
     @FXML
     private Button bookButton;
-    @FXML
-    private ImageView warningImage;
+
     @FXML
     private Label warningLabel;
 
@@ -63,7 +62,6 @@ public class FlightSelect implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         iterator = 0;
-        warningImage.setVisible(false);
         warningLabel.setVisible(false);
 
         selectedFlights = new ArrayList<>();
@@ -82,7 +80,6 @@ public class FlightSelect implements Initializable {
             nextFlight.setVisible(false);
             previousFlight.setVisible(false);
             bookButton.setVisible(false);
-            warningImage.setVisible(true);
             warningLabel.setVisible(true);
         }
         if (selectedFlights.size() == 1 || selectedFlights.isEmpty()) {
