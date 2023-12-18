@@ -20,18 +20,17 @@ public class Flight implements Serializable {
     private int[] numberOfAvailableSeat ;
 //    ArrayList<String>  passenger = new ArrayList<>();
 
-    public void setEconomySeats(Seat[][] economySeats) {
-        this.economySeats = economySeats;
+    public void setEconomySeats(int row, int col, Seat seat) {
+        economySeats[row][col] = seat;
     }
 
-    public void setBusinessClass(Seat[][] businessClass) {
-        this.businessClass = businessClass;
+    public void setBuisinesseats(int row, int col, Seat seat) {
+        businessClass[row][col] = seat;
     }
 
-    public void setFirstClass(Seat[][] firstClass) {
-        this.firstClass = firstClass;
+    public void setFirstClassSeats(int row, int col, Seat seat) {
+        firstClass[row][col] = seat;
     }
-
     public Flight(){
         seatPrice = new double[3];
         numberOfAvailableSeat = new int[]{30, 30, 30};
@@ -39,19 +38,19 @@ public class Flight implements Serializable {
         economySeats = new Seat[5][6];
         for (int i=0;i<5;i++){
             for (int j=0;j<6;j++){
-                economySeats[i][j]=new Seat(i+j,0,true,i,j);
+                economySeats[i][j]=new Seat(i*10+j,0,true,i,j);
             }
         }
         businessClass = new Seat[5][6];
         for (int i=0;i<5;i++){
             for (int j=0;j<6;j++){
-                businessClass[i][j]=new Seat(i+j,0,true,i,j);
+                businessClass[i][j]=new Seat(i*10+j,1,true,i,j);
             }
         }
         firstClass = new Seat[5][6];
         for (int i=0;i<5;i++){
             for (int j=0;j<6;j++){
-                firstClass[i][j]=new Seat(i+j,0,true,i,j);
+                firstClass[i][j]=new Seat(i*10+j,2,true,i,j);
             }
         }
     }

@@ -170,11 +170,11 @@ public class FlightSeatsPage {
 
     private void handleSeatClick(ImageView seatImageView, int row, int col) {
         if (selectedseats < bookingData.getBookingData().getNumberOfPassengers() && bookingData.getBookingData().getFlight().getSeats(bookingData.getBookingData().getFlightClass())[row][col].getSeatAvailability()) {
-            seatImageView.setImage(images.get(1));  // Set the new image when the seat is selected
+            seatImageView.setImage(images.get(1));
             vbox.getChildren().get(selectedseats + 1).setDisable(true);
-            bookingData.getBookingData().getFlight().getSeats(bookingData.getBookingData().getFlightClass())[row][col].setSeatAvailability(false);
-            bookingData.getBookingData().getTicketinfo().get(selectedseats).setPassengerSeat(bookingData.getBookingData().getFlight().getSeats(bookingData.getBookingData().getFlightClass())[row][col]);
-            selectedseats++;  // Increment the selected seats counter
+            Seat newseat = new Seat(row*10+col,bookingData.getBookingData().getFlightClass(),false,row,col);
+            bookingData.getBookingData().getTicketinfo().get(selectedseats).setPassengerSeat(newseat);
+            selectedseats++;
         }
     }
 
