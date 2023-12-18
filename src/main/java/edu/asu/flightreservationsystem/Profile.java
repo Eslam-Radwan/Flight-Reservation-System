@@ -30,7 +30,7 @@ public class Profile implements Initializable{
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        username.setText(userData.getUserData().getFirstName()+userData.getUserData().getLastName());
+        username.setText(userData.getUserData().getFirstName()+" "+userData.getUserData().getLastName());
         email.setText(userData.getUserData().getEmailAddress());
         vbox.setAlignment(javafx.geometry.Pos.CENTER);
         vbox.setSpacing(30);

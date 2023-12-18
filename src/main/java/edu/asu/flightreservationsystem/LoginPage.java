@@ -61,7 +61,6 @@ public class LoginPage {
                              } catch (IOException ex) {
                                  throw new RuntimeException(ex);
                              }
-
                          }
                      }
                      else {

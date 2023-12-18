@@ -16,7 +16,7 @@
             <children>
                 <Pane prefHeight="200.0" prefWidth="200.0">
                     <children>
-                        <Label alignment="CENTER" layoutX="303.0" layoutY="44.0" prefHeight="112.0" prefWidth="294.0" text="FRS" textAlignment="CENTER">
+                        <Label alignment="CENTER" layoutX="248.0" layoutY="44.0" prefHeight="112.0" prefWidth="404.0" text="AirLink" textAlignment="CENTER">
                             <font>
                                 <Font name="Berlin Sans FB Demi Bold" size="96.0" />
                             </font>
@@ -31,7 +31,7 @@
                                 <Font name="Berlin Sans FB Demi Bold" size="17.0" />
                             </font>
                         </Label>
-                        <Label fx:id="email" layoutX="79.0" layoutY="146.0" prefHeight="41.0" prefWidth="128.0" text="Label">
+                        <Label fx:id="email" layoutX="79.0" layoutY="146.0" prefHeight="41.0" prefWidth="226.0" text="Label">
                             <font>
                                 <Font name="Berlin Sans FB Demi Bold" size="17.0" />
                             </font>
@@ -53,10 +53,13 @@
                 </Pane>
                 <ScrollPane prefHeight="500.0" prefWidth="900.0">
                     <content>
-                        <VBox fx:id="vbox" alignment="CENTER" prefHeight="500.0" prefWidth="900.0">
+                        <VBox fx:id="vbox" alignment="TOP_CENTER" prefHeight="497.0" prefWidth="894.0">
                      <opaqueInsets>
                         <Insets bottom="20.0" left="25.0" right="25.0" top="20.0" />
-                     </opaqueInsets></VBox>
+                     </opaqueInsets>
+                     <padding>
+                        <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+                     </padding></VBox>
                     </content>
                 </ScrollPane>
             </children>

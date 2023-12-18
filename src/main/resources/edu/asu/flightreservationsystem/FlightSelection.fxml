@@ -127,7 +127,7 @@
             <Font size="23.0" />
          </font></Button>
       <Button fx:id="previousFlight" layoutX="74.0" layoutY="512.0" mnemonicParsing="false" onAction="#PreviousFlight" prefHeight="74.0" prefWidth="177.0" text="Previous Flight" />
-      <Button layoutX="21.0" layoutY="27.0" mnemonicParsing="false" onAction="#SwitchToSearchScene" prefHeight="74.0" prefWidth="154.0" text="&lt;-Search" AnchorPane.bottomAnchor="598.4" AnchorPane.leftAnchor="20.80000000000004" AnchorPane.rightAnchor="724.8000000000001" AnchorPane.topAnchor="27.200000000000017" />
+      <Button layoutX="20.8" layoutY="27.2" mnemonicParsing="false" onAction="#SwitchToSearchScene" prefHeight="110.0" prefWidth="154.0" text="&lt;-Search" AnchorPane.bottomAnchor="563.0" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="725.0" AnchorPane.topAnchor="27.0" />
       <Button fx:id="bookButton" layoutX="381.0" layoutY="512.0" mnemonicParsing="false" onAction="#SwitchToBookingScene" prefHeight="74.0" prefWidth="127.0" text="Book it!" />
       <Circle fill="DODGERBLUE" layoutX="89.0" layoutY="416.0" radius="31.0" stroke="BLACK" strokeType="INSIDE" />
       <Label fx:id="warningLabel" layoutX="199.0" layoutY="323.0" text="No Flights Available! Search for Another one" textFill="RED">

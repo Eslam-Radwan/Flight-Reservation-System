@@ -8,6 +8,8 @@
      -fx-border-color: #233156;
      -fx-border-width: 5px;
      -fx-border-radius: 20px;
+     -fx-min-height:200px;
+     -fx-max-height:200px;
 }
 
 .vbox{

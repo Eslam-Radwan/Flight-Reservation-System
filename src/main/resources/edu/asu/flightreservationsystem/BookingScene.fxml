@@ -15,7 +15,7 @@
          <children>
             <Pane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Label layoutX="401.0" layoutY="34.0" text="FRS">
+                  <Label layoutX="350.0" layoutY="34.0" text="AirLink">
                      <font>
                         <Font size="60.0" />
                      </font>

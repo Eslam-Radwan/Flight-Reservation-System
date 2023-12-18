@@ -21,6 +21,7 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.ResourceBundle;
 
 import static edu.asu.flightreservationsystem.WorkFlow.Flights;
@@ -72,6 +73,9 @@ public class FlightSelect implements Initializable {
                 selectedFlights.add(flights);
             }
         }
+
+        selectedFlights.sort(new Flight() );
+
         if (!selectedFlights.isEmpty()) {
             SetFirstFlight();
         } else {
