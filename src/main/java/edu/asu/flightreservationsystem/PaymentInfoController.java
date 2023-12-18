@@ -50,8 +50,8 @@ public class PaymentInfoController implements PassengerInfoDisplay, Initializabl
     }
     public void SetData(){
         Flight bookedFlight=bookingData.getBookingData().getFlight();
-        arrivalAirport.setText(bookedFlight.getArrivalAirport());
-        departureAirport.setText(bookedFlight.getDepartureAirport());
+        arrivalAirport.setText(bookedFlight.getArrivalAirport().getAirportCity());
+        departureAirport.setText(bookedFlight.getDepartureAirport().getAirportCity());
         arrivalTime.setText(bookedFlight.getArrivalTime().toString());
         departureTime.setText(bookedFlight.getDepartureTime().toString());
         totalAmount.setText( Double.toString(bookingData.getBookingData().getPayment().getPaymentAmount()) );

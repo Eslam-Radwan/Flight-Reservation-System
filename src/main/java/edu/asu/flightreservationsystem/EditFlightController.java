@@ -63,8 +63,8 @@ public class EditFlightController implements Initializable{
         unEditable();
         buttonFunctions();
         flightNumber.setText(String.valueOf(Flights.get(this.index).getFlightNumber()));
-        departureAirport.setText(Flights.get(this.index).getDepartureAirport());
-        arrivalAirport.setText(Flights.get(this.index).getArrivalAirport());
+        departureAirport.setText(Flights.get(this.index).getDepartureAirport().getAirportCity());
+        arrivalAirport.setText(Flights.get(this.index).getArrivalAirport().getAirportCity());
         departureDate.setValue(Flights.get(this.index).getDepartureDate());
         economySeatPrice.setText(String.valueOf(Flights.get(this.index).getSeatPrice(0)));
         businessSeatPrice.setText(String.valueOf(Flights.get(this.index).getSeatPrice(1)));

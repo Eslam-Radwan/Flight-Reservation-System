@@ -77,12 +77,12 @@ public class Profile implements Initializable{
         total.setLayoutY(114);
         total.getStyleClass().add("labelb");
 
-        Label fromb = new Label(userData.getUserData().getBookings().get(i).getFlight().getDepartureAirport());
+        Label fromb = new Label(userData.getUserData().getBookings().get(i).getFlight().getDepartureAirport().getAirportCity());
         fromb.setLayoutX(146);
         fromb.setLayoutY(25);
         fromb.getStyleClass().add("labela");
 
-        Label Tob = new Label(userData.getUserData().getBookings().get(i).getFlight().getArrivalAirport());
+        Label Tob = new Label(userData.getUserData().getBookings().get(i).getFlight().getArrivalAirport().getAirportCity());
         Tob.setLayoutX(112);
         Tob.setLayoutY(114);
         Tob.getStyleClass().add("labela");

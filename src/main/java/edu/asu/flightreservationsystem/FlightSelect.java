@@ -138,11 +138,11 @@ public class FlightSelect implements Initializable {
 
 
     private void SetFirstFlight() {
-        flightFrom.setText(selectedFlights.get(iterator).getDepartureAirport());
-        flightTo.setText(selectedFlights.get(iterator).getArrivalAirport());
+        flightFrom.setText(selectedFlights.get(iterator).getDepartureAirport().getAirportCity());
+        flightTo.setText(selectedFlights.get(iterator).getArrivalAirport().getAirportCity());
         departureDate.setText(selectedFlights.get(iterator).getDepartureDate().toString());
-        textFromFlight.setText(selectedFlights.get(iterator).getDepartureAirport());
-        textToFlight.setText(selectedFlights.get(iterator).getArrivalAirport());
+        textFromFlight.setText(selectedFlights.get(iterator).getDepartureAirport().getAirportCity());
+        textToFlight.setText(selectedFlights.get(iterator).getArrivalAirport().getAirportCity());
         departureTime.setText(selectedFlights.get(iterator).getDepartureTime().toString());
         arrivalTime.setText(selectedFlights.get(iterator).getArrivalTime().toString());
         double Price = (bookingData.getBookingData().getNumberOfPassengers()) * selectedFlights.get(iterator).getSeatPrice(bookingData.getBookingData().getFlightClass());

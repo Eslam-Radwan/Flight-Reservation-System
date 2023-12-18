@@ -9,8 +9,8 @@ import java.util.Comparator;
 
 public class Flight implements Serializable ,Comparable, Comparator {
     private int flightNumber;
-    private String departureAirport;
-    private String arrivalAirport;
+    private Airport departureAirport;
+    private Airport arrivalAirport;
     private LocalTime departureTime;
     private LocalTime arrivalTime;
     private LocalDate departureDate;
@@ -35,7 +35,7 @@ public class Flight implements Serializable ,Comparable, Comparator {
     public Flight(){
         seatPrice = new double[3];
         numberOfAvailableSeat = new int[]{30, 30, 30};
-
+        //arrivalAirport=new Airport()
         economySeats = new Seat[5][6];
         for (int i=0;i<5;i++){
             for (int j=0;j<6;j++){
@@ -78,13 +78,7 @@ public class Flight implements Serializable ,Comparable, Comparator {
         this.flightNumber = flightNumber;
     }
 
-    public void setDepartureAirport(String departureAirport) {
-        this.departureAirport = departureAirport;
-    }
 
-    public void setArrivalAirport(String arrivalAirport) {
-        this.arrivalAirport = arrivalAirport;
-    }
 
     public void setDepartureTime(LocalTime departureTime) {
         this.departureTime = departureTime;
@@ -106,14 +100,21 @@ public class Flight implements Serializable ,Comparable, Comparator {
         return flightNumber;
     }
 
-    public String getDepartureAirport() {
+    public Airport getDepartureAirport() {
         return departureAirport;
     }
 
-    public String getArrivalAirport() {
+    public void setDepartureAirport(String departureAirportCity) {
+        this.departureAirport.setAirportCity(departureAirportCity);
+    }
+
+    public Airport getArrivalAirport() {
         return arrivalAirport;
     }
 
+    public void setArrivalAirport(String arrivalAirportCity) {
+        this.arrivalAirport.setAirportCity(arrivalAirportCity);
+    }
 
     public LocalTime getDepartureTime() {
         return departureTime;
