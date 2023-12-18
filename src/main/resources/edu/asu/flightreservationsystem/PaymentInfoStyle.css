@@ -1,0 +1,53 @@
+.label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #333333; /* Text color */
+}
+
+.hbox {
+    -fx-spacing: 20;
+    -fx-padding: 10;
+    -fx-background-color: #f0f0f0; /* Background color */
+}
+.AirportLabel{
+    -fx-font-family: candara;
+    -fx-font-style: italic;
+    -fx-font-weight: bold;
+    -fx-font-size: 35px;
+   // -fx-text-fill: b;
+}
+.PriceLabel{
+    -fx-background-color: #6a8fb3;
+    -fx-background-radius: 25px;
+    -fx-padding: 10px;
+    -fx-font-family: arial;
+    -fx-font-size: 18px;
+    -fx-pref-width:365px;
+    -fx-pref-height:45px;
+    -fx-max-width:365px;
+    -fx-max-height:45px;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+.TimeLabel{
+    -fx-font-family: arial;
+    -fx-font-size: 15px;
+    //-fx-text-fill: white;
+
+}
+.FlightNumberLabel{
+    -fx-font-family: "Arial Rounded MT Bold";
+    -fx-font-size: 15px;
+
+}
+.FlightNumber{
+    -fx-font-family: "Arial Rounded MT Bold";
+    -fx-font-size: 25px;
+
+
+}
+.totalAmount{
+    -fx-font-family: "Arial Rounded MT Bold";
+    -fx-font-size: 25px;
+
+
+}

@@ -28,16 +28,17 @@ public class PaymentInfoController implements PassengerInfoDisplay, Initializabl
     @FXML
     Label arrivalTime;
     @FXML
+    Label flightNumber;
+    @FXML
     VBox passengers;
 
     private Payment unvalidPayment=new Payment(bookingData.getBookingData().getNumberOfPassengers(),bookingData.getBookingData().getFlight().getSeatPrice(bookingData.getBookingData().getFlightClass()));
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        SetData();
         bookingData.getBookingData().setPayment(unvalidPayment);
+        SetData();
 
-        totalAmount.setText( Double.toString(bookingData.getBookingData().getPayment().getPaymentAmount()) );
         for(int i=0;i<bookingData.getBookingData().getNumberOfPassengers();i++){
         passengers.getChildren().add(onePassenger(bookingData.getBookingData().getTicketinfo().get(i)));
         }
@@ -50,6 +51,8 @@ public class PaymentInfoController implements PassengerInfoDisplay, Initializabl
         departureAirport.setText(bookedFlight.getDepartureAirport());
         arrivalTime.setText(bookedFlight.getArrivalTime().toString());
         departureTime.setText(bookedFlight.getDepartureTime().toString());
+        totalAmount.setText( Double.toString(bookingData.getBookingData().getPayment().getPaymentAmount()) );
+        flightNumber.setText("# "+String.valueOf(bookedFlight.getFlightNumber()));
 
     }
     @FXML
