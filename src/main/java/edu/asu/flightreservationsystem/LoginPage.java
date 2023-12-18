@@ -14,6 +14,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import static edu.asu.flightreservationsystem.WorkFlow.appUsers;
+
 public class LoginPage {
 
 
@@ -28,7 +30,7 @@ public class LoginPage {
 
 
 
-    public void loginPage(Stage primaryStage, ArrayList<ApplicationUser> appUsers) {
+    public void loginPage(Stage primaryStage) {
 
             GridPane grid = layout();
             Scene scene = new Scene(grid);
@@ -38,7 +40,7 @@ public class LoginPage {
                     showError("Please enter the username and the password");
                 }
                 else {
-                     boolean check = isValidLogin(primaryStage,usernameTextField.getText(),passwordField.getText(),appUsers);
+                     boolean check = isValidLogin(usernameTextField.getText(),passwordField.getText());
                      if(check){
                          if(appUser instanceof User){
                              User user = (User)appUser;
@@ -81,7 +83,7 @@ public class LoginPage {
         }
 
 
-        private boolean isValidLogin(Stage primaryStage,String username, String password,ArrayList<ApplicationUser> appUsers) {
+        private boolean isValidLogin(String username, String password) {
             for (ApplicationUser appUserCheck : appUsers) {
                 if (appUserCheck.getUsername().equals(username) && appUserCheck.getPassword().equals(password)) {
                     appUser = appUserCheck;
@@ -120,9 +122,10 @@ public class LoginPage {
     }
 
         errorLabel.setStyle("-fx-text-fill: red;");
-        GridPane.setConstraints(errorLabel, 0, 4, 2, 1);
         errorLabel.setAlignment(Pos.CENTER);
         errorLabel.setPadding(new Insets(10, 0, 0, 0));
+        GridPane.setConstraints(errorLabel, 0, 4, 2, 1);
+
 
         Label frsLabel = new Label("Login");
         frsLabel.setStyle("-fx-font-size: 24px; -fx-font-weight: bold;");
@@ -151,6 +154,7 @@ public class LoginPage {
 
         grid.add(loginButton, 0, 3);
         grid.add(signupButton, 1, 3);
+        grid.getChildren().add(errorLabel);
 
         return grid;
     }
@@ -161,7 +165,7 @@ public class LoginPage {
         primaryStage.setScene(scene);
     }
     private void goToAdminPage(Stage primaryStage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("AdminMainMenu.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("AdminAddFlight.fxml"));
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
     }

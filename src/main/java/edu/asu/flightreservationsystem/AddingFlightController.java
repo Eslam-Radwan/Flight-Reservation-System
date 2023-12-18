@@ -42,10 +42,10 @@ public class AddingFlightController implements Initializable {
     private HBox hboxTime1;
     @FXML
     private HBox hboxTime2;
-    Spinner<Integer> hourSpinner1;
-    Spinner<Integer> hourSpinner2;
-    Spinner<Integer> minuteSpinner1;
-    Spinner<Integer> minuteSpinner2;
+    private Spinner<Integer> hourSpinner1;
+    private Spinner<Integer> hourSpinner2;
+    private Spinner<Integer> minuteSpinner1;
+    private Spinner<Integer> minuteSpinner2;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -63,6 +63,11 @@ public class AddingFlightController implements Initializable {
         minuteSpinner1.setEditable(true);
         hourSpinner2.setEditable(true);
         minuteSpinner2.setEditable(true);
+
+        hourSpinner1.setPromptText("Hours");
+        hourSpinner2.setPromptText("Hours");
+        minuteSpinner1.setPromptText("Minutes");
+        minuteSpinner2.setPromptText("Minutes");
 
         hourSpinner1.setPrefWidth(75);
         hourSpinner2.setPrefWidth(75);
@@ -96,6 +101,11 @@ public class AddingFlightController implements Initializable {
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
 
-
+    }
+    public void backButton(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("AdminAddFlight.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
     }
 }

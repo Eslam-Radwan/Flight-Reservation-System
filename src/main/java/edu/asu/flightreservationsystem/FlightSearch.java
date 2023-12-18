@@ -108,7 +108,7 @@ public class FlightSearch implements Initializable {
         LoginPage login = new LoginPage();
         Stage stage;
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        login.loginPage(stage,appUsers);
+        login.loginPage(stage);
     }
 
 }

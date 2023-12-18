@@ -18,6 +18,27 @@
     -fx-border-width: 6px;
     -fx-border-radius: 20px;
 }
+.EditPane{
+    -fx-background-color: Black;
+    -fx-background-radius: 15px;
+    -fx-min-width:850px;
+    -fx-min-height:200px;
+    -fx-pref-width:850px;
+    -fx-pref-height:200px;
+    -fx-max-width:850px;
+    -fx-max-height:200px;
+    -fx-opacity: 0;
+}
+.EditButton{
+    -fx-background-color: gray;
+    -fx-background-radius: 10px;
+    -fx-font-family: candara;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-font-size: 40px;
+    -fx-pref-width: 140px;
+
+}
 .AirportLabel{
     -fx-font-family: candara;
     -fx-font-style: italic;

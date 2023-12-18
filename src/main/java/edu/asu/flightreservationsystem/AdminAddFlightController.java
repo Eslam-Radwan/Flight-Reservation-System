@@ -1,19 +1,25 @@
 package edu.asu.flightreservationsystem;
 
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Line;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
@@ -30,19 +36,9 @@ public class AdminAddFlightController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         for(int i = 0; i < WorkFlow.Flights.size(); i++){
-            Pane p = makeFlightPane(WorkFlow.Flights.get(i));
+            Pane p = makeFlightPane(WorkFlow.Flights.get(i),i);
             vbox.getChildren().add(p);
         }
-    }
-
-    public void backButton(ActionEvent event) throws IOException {
-
-        Parent root = FXMLLoader.load(getClass().getResource("AdminMainMenu.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage;
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        System.out.println("3");
     }
     public void addFlightButton(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("AddingFlight.fxml"));
@@ -51,10 +47,18 @@ public class AdminAddFlightController implements Initializable {
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
     }
-    private Pane makeFlightPane(Flight flight){
+    public void logoutButton(ActionEvent event) throws IOException {
+        LoginPage login = new LoginPage();
+        Stage stage;
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        login.loginPage(stage);
+    }
+    private Pane makeFlightPane(Flight flight,int index){
         NumberFormat numberFormat = NumberFormat.getNumberInstance(Locale.getDefault());
         Pane pane = new Pane();
         Pane pricePane = new Pane();
+        Pane editPane = new Pane();
+        Button editButton = new Button("Edit");
         Line line = makeLine();
         Label flightNumberLabel = new Label("Flight Number");
         Label arrivalAirport = new Label(flight.getArrivalAirport());
@@ -75,7 +79,7 @@ public class AdminAddFlightController implements Initializable {
 
         imageView.setFitWidth(47);
         imageView.setFitHeight(52);
-        imageView.setLayoutX(185);
+        imageView.setLayoutX(120);
         imageView.setLayoutY(97);
         flightNumberLabel.setLayoutX(20);
         flightNumberLabel.setLayoutY(15);
@@ -118,6 +122,8 @@ public class AdminAddFlightController implements Initializable {
         firstClassSeatPrice.setPrefWidth(365);
         firstClassSeatPrice.setPrefHeight(45);
 
+        editButton.setLayoutX(355);
+        editButton.setLayoutY(62);
 
         arrivalAirport.getStyleClass().add("AirportLabel");
         departureAirport.getStyleClass().add("AirportLabel");
@@ -125,6 +131,8 @@ public class AdminAddFlightController implements Initializable {
         departureTime.getStyleClass().add("TimeLabel");
         pane.getStyleClass().add("MainPane");
         pricePane.getStyleClass().add("PricePane");
+        editPane.getStyleClass().add("EditPane");
+        editButton.getStyleClass().add("EditButton");
         economySeatPrice.getStyleClass().add("PriceLabel");
         businessSeatPrice.getStyleClass().add("PriceLabel");
         firstClassSeatPrice.getStyleClass().add("PriceLabel");
@@ -136,13 +144,44 @@ public class AdminAddFlightController implements Initializable {
         firstClassAvailableSeats.getStyleClass().add("AvailableSeats");
 
 
+//        TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(1), imageView);
+//        imageView.setOnMouseClicked( e -> {
+//            translateTransition.pause();
+//            translateTransition.setToX(138);
+//            translateTransition.play();
+//            imageView.setCursor(Cursor.DEFAULT);
+//        });
+        editPane.setOnMouseEntered(e -> {
+            editPane.setOpacity(0.85);
+        });
+        editPane.setOnMouseExited(e -> {
+            editPane.setOpacity(0);
+        });
+        editPane.setCursor(Cursor.HAND);
+        editButton.setCursor(Cursor.HAND);
+        editPane.setOnMouseClicked(e -> {
+            editPane.setOpacity(0.85);
+            try {
+                goToEdit(e);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+        editButton.setOnAction(e -> {
+            try {
+                EditFlightController.setIndex(index);
+                goToEdit(e);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
 
+        });
+        imageView.setCursor(Cursor.HAND);
+        editPane.getChildren().add(editButton);
 
         pricePane.getChildren().addAll(economySeatPrice,businessSeatPrice,firstClassSeatPrice,economyAvailableSeats,businessAvailableSeats,firstClassAvailableSeats);
-
-        pane.getChildren().addAll(pricePane,flightNumberLabel,flightNumber,arrivalAirport,departureAirport,line,departureTime,arrivalTime,departureDate,imageView);
+        pane.getChildren().addAll(pricePane,flightNumberLabel,flightNumber,arrivalAirport,departureAirport,line,departureTime,arrivalTime,departureDate,imageView,editPane);
         return pane;
-
     }
 
     private Line makeLine(){
@@ -158,5 +197,21 @@ public class AdminAddFlightController implements Initializable {
         line.setStrokeWidth(10.0);
         return line;
     }
+
+    private void goToEdit(Event event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("EditFlightPage.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage;
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+    }
+//    private void goToEdit(Event event) throws IOException {
+//        Parent root = FXMLLoader.load(getClass().getResource("EditFlightPage.fxml"));
+//        Scene scene = new Scene(root);
+//        Stage stage;
+//        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+//        stage.setScene(scene);
+//    }
+
 
 }

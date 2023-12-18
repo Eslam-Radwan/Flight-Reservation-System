@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" stylesheets="@AdminStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.asu.flightreservationsystem.AdminAddFlightController">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" stylesheets="@AdminAddFlight.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.asu.flightreservationsystem.AdminAddFlightController">
     <children>
         <Pane prefHeight="200.0" prefWidth="900.0" style="-fx-background-color: #ffffff;">
             <children>
@@ -19,7 +19,7 @@
                 </Label>
                 <Label layoutX="29.0" layoutY="154.0" text="Add Flight" />
                 <Button layoutX="777.0" layoutY="137.0" mnemonicParsing="false" onAction="#addFlightButton" text="Add New Flight" />
-                <Button layoutX="32.0" layoutY="23.0" mnemonicParsing="false" onAction="#backButton" text="&lt;" />
+            <Button layoutX="31.0" layoutY="23.0" mnemonicParsing="false" onAction="#logoutButton" text="Logout" />
             </children></Pane>
         <ScrollPane>
             <content>
