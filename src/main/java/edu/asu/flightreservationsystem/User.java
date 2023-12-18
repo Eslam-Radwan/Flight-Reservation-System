@@ -4,18 +4,10 @@ package edu.asu.flightreservationsystem;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class User extends ApplicationUser implements FlightSearchInterface, BookingProcess, Serializable {
+public class User extends ApplicationUser implements Serializable {
 
     private ArrayList<Booking> Bookings = new ArrayList<>();
 
-//    public User(ApplicationUser user){
-//        this.setFirstName(user.getFirstName());
-//        this.setLastName(user.getLastName());
-//        this.setPassword(user.getPassword());
-//        this.setEmailAddress(user.getEmailAddress());
-//        this.setFirstName(user.getFirstName());
-//        this.setUser(true);
-//    }
     public void setBookings(Booking booking) {
         Bookings.add(booking);
     }

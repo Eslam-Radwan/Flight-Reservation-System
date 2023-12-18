@@ -4,7 +4,6 @@ public class UserData {
     private static final UserData instance = new UserData();
     private User user;
 
-
     public static UserData getInstance() {return instance;}
 
     public User getUserData() {return user;}
