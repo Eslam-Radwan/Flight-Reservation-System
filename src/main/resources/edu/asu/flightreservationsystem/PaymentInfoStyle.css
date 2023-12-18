@@ -48,6 +48,25 @@
 .totalAmount{
     -fx-font-family: "Arial Rounded MT Bold";
     -fx-font-size: 25px;
+}
+.label {
+    -fx-text-fill: white;
+}
+.Head .label{
+    -fx-text-fill: Black;
+    -fx-font-family: "Arial", sans-serif; /* Specify your preferred font family */
+    -fx-font-size: 14px; /* Specify the font size */
+    -fx-font-weight: bold;
+}
+.title{
+        -fx-font-family: candara; /* Font family for the title label text */
+    -fx-font-size: 40px; /* Font size for the title label text */
+    -fx-font-weight: bold;
+}
+.passenger Label{
+    -fx-text-fill: Black;
 
-
+}
+.box{
+-fx-background-color: #4a6d9e;
 }

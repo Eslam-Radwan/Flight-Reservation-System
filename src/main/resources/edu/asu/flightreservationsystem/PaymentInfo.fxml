@@ -11,13 +11,14 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" stylesheets="@PaymentInfoStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.asu.flightreservationsystem.PaymentInfoController">
    <children>
-      <Pane prefHeight="115.0" prefWidth="900.0">
+      <Pane prefHeight="115.0" prefWidth="900.0" styleClass="box">
          <children>
             <Button fx:id="pay" layoutX="783.0" layoutY="45.0" mnemonicParsing="false" onAction="#SwitchToPayment" text="Continue" />
+            <Label layoutX="385.0" layoutY="34.0" styleClass="title" text="Paymet" />
          </children></Pane>
       <Pane layoutY="102.0" prefHeight="584.0" prefWidth="900.0">
          <children>
-            <Pane prefHeight="145.0" prefWidth="900.0">
+            <Pane prefHeight="145.0" prefWidth="900.0" styleClass="box">
                <children>
                   <HBox alignment="CENTER_LEFT" layoutX="27.0" layoutY="38.0" prefHeight="31.0" prefWidth="215.0">
                      <children>
@@ -40,10 +41,10 @@
             </Pane>
             <ScrollPane layoutY="202.0" prefHeight="398.0" prefWidth="900.0">
                <content>
-                  <VBox fx:id="passengers" prefHeight="414.0" prefWidth="900.0" stylesheets="@PaymentInfoStyle.css" />
+                  <VBox fx:id="passengers" prefHeight="414.0" prefWidth="900.0" styleClass="passenger" stylesheets="@PaymentInfoStyle.css" />
                </content>
             </ScrollPane>
-            <HBox fx:id="head" alignment="CENTER" layoutY="145.0" prefHeight="57.0" prefWidth="900.0" style="-fx-spacing: 200;">
+            <HBox fx:id="head" alignment="CENTER" layoutY="145.0" prefHeight="57.0" prefWidth="900.0" style="-fx-spacing: 200;" styleClass="Head">
                <children>
                   <Label text="Passenger Name " />
                   <Label text="ID" />
