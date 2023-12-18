@@ -48,6 +48,7 @@ public class PaymentScene implements Initializable {
         bookingData.getBookingData().setBookingStatus("completed");
         bookingData.getBookingData().getFlight().setNumberOfAvailableSeat(bookingData.getBookingData().getFlightClass(), bookingData.getBookingData().getNumberOfPassengers());
         userData.getUserData().getBookings().add(bookingData.getBookingData());
+        bookingData.getBookingData().putSeatsInFlight();
         Parent root = FXMLLoader.load(getClass().getResource("paymentSuccess.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
