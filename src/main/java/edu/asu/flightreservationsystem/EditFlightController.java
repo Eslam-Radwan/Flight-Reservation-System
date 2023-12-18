@@ -134,6 +134,7 @@ public class EditFlightController implements Initializable{
         businessSeatPriceButton.setOnAction(e -> businessSeatPrice.setDisable(false));
         firstClassSeatPriceButton.setOnAction(e -> firstClassSeatPrice.setDisable(false));
     }
+    
     public void confirmButton(ActionEvent event) throws IOException {
         Flights.get(index).setFlightNumber(Integer.parseInt(flightNumber.getText()));
         Flights.get(index).setArrivalAirport(arrivalAirport.getText());

@@ -89,7 +89,9 @@ public class FlightSelect implements Initializable {
             nextFlight.setVisible(false);
             previousFlight.setVisible(false);
         }
-
+        if(iterator==0){
+            previousFlight.setVisible(false);
+        }
     }
 
     @FXML
