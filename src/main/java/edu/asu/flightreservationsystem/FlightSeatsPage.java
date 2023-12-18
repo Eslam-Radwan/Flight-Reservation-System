@@ -36,6 +36,7 @@ public class FlightSeatsPage {
     ArrayList<Image> images = new ArrayList<>();
     private static final int ROWS = 5;
     private static final int SEATS_PER_ROW = 6;
+    Label alert = new Label("please select " + Integer.toString(bookingData.getBookingData().getNumberOfPassengers()-selectedseats)+ " more seats");
 
     public void flightSeatsPage(Stage primaryStage) {
         try {
@@ -112,6 +113,11 @@ public class FlightSeatsPage {
     }
 
     private void SwitchToPaymentScene(ActionEvent event) throws IOException {
+        if(!validate()){
+            alert.setText("please select " + Integer.toString(bookingData.getBookingData().getNumberOfPassengers()-selectedseats)+ " more seats");
+            alert.setVisible(true);
+            return;
+        }
         Parent root = FXMLLoader.load(getClass().getResource("PaymentInfo.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
@@ -164,6 +170,10 @@ public class FlightSeatsPage {
             name.setStyle("-fx-font-size: 20; -fx-padding:0 0 20 10");
             vBox.getChildren().add(name);
         }
+        alert.setVisible(false);
+        alert.setStyle("-fx-text-fill:red;\n" +
+                "    -fx-font-weight: bold;");
+        vBox.getChildren().add(alert);
         return vBox;
 
     }
@@ -176,6 +186,13 @@ public class FlightSeatsPage {
             bookingData.getBookingData().getTicketinfo().get(selectedseats).setPassengerSeat(newseat);
             selectedseats++;
         }
+    }
+
+    private boolean validate(){
+        if(selectedseats<bookingData.getBookingData().getNumberOfPassengers()){
+            return false;
+        }
+        return true;
     }
 
 }
