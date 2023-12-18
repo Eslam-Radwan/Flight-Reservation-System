@@ -105,4 +105,23 @@ public class Booking implements Serializable {
 
 
 
+    public void putSeatsInFlight(int numberOfPassengers){
+        if(flightClass==0) {
+            for (int i = 0; i < numberOfPassengers; i++) {
+                flight.setEconomySeats(Tickets.get(i).getPassengerSeat().getSeatRow(), Tickets.get(i).getPassengerSeat().getSeatColumn(), Tickets.get(i).getPassengerSeat());
+            }
+        }
+        if(flightClass==1) {
+            for (int i = 0; i < numberOfPassengers; i++) {
+                flight.setBuisinesseats(Tickets.get(i).getPassengerSeat().getSeatRow(), Tickets.get(i).getPassengerSeat().getSeatColumn(), Tickets.get(i).getPassengerSeat());
+            }
+        }
+        if(flightClass==2) {
+            for (int i = 0; i < numberOfPassengers; i++) {
+                flight.setFirstClassSeats(Tickets.get(i).getPassengerSeat().getSeatRow(), Tickets.get(i).getPassengerSeat().getSeatColumn(), Tickets.get(i).getPassengerSeat());
+            }
+        }
+    }
+
+
 }
