@@ -5,8 +5,9 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 
-public class Flight implements Serializable {
+public class Flight implements Serializable ,Comparable, Comparator {
     private int flightNumber;
     private String departureAirport;
     private String arrivalAirport;
@@ -58,10 +59,12 @@ public class Flight implements Serializable {
         return this.numberOfAvailableSeat[classType];
     }
 
+
+
     @Override
     public boolean equals(Object object){
         Flight flight = (Flight)object;
-        if(this.departureAirport.equals(flight.departureAirport) && this.arrivalAirport.equals(flight.arrivalAirport) && this.departureDate.equals(flight.getDepartureDate())) {
+        if(this.departureAirport.equals(flight.departureAirport) && this.arrivalAirport.equals(flight.arrivalAirport)&&  !this.departureDate.isAfter(flight.departureDate)) {
             return true;
         }
         else {
@@ -144,6 +147,8 @@ public class Flight implements Serializable {
         numberOfAvailableSeat[seatClass] = numberOfAvailableSeat[seatClass] - numberOfSeats;
     }
 
+
+
     @Override
     public String toString() {
         return "Flight{" +
@@ -154,5 +159,18 @@ public class Flight implements Serializable {
                 ", arrivalTime=" + arrivalTime +
                 ", departureDate=" + departureDate +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Object obj) {
+        Flight otherFlight=(Flight)obj;
+
+        return this.departureDate.compareTo(otherFlight.departureDate);
+    }
+    @Override
+    public int compare(Object o1, Object o2) {
+        Flight f1=(Flight) o1;
+        Flight f2=(Flight) o2;
+        return f1.departureDate.compareTo(f2.departureDate);
     }
 }
