@@ -9,35 +9,42 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.asu.flightreservationsystem.PaymentInfoController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" stylesheets="@PaymentInfoStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.asu.flightreservationsystem.PaymentInfoController">
    <children>
-      <Pane prefHeight="115.0" prefWidth="900.0">
+      <Pane prefHeight="115.0" prefWidth="900.0" styleClass="box">
          <children>
             <Button fx:id="pay" layoutX="783.0" layoutY="45.0" mnemonicParsing="false" onAction="#SwitchToPayment" text="Continue" />
+            <Label layoutX="385.0" layoutY="34.0" styleClass="title" text="Paymet" />
          </children></Pane>
       <Pane layoutY="102.0" prefHeight="584.0" prefWidth="900.0">
          <children>
-            <Pane prefHeight="145.0" prefWidth="900.0">
+            <Pane prefHeight="145.0" prefWidth="900.0" styleClass="box">
                <children>
-                  <HBox alignment="CENTER_LEFT" layoutX="25.0" layoutY="38.0" prefHeight="25.0" prefWidth="200.0">
+                  <HBox alignment="CENTER_LEFT" layoutX="27.0" layoutY="38.0" prefHeight="31.0" prefWidth="215.0">
                      <children>
-                        <Label text="Total Amount :" />
-                        <Label fx:id="totalAmount" prefHeight="24.0" prefWidth="19.0" />
+                        <Label prefHeight="18.0" prefWidth="134.0" styleClass="FlightNumberLabel" text="Flight Number :" />
+                        <Label fx:id="flightNumber" prefHeight="24.0" prefWidth="101.0" styleClass="FlightNumber" />
                      </children>
                   </HBox>
-                  <Label fx:id="departureTime" layoutX="473.0" layoutY="83.0" text="Label" />
-                  <Label fx:id="departureAirport" layoutX="473.0" layoutY="42.0" text="Label" />
+                  <HBox alignment="CENTER_LEFT" layoutX="27.0" layoutY="79.0" prefHeight="31.0" prefWidth="215.0">
+                     <children>
+                        <Label prefHeight="18.0" prefWidth="122.0" styleClass="FlightNumberLabel" text="Total Amount   :" />
+                        <Label fx:id="totalAmount" prefHeight="24.0" prefWidth="82.0" styleClass="totalAmount" />
+                     </children>
+                  </HBox>
+                  <Label fx:id="departureTime" layoutX="473.0" layoutY="83.0" styleClass="TimeLabel" text="Label" />
+                  <Label fx:id="departureAirport" layoutX="460.0" layoutY="27.0" styleClass="AirportLabel" text="Label" />
                   <Line endX="100.0" layoutX="669.0" layoutY="50.0" startX="-100.0" />
-                  <Label fx:id="arrivalAirport" layoutX="819.0" layoutY="42.0" text="Label" />
-                  <Label fx:id="arrivalTime" layoutX="819.0" layoutY="83.0" text="Label" />
+                  <Label fx:id="arrivalAirport" layoutX="790.0" layoutY="26.0" styleClass="AirportLabel" text="Label" />
+                  <Label fx:id="arrivalTime" layoutX="819.0" layoutY="83.0" styleClass="TimeLabel" text="Label" />
                </children>
             </Pane>
             <ScrollPane layoutY="202.0" prefHeight="398.0" prefWidth="900.0">
                <content>
-                  <VBox fx:id="passengers" prefHeight="414.0" prefWidth="900.0" />
+                  <VBox fx:id="passengers" prefHeight="414.0" prefWidth="900.0" styleClass="passenger" stylesheets="@PaymentInfoStyle.css" />
                </content>
             </ScrollPane>
-            <HBox fx:id="head" alignment="CENTER" layoutY="145.0" prefHeight="57.0" prefWidth="900.0" style="-fx-spacing: 200;">
+            <HBox fx:id="head" alignment="CENTER" layoutY="145.0" prefHeight="57.0" prefWidth="900.0" style="-fx-spacing: 200;" styleClass="Head">
                <children>
                   <Label text="Passenger Name " />
                   <Label text="ID" />

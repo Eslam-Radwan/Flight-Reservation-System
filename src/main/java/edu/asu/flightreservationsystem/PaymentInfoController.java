@@ -4,10 +4,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -28,16 +31,17 @@ public class PaymentInfoController implements PassengerInfoDisplay, Initializabl
     @FXML
     Label arrivalTime;
     @FXML
+    Label flightNumber;
+    @FXML
     VBox passengers;
 
     private Payment unvalidPayment=new Payment(bookingData.getBookingData().getNumberOfPassengers(),bookingData.getBookingData().getFlight().getSeatPrice(bookingData.getBookingData().getFlightClass()));
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        SetData();
         bookingData.getBookingData().setPayment(unvalidPayment);
+        SetData();
 
-        totalAmount.setText( Double.toString(bookingData.getBookingData().getPayment().getPaymentAmount()) );
         for(int i=0;i<bookingData.getBookingData().getNumberOfPassengers();i++){
         passengers.getChildren().add(onePassenger(bookingData.getBookingData().getTicketinfo().get(i)));
         }
@@ -50,6 +54,8 @@ public class PaymentInfoController implements PassengerInfoDisplay, Initializabl
         departureAirport.setText(bookedFlight.getDepartureAirport());
         arrivalTime.setText(bookedFlight.getArrivalTime().toString());
         departureTime.setText(bookedFlight.getDepartureTime().toString());
+        totalAmount.setText( Double.toString(bookingData.getBookingData().getPayment().getPaymentAmount()) );
+        flightNumber.setText("# "+String.valueOf(bookedFlight.getFlightNumber()));
 
     }
     @FXML
