@@ -82,21 +82,9 @@ public class AddingFlightController implements Initializable {
     }
 
     public void addFlightButton(ActionEvent event) throws IOException {
-//        Flight flight = new Flight();
-//        flight.setFlightNumber(Integer.parseInt(flightNumber.getText()));
-//        flight.setArrivalAirport(arrivalAirport.getText());
-//        flight.setDepartureAirport(departureAirport.getText());
-//        flight.setDepartureTime(LocalTime.of(hourSpinner1.getValue(),minuteSpinner1.getValue()));
-//        flight.setArrivalTime(LocalTime.of(hourSpinner2.getValue(),minuteSpinner2.getValue()));
-//        flight.setDepartureDate(departureDate.getValue());
-//        flight.setSeatPrice(0,Double.parseDouble(economySeatPrice.getText()));
-//        flight.setSeatPrice(1,Double.parseDouble(businessSeatPrice.getText()));
-//        flight.setSeatPrice(2,Double.parseDouble(firstClassSeatPrice.getText()));
-//        Flights.add(flight);
-
         Admin.addFlight(Integer.parseInt(flightNumber.getText()),
-                        arrivalAirport.getText(),
                         departureAirport.getText(),
+                        arrivalAirport.getText(),
                          LocalTime.of(hourSpinner1.getValue(),minuteSpinner1.getValue()),
                           LocalTime.of(hourSpinner2.getValue(),minuteSpinner2.getValue()),
                           departureDate.getValue(),

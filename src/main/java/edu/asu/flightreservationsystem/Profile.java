@@ -14,7 +14,9 @@ import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Iterator;
 import java.util.ResourceBundle;
+import java.util.Iterator;
 
 public class Profile implements Initializable{
     private UserData userData = UserData.getInstance();
@@ -25,7 +27,6 @@ public class Profile implements Initializable{
     private Label email;
     @FXML
     VBox vbox = new VBox();
-
 
 
     @Override
@@ -46,7 +47,23 @@ public class Profile implements Initializable{
     @FXML
     private Pane createbookingpane(int i){
 
-
+        Button edit=new Button("Edit");
+        Button delete = new Button("Delete");
+        delete.setOnAction(e -> {
+            try {
+                handldelete(e, i);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+        edit.setOnAction(e -> {
+            try {
+                BookingData.getInstane().setBookingData(UserData.getInstance().getUserData().getBookings().get(i));
+                SwitchToBookingEdit(e);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
         Pane bookingpane = new Pane();
 
         bookingpane.setPrefWidth(850);
@@ -102,8 +119,13 @@ public class Profile implements Initializable{
         totalb.setLayoutY(114);
         totalb.getStyleClass().add("labelb");
 
+        edit.setLayoutX(758);
+        edit.setLayoutY(25);
 
-        bookingpane.getChildren().addAll(from, To, Date, Class, total,fromb, Tob, Dateb, classb, totalb);
+        delete.setLayoutX(758);
+        delete.setLayoutY(70);
+
+        bookingpane.getChildren().addAll(from, To, Date, Class, total,fromb, Tob, Dateb, classb, totalb,edit, delete);
 
         return bookingpane;
 
@@ -117,6 +139,30 @@ public class Profile implements Initializable{
         stage.setScene(scene);
         stage.show();
 
+    }
+    private void SwitchToBookingEdit(ActionEvent event) throws IOException {
+
+        Parent root = FXMLLoader.load(getClass().getResource("bookingEdit.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
+
+
+// ...
+
+    private void handldelete(ActionEvent e,int i) throws IOException {
+        Booking booking = UserData.getInstance().getUserData().getBookings().get(i);
+        for (int j = 0; j < booking.getNumberOfPassengers(); j++) {
+            int row = booking.getTicketinfo().get(j).getPassengerSeat().getSeatRow();
+            int col = booking.getTicketinfo().get(j).getPassengerSeat().getSeatColumn();
+            booking.getFlight().getSeats(booking.getFlightClass())[row][col].setSeatAvailability(true);
+        }
+        UserData.getInstance().getUserData().getBookings().remove(i);
+        SwitchToSelectScene(e);
     }
 
 

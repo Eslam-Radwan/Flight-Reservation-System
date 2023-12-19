@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+
+<AnchorPane prefHeight="700.0" prefWidth="900.0" stylesheets="@PaymentInfoStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.asu.flightreservationsystem.BookingEditController">
+   <children>
+      <Pane maxHeight="90.0" prefHeight="90.0" prefWidth="915.0" styleClass="box">
+         <children>
+            <Label layoutX="336.0" layoutY="21.0" styleClass="title" text="Edit Booking " />
+            <Button layoutX="30.0" layoutY="21.0" mnemonicParsing="false" onAction="#SwitchToProfileScene" text="Back" />
+         </children>
+      </Pane>
+      <Pane layoutX="5.0" layoutY="90.0" prefHeight="584.0" prefWidth="900.0">
+         <children>
+            <ScrollPane layoutY="188.0" prefHeight="316.0" prefWidth="900.0">
+               <content>
+                  <VBox fx:id="passengers" prefHeight="302.0" prefWidth="897.0" styleClass="passenger" stylesheets="@PaymentInfoStyle.css" />
+               </content>
+            </ScrollPane>
+            <HBox fx:id="head" alignment="CENTER" layoutX="-5.0" layoutY="145.0" prefHeight="57.0" prefWidth="915.0" style="-fx-spacing: 200;" styleClass="Head">
+               <children>
+                  <Label text="Passenger Name " />
+                  <Label text="ID" />
+                  <Label text="Seat Number" />
+               </children>
+            </HBox>
+            <Pane layoutX="-5.0" prefHeight="145.0" prefWidth="915.0" styleClass="box">
+               <children>
+                  <HBox alignment="CENTER_LEFT" layoutX="27.0" layoutY="38.0" prefHeight="31.0" prefWidth="215.0">
+                     <children>
+                        <Label prefHeight="18.0" prefWidth="134.0" styleClass="FlightNumberLabel" text="Flight Number :" />
+                        <Label fx:id="flightNumber" prefHeight="24.0" prefWidth="101.0" styleClass="FlightNumber" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="27.0" layoutY="79.0" prefHeight="31.0" prefWidth="215.0">
+                     <children>
+                        <Label prefHeight="18.0" prefWidth="122.0" styleClass="FlightNumberLabel" text="Total Amount   :" />
+                        <Label fx:id="totalAmount" prefHeight="24.0" prefWidth="82.0" styleClass="totalAmount" />
+                     </children>
+                  </HBox>
+                  <Label fx:id="departureTime" layoutX="501.0" layoutY="83.0" styleClass="TimeLabel" text="Label" />
+                  <Label fx:id="departureAirport" layoutX="480.0" layoutY="29.0" styleClass="AirportLabel" text="Label" />
+                  <Line endX="100.0" layoutX="669.0" layoutY="50.0" startX="-100.0" />
+                  <Label fx:id="arrivalAirport" layoutX="790.0" layoutY="26.0" styleClass="AirportLabel" text="Label" />
+                  <Label fx:id="arrivalTime" layoutX="811.0" layoutY="83.0" styleClass="TimeLabel" text="Label" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

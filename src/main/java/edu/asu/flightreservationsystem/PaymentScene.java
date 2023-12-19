@@ -47,9 +47,7 @@ public class PaymentScene implements Initializable {
             return "visa";
         }
     }
-    private void SelectPaypal(){
 
-    }
     @FXML
     private void SwitchToPaymentSuccess(ActionEvent event) throws IOException {
         if(!validate()){
@@ -59,6 +57,7 @@ public class PaymentScene implements Initializable {
         //add data in arrays
         bookingData.getBookingData().setBookingStatus("completed");
         bookingData.getBookingData().getFlight().setNumberOfAvailableSeat(bookingData.getBookingData().getFlightClass(), bookingData.getBookingData().getNumberOfPassengers());
+        bookingData.getBookingData().setBookingID(userData.getUserData().getBookings().size());
         userData.getUserData().getBookings().add(bookingData.getBookingData());
         bookingData.getBookingData().putSeatsInFlight();
 
