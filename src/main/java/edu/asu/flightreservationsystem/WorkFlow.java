@@ -6,7 +6,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 
-public class WorkFlow implements Serializable{
+public class WorkFlow implements Serializable,UploadData, LoadData{
     public static ArrayList<Flight> Flights = new ArrayList<>();
     public static ArrayList<ApplicationUser> appUsers = new ArrayList<>();
     public static ArrayList<Airport> airports = new ArrayList<>();
@@ -14,6 +14,8 @@ public class WorkFlow implements Serializable{
 
     public void work(Stage priamryStage)
     {
+        loadData();
+        priamryStage.setOnCloseRequest(e -> uploadData());
 
         makeLocalAdmin();
 
