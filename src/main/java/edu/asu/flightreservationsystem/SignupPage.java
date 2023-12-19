@@ -46,7 +46,7 @@ public class SignupPage {
             grid.setHgap(10);
             grid.setAlignment(Pos.CENTER); // Center content in the grid
 
-            Image backgroundImage = new Image("SignUpBackground.jpeg");
+            Image backgroundImage = new Image("background.jpg");
             BackgroundImage background = new BackgroundImage(
                     backgroundImage,
                     BackgroundRepeat.NO_REPEAT,

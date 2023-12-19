@@ -15,14 +15,7 @@ PasswordField {
     -fx-border-radius: 5;
     -fx-padding: 3;
 }
-/*
-معرفتش اصلحها
-.backbutton{
--fx-pref-width: 60;
-    -fx-min-width: 100;
-    -fx-max-width: 200;
-       -fx-min-height:45px;
-}*/
+
 TextField:focused {
     -fx-border-color: #4d90fe;
 }
@@ -39,27 +32,26 @@ PasswordField:hover {
     -fx-border-color: #a0a0a0;
 }
 
-/*
+
 Button {
     -fx-background-color: #FFFFFF;
-    -fx-background-radius: 5;
-    -fx-border-color: #2980b9;
-    -fx-border-radius: 5;
+    -fx-background-radius: 15px;
     -fx-text-fill: #000000;
-    -fx-font-size: 14;
-    -fx-padding: 8 16;
-}
-*/
+    -fx-font-size: 20px;
+    -fx-min-height:70px;
+ }
+
 
 Button:hover {
-    -fx-background-color: #2980b9;
+    -fx-background-color: #dcdcdc;
+    -fx-cursor:hand;
 }
 
 Button:pressed {
     -fx-background-color: #21618c;
 }
 .root {
-    -fx-background-image: url("3386851.jpg");
+    -fx-background-image: url("background.jpg");
     -fx-background-size: cover;
     -fx-background-repeat: no-repeat;
 }
