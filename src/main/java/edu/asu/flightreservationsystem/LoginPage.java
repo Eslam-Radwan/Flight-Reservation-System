@@ -75,9 +75,8 @@ public class LoginPage {
                 signup.signupPage(primaryStage,scene,grid);
             });
 
-
+            scene.getStylesheets().add(getClass().getResource("CommonStyling.css").toExternalForm());
             primaryStage.setScene(scene);
-
             primaryStage.show();
         }
 
@@ -107,7 +106,7 @@ public class LoginPage {
 
 
     try {
-        Image backgroundImage = new Image("Background.jpeg");
+        Image backgroundImage = new Image("3386851.jpg");
         BackgroundImage background = new BackgroundImage(
                 backgroundImage,
                 BackgroundRepeat.REPEAT,   // Set the repeat type
