@@ -134,11 +134,11 @@ public class EditFlightController implements Initializable{
         businessSeatPriceButton.setOnAction(e -> businessSeatPrice.setDisable(false));
         firstClassSeatPriceButton.setOnAction(e -> firstClassSeatPrice.setDisable(false));
     }
-    
+
     public void confirmButton(ActionEvent event) throws IOException {
         Admin.editFlight(index,Integer.parseInt(flightNumber.getText()),
-                arrivalAirport.getText(),
                 departureAirport.getText(),
+                arrivalAirport.getText(),
                 LocalTime.of(hourSpinner1.getValue(),minuteSpinner1.getValue()),
                 LocalTime.of(hourSpinner2.getValue(),minuteSpinner2.getValue()),
                 departureDate.getValue(),
@@ -162,6 +162,7 @@ public class EditFlightController implements Initializable{
         stage.setScene(scene);
     }
     public void deleteButton(ActionEvent event) throws IOException {
+//        Flights.remove(index);
         Admin.deleteFlight(index);
         backButton(event);
 
