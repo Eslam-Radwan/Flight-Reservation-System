@@ -53,6 +53,14 @@ public class FlightSelect implements Initializable {
 
     @FXML
     private Label warningLabel;
+    @FXML
+    private Label from;
+    @FXML
+    private Label to;
+    @FXML
+    private Label date;
+    @FXML
+    private Label total;
 
 
     private BookingData bookingData = BookingData.getInstane();
@@ -77,10 +85,27 @@ public class FlightSelect implements Initializable {
         if (!selectedFlights.isEmpty()) {
             SetFirstFlight();
         } else {
+            warningLabel.setVisible(true);
             nextFlight.setVisible(false);
             previousFlight.setVisible(false);
             bookButton.setVisible(false);
-            warningLabel.setVisible(true);
+
+            flightFrom.setVisible(false);
+            flightTo.setVisible(false);
+            departureDate.setVisible(false);
+            departureTime.setVisible(false);
+            arrivalTime.setVisible(false);
+            textFromFlight.setVisible(false);
+            textToFlight.setVisible(false);
+
+            from.setVisible(false);
+            to.setVisible(false);
+            total.setVisible(false);
+            totalPrice.setVisible(false);
+            date.setVisible(false);
+
+
+
         }
         if (selectedFlights.size() == 1 || selectedFlights.isEmpty()) {
             nextFlight.setVisible(false);
@@ -157,46 +182,6 @@ public class FlightSelect implements Initializable {
     }
 
 
-    private ArrayList<Flight> ArbitraryData() {
-        Flight fl1 = new Flight();
-        fl1.setDepartureAirport("Cairo Internation Airport");
-        fl1.setArrivalAirport("Luxur Internation Airport");
-        fl1.setDepartureDate(LocalDate.now());
-        fl1.setDepartureTime(LocalTime.of(10, 12));
-        fl1.setArrivalTime(LocalTime.of(19, 25));
-
-        Flight fl2 = new Flight();
-        fl2.setDepartureAirport("Tokyo Internation Airport");
-        fl2.setArrivalAirport("USA Internation Airport");
-        fl2.setDepartureDate(LocalDate.now());
-        fl2.setDepartureTime(LocalTime.now());
-        fl2.setArrivalTime(LocalTime.of(11, 25));
-
-        Flight fl3 = new Flight();
-        fl3.setDepartureAirport("Test1");
-        fl3.setArrivalAirport("Test2");
-        fl3.setDepartureDate(LocalDate.now());
-        fl3.setDepartureTime(LocalTime.of(11, 55));
-        fl3.setArrivalTime(LocalTime.of(10, 25));
-        fl3.setSeatPrice(bookingData.getBookingData().getFlightClass(), 1100);
-
-
-        Flight fl4 = new Flight();
-        fl4.setDepartureAirport("Test1");
-        fl4.setArrivalAirport("Test2");
-        fl4.setDepartureDate(LocalDate.now());
-        fl4.setDepartureTime(LocalTime.of(15, 30));
-        fl4.setArrivalTime(LocalTime.of(11, 25));
-        fl4.setSeatPrice(bookingData.getBookingData().getFlightClass(), 90);
-
-
-        ArrayList<Flight> availableFlights = new ArrayList<>();
-        availableFlights.add(fl1);
-        availableFlights.add(fl2);
-        availableFlights.add(fl3);
-        availableFlights.add(fl4);
-        return availableFlights;
-    }
 
 
 }

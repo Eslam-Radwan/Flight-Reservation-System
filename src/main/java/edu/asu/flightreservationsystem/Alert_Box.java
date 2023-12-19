@@ -34,9 +34,6 @@ public class Alert_Box {
         Font labelFont = Font.font("Verdana", FontWeight.EXTRA_BOLD, 13);
         label.setFont(labelFont);
 
-        Image icon = new Image("warning.png");
-        window.getIcons().add(icon);
-
         VBox layout = new VBox(10);
         layout.getChildren().addAll(label, ClosedButton);
         layout.setAlignment(Pos.CENTER);

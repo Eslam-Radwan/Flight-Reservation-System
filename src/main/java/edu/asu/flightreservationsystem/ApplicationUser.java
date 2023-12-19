@@ -1,6 +1,9 @@
 package edu.asu.flightreservationsystem;
 
 
+import javafx.stage.Stage;
+
+import java.io.IOException;
 import java.io.Serializable;
 
 public abstract class ApplicationUser implements Serializable {
@@ -50,6 +53,7 @@ public abstract class ApplicationUser implements Serializable {
     public String getPassword() {
         return password;
     }
+    public abstract void goToMainMenu(Stage primaryStage);
 
 
     @Override
@@ -63,5 +67,6 @@ public abstract class ApplicationUser implements Serializable {
         }
 
     }
+
 }
 

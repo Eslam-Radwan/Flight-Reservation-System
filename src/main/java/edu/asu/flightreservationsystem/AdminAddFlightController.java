@@ -73,13 +73,13 @@ public class AdminAddFlightController implements Initializable {
         Label economyAvailableSeats = new Label(Integer.toString(flight.getNumberOfAvailableSeat(0)));
         Label businessAvailableSeats = new Label(Integer.toString(flight.getNumberOfAvailableSeat(1)));
         Label firstClassAvailableSeats = new Label(Integer.toString(flight.getNumberOfAvailableSeat(2)));
-        Image image = new Image("airplaneicon.png");
+        Image image = new Image("airplane.png");
         ImageView imageView = new ImageView(image);
 
 
         imageView.setFitWidth(47);
         imageView.setFitHeight(52);
-        imageView.setLayoutX(120);
+        imageView.setLayoutX(180);
         imageView.setLayoutY(97);
         flightNumberLabel.setLayoutX(20);
         flightNumberLabel.setLayoutY(15);
