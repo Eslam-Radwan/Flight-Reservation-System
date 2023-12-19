@@ -57,7 +57,7 @@ public class FlightSearch implements Initializable {
             try {
                 SwitchToProfileScene(event);
             } catch (IOException e) {
-                e.printStackTrace(); // Handle the exception according to your needs
+                e.printStackTrace();
             }
         });
     }

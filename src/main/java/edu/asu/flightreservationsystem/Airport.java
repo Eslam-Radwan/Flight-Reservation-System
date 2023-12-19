@@ -17,7 +17,19 @@ public class Airport implements Serializable {
     public Airport(String airportCity) {
         this.airportCity = airportCity;
     }
+    public Airport() {
+    }
+    @Override
+    public boolean equals(Object object){
+        Airport airport = (Airport) object;
+        if(airportCity.equals(airport.airportCity)) {
+            return true;
+        }
+        else {
+            return false;
+        }
 
+    }
     public String getAirportCode() {
         return airportCode;
     }
