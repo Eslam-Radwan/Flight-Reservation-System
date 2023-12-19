@@ -107,11 +107,13 @@ Label{
 
     }
 
-    .label123{
+.label123{
 
-    -fx-font-family: candara;
-        -fx-font-style: italic;
-        -fx-font-weight: bold;
-        -fx-font-size: 60px;
-        -fx-text-fill: white;
-    }
+-fx-font-family: candara;
+    -fx-font-style: italic;
+    -fx-font-weight: bold;
+    -fx-font-size: 60px;
+    -fx-text-fill: white;
+}
+
+

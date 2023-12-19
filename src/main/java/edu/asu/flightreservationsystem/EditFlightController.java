@@ -136,16 +136,6 @@ public class EditFlightController implements Initializable{
     }
     
     public void confirmButton(ActionEvent event) throws IOException {
-//        Flights.get(index).setFlightNumber(Integer.parseInt(flightNumber.getText()));
-//        Flights.get(index).setArrivalAirport(arrivalAirport.getText());
-//        Flights.get(index).setDepartureAirport(departureAirport.getText());
-//        Flights.get(index).setDepartureTime(LocalTime.of(hourSpinner1.getValue(),minuteSpinner1.getValue()));
-//        Flights.get(index).setArrivalTime(LocalTime.of(hourSpinner2.getValue(),minuteSpinner2.getValue()));
-//        Flights.get(index).setDepartureDate(departureDate.getValue());
-//        Flights.get(index).setSeatPrice(0,Double.parseDouble(economySeatPrice.getText()));
-//        Flights.get(index).setSeatPrice(1,Double.parseDouble(businessSeatPrice.getText()));
-//        Flights.get(index).setSeatPrice(2,Double.parseDouble(firstClassSeatPrice.getText()));
-
         Admin.editFlight(index,Integer.parseInt(flightNumber.getText()),
                 arrivalAirport.getText(),
                 departureAirport.getText(),
@@ -172,7 +162,6 @@ public class EditFlightController implements Initializable{
         stage.setScene(scene);
     }
     public void deleteButton(ActionEvent event) throws IOException {
-//        Flights.remove(index);
         Admin.deleteFlight(index);
         backButton(event);
 
