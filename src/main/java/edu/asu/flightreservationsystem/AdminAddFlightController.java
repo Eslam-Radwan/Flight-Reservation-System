@@ -61,8 +61,8 @@ public class AdminAddFlightController implements Initializable {
         Button editButton = new Button("Edit");
         Line line = makeLine();
         Label flightNumberLabel = new Label("Flight Number");
-        Label arrivalAirport = new Label(flight.getArrivalAirport());
-        Label departureAirport = new Label(flight.getDepartureAirport());
+        Label arrivalAirport = new Label(flight.getArrivalAirport().getAirportCity());
+        Label departureAirport = new Label(flight.getDepartureAirport().getAirportCity());
         Label flightNumber = new Label('#' + Integer.toString(flight.getFlightNumber()));
         Label departureTime = new Label(flight.getDepartureTime().toString());
         Label arrivalTime = new Label(flight.getArrivalTime().toString());
