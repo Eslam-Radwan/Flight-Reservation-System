@@ -83,3 +83,11 @@
     -fx-min-height: 70;
     -fx-max-height: 70;
 }
+.edit{
+-fx-translate-x:730;
+-fx-translate-y:29;
+}
+.delete{
+-fx-translate-x:790;
+-fx-translate-y:29;
+}

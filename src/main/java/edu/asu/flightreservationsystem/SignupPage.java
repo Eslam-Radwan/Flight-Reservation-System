@@ -36,6 +36,8 @@ public class SignupPage {
         public void signupPage(Stage primaryStage,Scene loginScene,GridPane loginLayout) {
             GridPane grid = layout(primaryStage,loginScene,loginLayout);
             loginScene.setRoot(grid);
+            loginScene.getStylesheets().add(getClass().getResource("CommonStyling.css").toExternalForm());
+
         }
         private GridPane layout(Stage primaryStage, Scene loginScene, GridPane loginLayout){
 
@@ -46,7 +48,7 @@ public class SignupPage {
             grid.setHgap(10);
             grid.setAlignment(Pos.CENTER); // Center content in the grid
 
-            Image backgroundImage = new Image("SignUpBackground.jpeg");
+            Image backgroundImage = new Image("background.jpg");
             BackgroundImage background = new BackgroundImage(
                     backgroundImage,
                     BackgroundRepeat.NO_REPEAT,
@@ -62,6 +64,11 @@ public class SignupPage {
             GridPane.setConstraints(errorLabel, 0, 7, 5, 1);
             errorLabel.setAlignment(Pos.CENTER);
             errorLabel.setPadding(new Insets(10, 0, 0, 0));
+
+            Label signLabel = new Label("SignUp");
+            signLabel.setStyle("-fx-font-size: 24px; -fx-text-fill: white; -fx-font-weight: bold;");
+            GridPane.setConstraints(signLabel, 0, 0);
+
 
             Label firstNameLabel = new Label("First Name:");
             firstNameLabel.setStyle("-fx-text-fill: white;");
@@ -89,7 +96,7 @@ public class SignupPage {
             // Username Input
             TextField usernameInput = new TextField();
             GridPane.setConstraints(usernameInput, 1, 3);
-            usernameInput.setPromptText("User Name");
+            usernameInput.setPromptText("Username");
 
             // Password Label
             Label passwordLabel = new Label("Password:");
@@ -100,16 +107,19 @@ public class SignupPage {
             // Password Input
             PasswordField passwordInput = new PasswordField();
             GridPane.setConstraints(passwordInput, 1, 4);
+            passwordInput.setPromptText("Password");
 
             // Email Label
             Label emailLabel = new Label("Email:");
             emailLabel.setStyle("-fx-text-fill: white;");
             GridPane.setConstraints(emailLabel, 0, 5);
 
+
             // Email Input
             TextField emailInput = new TextField();
             GridPane.setConstraints(emailInput, 1, 5);
             emailInput.setPromptText("Email");
+
 
             // Sign Up Button
             Button signUpButton = new Button("Sign Up");
@@ -125,9 +135,9 @@ public class SignupPage {
                     }
                 }
             });
-
+            signUpButton.getStyleClass().add("button1");
             // Add controls to the grid
-            grid.getChildren().addAll(firstNameLabel,firstNameInput,lastNameLabel,lastNameInput, usernameLabel, usernameInput, passwordLabel, passwordInput, emailLabel, emailInput, signUpButton, errorLabel);
+            grid.getChildren().addAll(signLabel,firstNameLabel,firstNameInput,lastNameLabel,lastNameInput, usernameLabel, usernameInput, passwordLabel, passwordInput, emailLabel, emailInput, signUpButton, errorLabel);
             return grid;
         }
 

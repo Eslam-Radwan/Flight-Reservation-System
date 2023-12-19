@@ -98,7 +98,7 @@ public class FlightSeatsPage {
 //            parent.setTop(bottombox);
 
 
-            String imagePath = "/Background.jpeg";
+            String imagePath = "background.jpg";
             Image backgroundImage = new Image(getClass().getResource(imagePath).toExternalForm()); // Replace with the path to your image
             parent.setBackground(new Background(new BackgroundImage(backgroundImage, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT)));
 

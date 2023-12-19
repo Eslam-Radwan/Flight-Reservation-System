@@ -1,6 +1,5 @@
 package edu.asu.flightreservationsystem;
 
-import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -14,12 +13,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Line;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
@@ -73,13 +70,13 @@ public class AdminAddFlightController implements Initializable {
         Label economyAvailableSeats = new Label(Integer.toString(flight.getNumberOfAvailableSeat(0)));
         Label businessAvailableSeats = new Label(Integer.toString(flight.getNumberOfAvailableSeat(1)));
         Label firstClassAvailableSeats = new Label(Integer.toString(flight.getNumberOfAvailableSeat(2)));
-        Image image = new Image("airplaneicon.png");
+        Image image = new Image("airplane.png");
         ImageView imageView = new ImageView(image);
 
 
         imageView.setFitWidth(47);
         imageView.setFitHeight(52);
-        imageView.setLayoutX(120);
+        imageView.setLayoutX(180);
         imageView.setLayoutY(97);
         flightNumberLabel.setLayoutX(20);
         flightNumberLabel.setLayoutY(15);
@@ -154,6 +151,7 @@ public class AdminAddFlightController implements Initializable {
         editPane.setOnMouseClicked(e -> {
             editPane.setOpacity(0.85);
             try {
+                AdminEditFlightController.setIndex(index);
                 goToEdit(e);
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
@@ -161,7 +159,7 @@ public class AdminAddFlightController implements Initializable {
         });
         editButton.setOnAction(e -> {
             try {
-                EditFlightController.setIndex(index);
+                AdminEditFlightController.setIndex(index);
                 goToEdit(e);
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
@@ -191,7 +189,7 @@ public class AdminAddFlightController implements Initializable {
     }
 
     private void goToEdit(Event event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("EditFlightPage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("AdminEditFlightPage.fxml"));
         Scene scene = new Scene(root);
         Stage stage;
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();

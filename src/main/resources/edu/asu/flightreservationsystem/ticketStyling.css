@@ -1,0 +1,9 @@
+.root {
+    -fx-background-image: url("background.jpg");
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+}
+Button:hover{
+-fx-background-color: #a6a6a6;
+-fx-cursor: hand;
+}

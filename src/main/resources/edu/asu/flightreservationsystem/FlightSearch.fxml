@@ -13,9 +13,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" stylesheets="@../../../CommonStyling.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.asu.flightreservationsystem.FlightSearch">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" stylesheets="@CommonStyling.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.asu.flightreservationsystem.FlightSearch">
    <children>
-      <Label layoutX="316.0" layoutY="51.0" text="AirLink" textFill="WHITE">
+      <Label layoutX="347.0" layoutY="29.0" styleClass="title" text="AirLink" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="67.0" />
          </font>
@@ -32,8 +32,8 @@
          </font>
       </Label>
       <TextField fx:id="arrivalAirport" layoutX="360.0" layoutY="220.0" promptText="Enter Airport Name" />
-      <DatePicker fx:id="departureDate" editable="false" layoutX="602.0" layoutY="216.0" prefHeight="35.0" promptText="Enter Departure Date" style="-fx-border-radius: 200;" />
-      <Label layoutX="602.0" layoutY="183.0" text="Travel Date" textFill="WHITE">
+      <DatePicker fx:id="departureDate" editable="false" layoutX="581.0" layoutY="219.0" prefHeight="35.0" promptText="Enter Departure Date" />
+      <Label layoutX="581.0" layoutY="186.0" text="Travel Date" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
@@ -56,23 +56,23 @@
             <Font size="20.0" />
          </font>
       </RadioButton>
-      <Label layoutX="247.0" layoutY="277.0" prefHeight="78.0" prefWidth="178.0" text="Number of Passengers" textFill="WHITE">
+      <Label layoutX="190.0" layoutY="301.0" text="Number of Passengers" textFill="WHITE">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <Button layoutX="316.0" layoutY="523.0" mnemonicParsing="false" onAction="#ClickSearchButton" text="Search">
+      <Button layoutX="414.0" layoutY="535.0" mnemonicParsing="false" onAction="#ClickSearchButton" styleClass="button1" text="Search">
          <font>
             <Font name="Arial" size="53.0" />
          </font>
       </Button>
-      <Spinner fx:id="numOfPassengers" layoutX="433.0" layoutY="301.0" prefHeight="30.0" prefWidth="75.0" />
+      <Spinner fx:id="numOfPassengers" layoutX="426.0" layoutY="301.0" prefHeight="30.0" prefWidth="75.0" />
       <ImageView fx:id="profile" fitHeight="80.0" fitWidth="80.0" layoutX="27.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <Button layoutX="809.0" layoutY="24.0" mnemonicParsing="false" onAction="#logoutButton" style="-fx-background-radius: 100;" text="Logout">
+      <Button layoutX="781.0" layoutY="29.0" mnemonicParsing="false" onAction="#logoutButton" style="-fx-background-radius: 100;" styleClass="logout" text="Logout">
          <padding>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding></Button>

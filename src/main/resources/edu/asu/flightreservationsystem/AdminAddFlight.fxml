@@ -12,14 +12,13 @@
     <children>
         <Pane prefHeight="200.0" prefWidth="900.0" style="-fx-background-color: #ffffff;">
             <children>
-                <Label layoutX="187.0" layoutY="48.0" text="Flight Reservation System">
+                <Label layoutX="377.0" layoutY="36.0" text="AirLink">
                     <font>
-                        <Font name="Arial" size="45.0" />
+                        <Font name="Arial" size="66.0" />
                     </font>
                 </Label>
-                <Label layoutX="29.0" layoutY="154.0" text="Add Flight" />
-                <Button layoutX="777.0" layoutY="137.0" mnemonicParsing="false" onAction="#addFlightButton" text="Add New Flight" />
-            <Button layoutX="31.0" layoutY="23.0" mnemonicParsing="false" onAction="#logoutButton" text="Logout" />
+                <Button layoutX="712.0" layoutY="119.0" mnemonicParsing="false" onAction="#addFlightButton" styleClass="button1" stylesheets="@CommonStyling.css" text="Add New Flight" />
+            <Button layoutX="31.0" layoutY="23.0" mnemonicParsing="false" onAction="#logoutButton" styleClass="button1" stylesheets="@CommonStyling.css" text="Logout" />
             </children></Pane>
         <ScrollPane>
             <content>

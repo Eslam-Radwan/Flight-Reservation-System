@@ -24,8 +24,7 @@ public class LoginPage {
         private PasswordField passwordField;
         private Button signupButton;
         private ApplicationUser appUser;
-
-        private Label errorLabel = new Label();
+        private Label errorLabel = new Label("Please enter the username and the password");
 
 
 
@@ -46,28 +45,20 @@ public class LoginPage {
                              User user = (User)appUser;
                              UserData userData = UserData.getInstance();
                              userData.setUserData(user);
-                             try {
-                                 goToSearchPage(primaryStage);
-                             } catch (IOException ex) {
-                                 throw new RuntimeException(ex);
-                             }
+                                 user.goToMainMenu(primaryStage);
+
                          }
                          if(appUser instanceof Admin){
-                            Admin admin = (Admin)appUser;
-                            AdminData adminData = AdminData.getInstance();
-                            adminData.setAdmin(admin);
-                             try {
-                                 goToAdminPage(primaryStage);
-                             } catch (IOException ex) {
-                                 throw new RuntimeException(ex);
-                             }
+                             Admin admin = (Admin)appUser;
+                             AdminData adminData = AdminData.getInstance();
+                             adminData.setAdmin(admin);
+                                 admin.goToMainMenu(primaryStage);
                          }
                      }
                      else {
                          showError("The username or the password is wrong");
                      }
                 }
-
             });
 
             signupButton.setOnAction(e -> {
@@ -93,6 +84,7 @@ public class LoginPage {
 
         private  void showError(String message) {
             errorLabel.setText(message);
+            errorLabel.setVisible(true);
         }
 
 
@@ -103,69 +95,51 @@ public class LoginPage {
         grid.setHgap(10);
         grid.setVgap(10);
         grid.setPadding(new Insets(25, 25, 25, 25));
-
-
-    try {
-        Image backgroundImage = new Image("3386851.jpg");
-        BackgroundImage background = new BackgroundImage(
-                backgroundImage,
-                BackgroundRepeat.REPEAT,   // Set the repeat type
-                BackgroundRepeat.REPEAT,
-                BackgroundPosition.CENTER,
-                BackgroundSize.DEFAULT);
-
-        grid.setBackground(new Background(background));
-    }catch (Exception e){
-        System.out.println(e);
-    }
-
+        errorLabel.setVisible(false);
         errorLabel.setStyle("-fx-text-fill: red;");
         errorLabel.setAlignment(Pos.CENTER);
         errorLabel.setPadding(new Insets(10, 0, 0, 0));
-        GridPane.setConstraints(errorLabel, 0, 4, 2, 1);
+        GridPane.setConstraints(errorLabel, 1, 4,4,1);
 
 
         Label frsLabel = new Label("Login");
-        frsLabel.setStyle("-fx-font-size: 24px; -fx-font-weight: bold;");
-
-        grid.add(frsLabel, 0, 0, 2, 1);
+        frsLabel.setStyle("-fx-font-size: 24px; -fx-text-fill: white; -fx-font-weight: bold;");
+        grid.add(frsLabel, 1, 0, 2, 1);
 
         Label usernameLabel = new Label("Username:");
-        usernameLabel.setStyle("-fx-font-size: 16px; -fx-text-fill: black; -fx-font-weight: bold;");
-        grid.add(usernameLabel, 0, 1);
+        usernameLabel.setStyle("-fx-font-size: 20px; -fx-text-fill: white; -fx-font-weight: bold;");
+        grid.add(usernameLabel, 1, 1);
+
 
         usernameTextField = new TextField();
-        grid.add(usernameTextField, 1, 1);
+        grid.add(usernameTextField, 2, 1);
+        usernameTextField.setPromptText("Username");
+
 
         Label passwordLabel = new Label("Password:");
-        passwordLabel.setStyle("-fx-font-size: 16px; -fx-text-fill: black; -fx-font-weight: bold;");
-        grid.add(passwordLabel, 0, 2);
+        passwordLabel.setStyle("-fx-font-size: 20px; -fx-text-fill: white; -fx-font-weight: bold;");
+        grid.add(passwordLabel, 1, 2);
 
         passwordField = new PasswordField();
-        grid.add(passwordField, 1, 2);
+        grid.add(passwordField, 2, 2);
+        passwordField.setPromptText("Password");
+
 
         loginButton = new Button("Login");
         signupButton = new Button("Signup");
 
         loginButton.setStyle("-fx-background-color: #FF0000; -fx-text-fill: white;");
         signupButton.setStyle("-fx-background-color: #008CBA; -fx-text-fill: white;");
+        loginButton.getStyleClass().add("button1");
+        signupButton.getStyleClass().add("button1");
 
-        grid.add(loginButton, 0, 3);
-        grid.add(signupButton, 1, 3);
+
+        grid.add(loginButton, 1, 3);
+        grid.add(signupButton, 2, 3);
         grid.getChildren().add(errorLabel);
 
         return grid;
     }
 
-    private void goToSearchPage(Stage primaryStage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("FlightSearch.fxml"));
-        Scene scene = new Scene(root);
-        primaryStage.setScene(scene);
-    }
-    private void goToAdminPage(Stage primaryStage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("AdminAddFlight.fxml"));
-        Scene scene = new Scene(root);
-        primaryStage.setScene(scene);
-    }
 
 }

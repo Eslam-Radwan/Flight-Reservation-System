@@ -51,7 +51,7 @@ public class FlightSearch implements Initializable {
         SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 10);
         valueFactory.setValue(1);
         numOfPassengers.setValueFactory(valueFactory);
-        profile.setImage(new Image("/Default_pfp.svg.png"));
+        profile.setImage(new Image("profile.png"));
 
         profile.setOnMouseClicked(event -> {
             try {
