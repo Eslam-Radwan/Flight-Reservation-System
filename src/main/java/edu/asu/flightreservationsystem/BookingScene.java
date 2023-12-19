@@ -117,6 +117,7 @@ public class BookingScene implements Initializable {
             Passenger passenger = new Passenger(firstNames.get(i).getText(), lastNames.get(i).getText(), ID.intValue());
 
             Ticket ticket = new Ticket(passenger, bookingData.getBookingData().getFlight().getSeatPrice(bookingData.getBookingData().getFlightClass()));
+            ticket.setBooking(bookingData.getBookingData());
             bookingData.getBookingData().addTicket(ticket);
         }
         SwitchToSeatSelectionScene(event);

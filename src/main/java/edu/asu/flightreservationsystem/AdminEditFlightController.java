@@ -162,7 +162,6 @@ public class AdminEditFlightController implements Initializable{
         stage.setScene(scene);
     }
     public void deleteButton(ActionEvent event) throws IOException {
-//        Flights.remove(index);
         Admin.deleteFlight(index);
         backButton(event);
 

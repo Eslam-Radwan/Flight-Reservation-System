@@ -7,8 +7,6 @@ public class Passenger implements Serializable {
     private String firstName;
     private String lastName;
     private int ID;
-    private Ticket ticketInfo;
-    private  Booking bookingInfo;
 
     public Passenger(String firstName, String lastName, int ID) {
         this.firstName = firstName;
@@ -40,22 +38,6 @@ public class Passenger implements Serializable {
         this.ID = ID;
     }
 
-
-    public Ticket getTicketInfo() {
-        return ticketInfo;
-    }
-
-    public void setTicketInfo(Ticket ticketInfo) {
-        this.ticketInfo = ticketInfo;
-    }
-
-    public Booking getBookingInfo() {
-        return bookingInfo;
-    }
-
-    public void setBookingInfo(Booking bookingInfo) {
-        this.bookingInfo = bookingInfo;
-    }
 
 
 }

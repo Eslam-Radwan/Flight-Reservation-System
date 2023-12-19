@@ -21,7 +21,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class BookingEditController implements Initializable, PassengerInfoDisplay{
+public class BookingEditController implements Initializable, PassengerInfoDisplay {
     private Booking booking;
 
     @FXML
@@ -46,8 +46,8 @@ public class BookingEditController implements Initializable, PassengerInfoDispla
     public void initialize(URL url, ResourceBundle resourceBundle) {
         booking = BookingData.getInstane().getBookingData();
 
-        for(int i=0;i<booking.getNumberOfPassengers();i++){
-            passengers.getChildren().add(onePassenger(booking,i));
+        for (int i = 0; i < booking.getNumberOfPassengers(); i++) {
+            passengers.getChildren().add(onePassenger(booking, i));
         }
         SetData();
     }
@@ -64,28 +64,41 @@ public class BookingEditController implements Initializable, PassengerInfoDispla
     }
 
 
-     public Pane onePassenger(Booking t1, int i){
-        TextField passengerName=new TextField(t1.getTicketinfo().get(i).getPassenger().getFirstName()+" "+t1.getTicketinfo().get(i).getPassenger().getLastName());
+    public Pane onePassenger(Booking t1, int i) {
+        TextField passengerName = new TextField(t1.getTicketinfo().get(i).getPassenger().getFirstName() + " " + t1.getTicketinfo().get(i).getPassenger().getLastName());
         names.add(passengerName);
-        TextField passengerId=new TextField(String.valueOf(t1.getTicketinfo().get(i).getPassenger().getID()));
+        TextField passengerId = new TextField(String.valueOf(t1.getTicketinfo().get(i).getPassenger().getID()));
         ids.add(passengerId);
-        Label seatNumber=new Label(String.valueOf(t1.getTicketinfo().get(i).getPassengerSeat().getSeatNumber()));
-         Button edit = new Button("Edit");
-         edit.setOnAction(e -> handleEditclick(i));
-         Button delete = new Button("Delete");
-         delete.setOnAction(e -> handleDeleteClick(i));
+        Label seatNumber = new Label(String.valueOf(t1.getTicketinfo().get(i).getPassengerSeat().getSeatNumber()));
+        Button edit = new Button("Edit");
+        edit.setOnAction(e -> {
+            handleEditclick(i);
+        });
+        Button delete = new Button("Delete");
+        Button ticket = new Button("Ticket");
+        ticket.setOnAction(e -> {
+            displayTicketController.setTicket(t1.getTicketinfo().get(i));
+            try {
+                goToTicketScene(e);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+        ticket.setLayoutX(115);
+        ticket.setLayoutY(29);
+        delete.setOnAction(e -> handleDeleteClick(i));
 //         edit.setOnAction(e -> UserData.getInstance().getUserData().editBooking());
 
-        Line separator=new Line(0,0 ,300,0);
-        Pane e=new Pane(passengerName,passengerId,seatNumber, edit, delete, separator);
+        Line separator = new Line(0, 0, 300, 0);
+        Pane e = new Pane(ticket, passengerName, passengerId, seatNumber, edit, delete, separator);
         separator.getStyleClass().add("separator");
         //style
         passengerName.getStyleClass().add("name");
         passengerId.getStyleClass().add("id");
         seatNumber.getStyleClass().add("seat");
         e.getStyleClass().add("panePassenger");
-         edit.getStyleClass().add("edit");
-         delete.getStyleClass().add("delete");
+        edit.getStyleClass().add("edit");
+        delete.getStyleClass().add("delete");
         separator.setLayoutX(470);
         separator.setLayoutY(70);
         separator.setStartX(-345);
@@ -93,20 +106,27 @@ public class BookingEditController implements Initializable, PassengerInfoDispla
         return e;
     }
 
-    private void handleEditclick(int i){
-        String newname =names.get(i).getText();
+    private void handleEditclick(int i) {
+        String newname = names.get(i).getText();
         String[] names = newname.split(" ");
         int newmId = Integer.parseInt(ids.get(i).getText());
         booking.getTicketinfo().get(i).getPassenger().setFirstName(names[0]);
         booking.getTicketinfo().get(i).getPassenger().setLastName(names[1]);
         booking.getTicketinfo().get(i).getPassenger().setID(newmId);
     }
-    private void handleDeleteClick(int i){
+
+    private void handleDeleteClick(int i) {
         int row = booking.getTicketinfo().get(i).getPassengerSeat().getSeatRow();
         int col = booking.getTicketinfo().get(i).getPassengerSeat().getSeatColumn();
         booking.getFlight().getSeats(booking.getFlightClass())[row][col].setSeatAvailability(true);
+
+        booking.getFlight().setNumberOfAvailableSeat(booking.getFlightClass(),-1);
+
         booking.getTicketinfo().remove(i);
-        booking.setNumberOfPassengers(booking.getNumberOfPassengers()-1);
+        booking.setNumberOfPassengers(booking.getNumberOfPassengers() - 1);
+        booking.getPayment().setPaymentAmount(booking.getPayment().CalcPayment(booking.getNumberOfPassengers(),booking.getFlight().getSeatPrice(booking.getFlightClass())));
+        totalAmount.setText(Double.toString(booking.getPayment().getPaymentAmount()));
+
         for (int j = passengers.getChildren().size() - 1; j >= 0; j--) {
             passengers.getChildren().remove(j);
         }
@@ -125,6 +145,12 @@ public class BookingEditController implements Initializable, PassengerInfoDispla
         stage.setScene(scene);
         stage.show();
 
+    }
+    private void goToTicketScene(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("displayTicket.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
     }
 
 

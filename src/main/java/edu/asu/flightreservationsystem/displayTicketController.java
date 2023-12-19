@@ -39,18 +39,26 @@ public class displayTicketController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ticketNumber.setText(String.valueOf(ticket.getTicketNumber()));
         fullName.setText(ticket.getPassenger().getFirstName() + " " + ticket.getPassenger().getLastName());
-        from.setText(ticket.getPassenger().getBookingInfo().getFlight().getDepartureAirport().getAirportCity());
-        to.setText(ticket.getPassenger().getBookingInfo().getFlight().getArrivalAirport().getAirportCity());
-        departureTime.setText(ticket.getPassenger().getBookingInfo().getFlight().getDepartureTime().toString());
-        arrivalTime.setText(ticket.getPassenger().getBookingInfo().getFlight().getArrivalTime().toString());
+        from.setText(ticket.getBooking().getFlight().getDepartureAirport().getAirportCity());
+        to.setText(ticket.getBooking().getFlight().getArrivalAirport().getAirportCity());
+        departureTime.setText(ticket.getBooking().getFlight().getDepartureTime().toString());
+        arrivalTime.setText(ticket.getBooking().getFlight().getArrivalTime().toString());
         ticketFare.setText(String.valueOf(ticket.getTicketFare()));
         seatNumber.setText(String.valueOf(ticket.getPassengerSeat().getSeatNumber()));
-        seatClass.setText(String.valueOf(ticket.getPassengerSeat().getSeatClass()));
+        String seatClassString = new String();
+        if(ticket.getPassengerSeat().getSeatClass() == 0)seatClassString = "Economy";
+        if(ticket.getPassengerSeat().getSeatClass() == 1)seatClassString = "Business";
+        if(ticket.getPassengerSeat().getSeatClass() == 2)seatClassString = "First Class";
+        seatClass.setText(seatClassString);
     }
     public void backButton(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("AdminAddFlight.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("bookingEdit.fxml"));
         Scene scene = new Scene(root);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
+    }
+
+    public static void setTicket(Ticket ticket) {
+        displayTicketController.ticket = ticket;
     }
 }
