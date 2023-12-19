@@ -5,6 +5,10 @@ TextField {
     -fx-border-width: 2px;
     -fx-border-radius: 5px;
     -fx-padding: 3;
+    -fx-min-height:35px;
+    -fx-max-height:35px;
+    -fx-max-width:145px;
+
 }
 
 PasswordField {
@@ -14,6 +18,9 @@ PasswordField {
     -fx-border-width: 1;
     -fx-border-radius: 5;
     -fx-padding: 3;
+     -fx-min-height:35px;
+        -fx-max-height:35px;
+        -fx-max-width:145px;
 }
 
 TextField:focused {
@@ -33,21 +40,22 @@ PasswordField:hover {
 }
 
 
-Button {
+.button1 {
     -fx-background-color: #FFFFFF;
     -fx-background-radius: 15px;
     -fx-text-fill: #000000;
     -fx-font-size: 20px;
-    -fx-min-height:70px;
+    -fx-min-height:50px;
+    -fx-min-width:80px;
  }
 
 
-Button:hover {
+.button1:hover {
     -fx-background-color: #dcdcdc;
     -fx-cursor:hand;
 }
 
-Button:pressed {
+.button1:pressed {
     -fx-background-color: #21618c;
 }
 .root {
@@ -55,4 +63,55 @@ Button:pressed {
     -fx-background-size: cover;
     -fx-background-repeat: no-repeat;
 }
+Label{
+-fx-font-size: 20px;
+ -fx-text-fill: white;
+  -fx-font-weight: bold;
+}
+.title{
+-fx-font-size: 70px;
 
+}
+.logout{
+    -fx-min-height:50px;
+    -fx-min-width:80px;
+}
+.error {
+-fx-font-size: 40px;
+ -fx-text-fill: red;
+}
+.button2 {
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #000000;
+    -fx-font-size: 15px;
+
+ }
+ .label2{
+ -fx-font-size: 70px;
+ -fx-text-fill:black;
+ }
+.button3 {
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #000000;
+    -fx-font-size: 40px;
+
+ }
+ .delete {
+     -fx-background-color: #FFFFFF;
+     -fx-text-fill: #000000;
+     -fx-font-size: 40px;
+
+  }
+  .delete:hover {
+       -fx-background-color: red;
+
+    }
+
+    .label123{
+
+    -fx-font-family: candara;
+        -fx-font-style: italic;
+        -fx-font-weight: bold;
+        -fx-font-size: 60px;
+        -fx-text-fill: white;
+    }

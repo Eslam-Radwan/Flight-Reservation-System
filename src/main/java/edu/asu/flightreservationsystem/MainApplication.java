@@ -1,6 +1,7 @@
 package edu.asu.flightreservationsystem;
 
 import javafx.application.Application;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class MainApplication extends Application implements UploadData, LoadData{
@@ -14,6 +15,7 @@ public class MainApplication extends Application implements UploadData, LoadData
         stage.setHeight(700);
         stage.setResizable(false);
         stage.setOnCloseRequest(e -> uploadData());
+        stage.getIcons().add(new Image("airplane.png"));
         WorkFlow workFlow = new WorkFlow();
         workFlow.work(stage);
     }

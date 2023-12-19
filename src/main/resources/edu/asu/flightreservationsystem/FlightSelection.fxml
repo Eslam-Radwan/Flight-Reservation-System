@@ -10,12 +10,12 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" style="-fx-background-radius: 10px;" stylesheets="@CommonStyling.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.asu.flightreservationsystem.FlightSelect">
    <children>
-      <Label layoutX="327.0" layoutY="14.0" prefHeight="110.0" prefWidth="246.0" text="AirLink" textFill="WHITE">
+      <Label layoutX="327.0" layoutY="14.0" styleClass="title" text="AirLink" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="67.0" />
          </font>
       </Label>
-      <Label layoutX="104.0" layoutY="168.0" prefHeight="51.0" prefWidth="185.0" text="Flight from:" textFill="WHITE">
+      <Label fx:id="from" layoutX="104.0" layoutY="168.0" prefHeight="51.0" prefWidth="185.0" text="Flight from:" textFill="WHITE">
          <font>
             <Font name="Comic Sans MS Bold" size="30.0" />
          </font>
@@ -28,7 +28,7 @@
             <Insets />
          </opaqueInsets>
       </TextField>
-      <Label layoutX="371.0" layoutY="168.0" prefHeight="51.0" prefWidth="154.0" text="Flight To:" textFill="WHITE">
+      <Label fx:id="to" layoutX="371.0" layoutY="168.0" prefHeight="51.0" prefWidth="154.0" text="Flight To:" textFill="WHITE">
          <font>
             <Font name="Comic Sans MS Bold" size="30.0" />
          </font>
@@ -41,7 +41,7 @@
             <Insets />
          </opaqueInsets>
       </TextField>
-      <Label layoutX="629.0" layoutY="167.0" prefHeight="51.0" prefWidth="198.0" text="Travel Date:" textFill="WHITE">
+      <Label fx:id="date" layoutX="629.0" layoutY="167.0" prefHeight="51.0" prefWidth="198.0" text="Travel Date:" textFill="WHITE">
          <font>
             <Font name="Comic Sans MS Bold" size="30.0" />
          </font>
@@ -54,21 +54,21 @@
             <Insets />
          </opaqueInsets>
       </TextField>
-      <Text fx:id="departureTime" layoutX="63.0" layoutY="481.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="86.40000000000003">
+      <Text fx:id="departureTime" fill="WHITE" layoutX="118.0" layoutY="376.0" strokeType="OUTSIDE" strokeWidth="0.0" text="12:20" wrappingWidth="86.40000000000003">
          <font>
-            <Font size="24.0" />
+            <Font name="Arial" size="20.0" />
          </font></Text>
-      <Text fx:id="arrivalTime" layoutX="463.0" layoutY="481.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="86.40000000000003">
+      <Text fx:id="arrivalTime" fill="WHITE" layoutX="474.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="12:20" wrappingWidth="86.40000000000003">
          <font>
-            <Font name="Verdana" size="24.0" />
+            <Font name="Arial" size="20.0" />
          </font>
       </Text>
-      <Label layoutX="620.0" layoutY="301.0" prefHeight="51.0" text="Total Price:" textFill="WHITE">
+      <Label fx:id="total" layoutX="620.0" layoutY="301.0" prefHeight="51.0" text="Total Price:" textFill="WHITE">
          <font>
             <Font name="Comic Sans MS Bold" size="32.0" />
          </font>
       </Label>
-      <TextField fx:id="totalPrice" alignment="TOP_CENTER" editable="false" layoutX="639.0" layoutY="349.0" prefHeight="43.0" prefWidth="137.0">
+      <TextField fx:id="totalPrice" alignment="TOP_CENTER" editable="false" layoutX="617.0" layoutY="349.0" prefHeight="43.0" prefWidth="137.0">
          <font>
             <Font name="MS Reference Sans Serif" size="14.0" />
          </font>
@@ -76,27 +76,27 @@
             <Insets />
          </opaqueInsets>
       </TextField>
-      <Label fx:id="textToFlight" layoutX="475.0" layoutY="327.0" textFill="#1b1919">
+      <Label fx:id="textToFlight" layoutX="440.0" layoutY="381.0" styleClass="label123" text="cairo" textFill="#1b1919">
          <font>
             <Font name="Gabriola" size="30.0" />
          </font>
       </Label>
-      <Label fx:id="textFromFlight" layoutX="63.0" layoutY="331.0" textFill="#1e1919">
+      <Label fx:id="textFromFlight" layoutX="91.0" layoutY="381.0" styleClass="label123" text="cairo" textFill="#1e1919">
          <font>
-            <Font name="Gabriola" size="30.0" />
+            <Font name="Candara Bold Italic" size="41.0" />
          </font>
       </Label>
       <Button fx:id="nextFlight" layoutX="656.0" layoutY="543.0" mnemonicParsing="false" onAction="#NextFlight" prefHeight="70.0" style="-fx-background-radius: 15; -fx-background-color: white;" text="Next Flight">
          <font>
             <Font size="20.0" />
          </font></Button>
-      <Button fx:id="previousFlight" layoutX="69.0" layoutY="543.0" mnemonicParsing="false" onAction="#PreviousFlight" text="Previous Flight" />
-      <Button layoutX="32.0" layoutY="34.0" mnemonicParsing="false" onAction="#SwitchToSearchScene" style="-fx-background-radius: 10px;" styleClass="backbutton" stylesheets="@CommonStyling.css" text="&lt;" AnchorPane.bottomAnchor="623.6" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="806.0" AnchorPane.topAnchor="34.0" />
-      <Button fx:id="bookButton" layoutX="379.0" layoutY="543.0" mnemonicParsing="false" onAction="#SwitchToBookingScene" prefHeight="62.0" prefWidth="110.0" text="Book it!" />
-      <Label fx:id="warningLabel" layoutX="43.0" layoutY="316.0" text="No Flights Available! Search for Another one" textFill="RED">
+      <Button fx:id="previousFlight" layoutX="75.0" layoutY="553.0" mnemonicParsing="false" onAction="#PreviousFlight" styleClass="button1" text="Previous Flight" />
+      <Button fx:id="bookButton" layoutX="379.0" layoutY="543.0" mnemonicParsing="false" onAction="#SwitchToBookingScene" prefHeight="62.0" prefWidth="110.0" styleClass="button1" text="Book it!" />
+      <Label fx:id="warningLabel" layoutX="30.0" layoutY="355.0" styleClass="error" text="No Flights Available! Search for Another one" textFill="RED">
          <font>
             <Font size="40.0" />
          </font>
       </Label>
+      <Button layoutX="52.0" layoutY="34.0" mnemonicParsing="false" onAction="#SwitchToSearchScene" styleClass="button2" text="Back" />
    </children>
 </AnchorPane>

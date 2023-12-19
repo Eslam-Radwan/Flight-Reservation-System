@@ -122,7 +122,7 @@ public class BookingScene implements Initializable {
         SwitchToSeatSelectionScene(event);
     }
     private void SwitchToSeatSelectionScene(ActionEvent event){
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         FlightSeatsPage flightSeatsPage= new FlightSeatsPage();
         flightSeatsPage.flightSeatsPage(stage);
     }
