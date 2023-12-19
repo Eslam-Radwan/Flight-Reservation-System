@@ -13,7 +13,7 @@
    <children>
       <Pane prefHeight="90.0" prefWidth="900.0" styleClass="box">
          <children>
-            <Label layoutX="385.0" layoutY="21.0" styleClass="title" text="Paymet" />
+            <Label layoutX="385.0" layoutY="21.0" styleClass="title" text="Payment" />
          </children></Pane>
       <Pane layoutY="102.0" prefHeight="584.0" prefWidth="900.0">
          <children>
@@ -25,10 +25,10 @@
                         <Label fx:id="flightNumber" prefHeight="24.0" prefWidth="101.0" styleClass="FlightNumber" />
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" layoutX="27.0" layoutY="79.0" prefHeight="31.0" prefWidth="215.0">
+                  <HBox alignment="CENTER_LEFT" layoutX="27.0" layoutY="79.0" prefHeight="31.0">
                      <children>
                         <Label prefHeight="18.0" prefWidth="122.0" styleClass="FlightNumberLabel" text="Total Amount   :" />
-                        <Label fx:id="totalAmount" prefHeight="24.0" prefWidth="82.0" styleClass="totalAmount" />
+                        <Label fx:id="totalAmount" prefHeight="24.0" styleClass="totalAmount" />
                      </children>
                   </HBox>
                   <Label fx:id="departureTime" layoutX="501.0" layoutY="83.0" styleClass="TimeLabel" text="Label" />

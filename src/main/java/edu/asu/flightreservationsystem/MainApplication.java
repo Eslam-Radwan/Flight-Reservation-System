@@ -18,6 +18,7 @@ public class MainApplication extends Application implements UploadData, LoadData
         stage.getIcons().add(new Image("airplane.png"));
         WorkFlow workFlow = new WorkFlow();
         workFlow.work(stage);
+
     }
 
     public static void main(String[] args) {

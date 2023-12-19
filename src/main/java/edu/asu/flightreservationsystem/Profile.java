@@ -160,6 +160,7 @@ public class Profile implements Initializable{
             int row = booking.getTicketinfo().get(j).getPassengerSeat().getSeatRow();
             int col = booking.getTicketinfo().get(j).getPassengerSeat().getSeatColumn();
             booking.getFlight().getSeats(booking.getFlightClass())[row][col].setSeatAvailability(true);
+            booking.getFlight().setNumberOfAvailableSeat(booking.getFlightClass(),-1);
         }
         UserData.getInstance().getUserData().getBookings().remove(i);
         SwitchToSelectScene(e);

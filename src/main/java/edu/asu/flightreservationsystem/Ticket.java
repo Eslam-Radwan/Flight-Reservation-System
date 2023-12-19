@@ -8,6 +8,7 @@ public class Ticket implements Serializable {
     private double ticketFare;
     private Passenger passenger;
     private Seat passengerSeat;
+    private Booking booking;
 
     public Ticket(Passenger passenger, double ticketFare) {
         ticketNumber = previousTicketNumber + 1;
@@ -46,6 +47,14 @@ public class Ticket implements Serializable {
 
     public void setPassenger(Passenger passenger) {
         this.passenger = passenger;
+    }
+
+    public Booking getBooking() {
+        return booking;
+    }
+
+    public void setBooking(Booking booking) {
+        this.booking = booking;
     }
 
     @Override
