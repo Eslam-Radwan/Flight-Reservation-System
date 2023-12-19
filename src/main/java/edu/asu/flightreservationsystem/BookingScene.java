@@ -32,7 +32,6 @@ public class BookingScene implements Initializable {
     private Label alertLabel = new Label("please Enter all required information");
     private Pane createsmallform() {
         Pane form = new Pane();
-//        form.setStyle("-fx-background-color: transparent;");
 
         VBox.setMargin(form, new Insets(20, 20, 20, 20));
 
@@ -57,7 +56,6 @@ public class BookingScene implements Initializable {
         TextField lastNameField = new TextField();
         lastNameField.setLayoutX(265);
         lastNameField.setLayoutY(127);
-//        lastNameField.setMinWidth(100);
 
         Label id = new Label("ID");
         id.getStyleClass().add("labela");
@@ -69,18 +67,6 @@ public class BookingScene implements Initializable {
         idField.setMinWidth(150);
         idField.setLayoutX(556);
         idField.setLayoutY(47);
-
-
-//        Label phone = new Label("Phone no.");
-//        phone.getStyleClass().add("labela");
-//        phone.setLayoutX(500);
-//        phone.setLayoutY(117);
-
-
-//        TextField phoneField = new TextField();
-//        phoneField.setLayoutX(650);
-//        phoneField.setLayoutY(127);
-
 
         firstNames.add(firstNameField);
         lastNames.add(lastNameField);
@@ -119,8 +105,6 @@ public class BookingScene implements Initializable {
         forms.setPadding(new Insets(20));
         forms.getChildren().add(submitButton);
 
-//        submitButton.setAlignment(Pos.CENTER_RIGHT);
-//        back.setOnAction(e -> goToSearchPage(e));
     }
 
     private void AddDatas(ActionEvent event) throws IOException {

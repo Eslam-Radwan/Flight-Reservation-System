@@ -19,7 +19,6 @@ public class Flight implements Serializable ,Comparable, Comparator {
     private Seat[][] businessClass;
     private Seat[][] firstClass;
     private int[] numberOfAvailableSeat ;
-//    ArrayList<String>  passenger = new ArrayList<>();
 
     public void setEconomySeats(int row, int col, Seat seat) {
         economySeats[row][col] = seat;
@@ -35,7 +34,9 @@ public class Flight implements Serializable ,Comparable, Comparator {
     public Flight(){
         seatPrice = new double[3];
         numberOfAvailableSeat = new int[]{30, 30, 30};
-        //arrivalAirport=new Airport()
+        arrivalAirport=new Airport();
+        departureAirport=new Airport();
+
         economySeats = new Seat[5][6];
         for (int i=0;i<5;i++){
             for (int j=0;j<6;j++){
@@ -103,13 +104,11 @@ public class Flight implements Serializable ,Comparable, Comparator {
     public Airport getDepartureAirport() {
         return departureAirport;
     }
-
-    public void setDepartureAirport(String departureAirportCity) {
-        this.departureAirport.setAirportCity(departureAirportCity);
-    }
-
     public Airport getArrivalAirport() {
         return arrivalAirport;
+    }
+    public void setDepartureAirport(String departureAirportCity) {
+        this.departureAirport.setAirportCity(departureAirportCity);
     }
 
     public void setArrivalAirport(String arrivalAirportCity) {

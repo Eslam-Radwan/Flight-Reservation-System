@@ -1,0 +1,16 @@
+Label{
+    -fx-font-family: "Arial Rounded MT Bold";
+    -fx-font-size: 25px;
+}
+.box{
+-fx-background-color: #4a6d9e;
+}
+.title{
+        -fx-font-family: candara;
+    -fx-font-size: 40px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+.alertLabel{
+    -fx-text-fill: red;
+}

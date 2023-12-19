@@ -12,30 +12,18 @@ public interface PassengerInfoDisplay {
         Label passengerId=new Label(String.valueOf(t1.getPassenger().getID()));
         Label seatNumber=new Label(String.valueOf(t1.getPassengerSeat().getSeatNumber()));
         Line separator=new Line(0,0 ,300,0);
-
         Pane e=new Pane(passengerName,passengerId,seatNumber,separator);
-
-        e.setPrefWidth(900);
-        e.setPrefHeight(70);
-
-        passengerName.setLayoutX(165);
-        passengerName.setLayoutY(29);
-        passengerName.setStyle("-fx-text-fill: Black;");
-        passengerId.setLayoutX(450);
-        passengerId.setLayoutY(29);
-        passengerId.setStyle("-fx-text-fill: Black;");
-
-        seatNumber.setLayoutX(668);
-        seatNumber.setLayoutY(29);
-        seatNumber.setStyle("-fx-text-fill: Black;");
-
+        separator.getStyleClass().add("separator");
+        //style
+        passengerName.getStyleClass().add("name");
+        passengerId.getStyleClass().add("id");
+        seatNumber.getStyleClass().add("seat");
+        e.getStyleClass().add("panePassenger");
         separator.setLayoutX(470);
         separator.setLayoutY(70);
         separator.setStartX(-345);
         separator.setEndX(321);
-//        onePassenger.getChildren().add(e);
-//
-//        .setAlignment(Pos.CENTER);
+
         return e;
     }
 }

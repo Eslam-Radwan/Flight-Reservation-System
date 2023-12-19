@@ -11,7 +11,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" stylesheets="@PaymentInfoStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.asu.flightreservationsystem.PaymentInfoController">
    <children>
-      <Pane prefHeight="89.0" prefWidth="900.0" styleClass="box">
+      <Pane prefHeight="90.0" prefWidth="900.0" styleClass="box">
          <children>
             <Label layoutX="385.0" layoutY="21.0" styleClass="title" text="Paymet" />
          </children></Pane>
@@ -50,7 +50,7 @@
                   <Label text="Seat Number" />
                </children>
             </HBox>
-            <Button fx:id="pay" layoutX="770.0" layoutY="534.0" mnemonicParsing="false" onAction="#SwitchToPayment" text="Continue" />
+            <Button fx:id="pay" layoutX="771.0" layoutY="514.0" mnemonicParsing="false" onAction="#SwitchToPayment" text="Continue" />
          </children>
       </Pane>
    </children>

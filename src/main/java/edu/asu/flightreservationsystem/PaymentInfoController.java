@@ -45,8 +45,6 @@ public class PaymentInfoController implements PassengerInfoDisplay, Initializabl
         for(int i=0;i<bookingData.getBookingData().getNumberOfPassengers();i++){
         passengers.getChildren().add(onePassenger(bookingData.getBookingData().getTicketinfo().get(i)));
         }
-       // passengers.setSpacing(200);
-
     }
     public void SetData(){
         Flight bookedFlight=bookingData.getBookingData().getFlight();

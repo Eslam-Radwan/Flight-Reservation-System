@@ -143,14 +143,6 @@ public class AdminAddFlightController implements Initializable {
         businessAvailableSeats.getStyleClass().add("AvailableSeats");
         firstClassAvailableSeats.getStyleClass().add("AvailableSeats");
 
-
-//        TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(1), imageView);
-//        imageView.setOnMouseClicked( e -> {
-//            translateTransition.pause();
-//            translateTransition.setToX(138);
-//            translateTransition.play();
-//            imageView.setCursor(Cursor.DEFAULT);
-//        });
         editPane.setOnMouseEntered(e -> {
             editPane.setOpacity(0.85);
         });
@@ -205,13 +197,7 @@ public class AdminAddFlightController implements Initializable {
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
     }
-//    private void goToEdit(Event event) throws IOException {
-//        Parent root = FXMLLoader.load(getClass().getResource("EditFlightPage.fxml"));
-//        Scene scene = new Scene(root);
-//        Stage stage;
-//        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-//        stage.setScene(scene);
-//    }
+
 
 
 }

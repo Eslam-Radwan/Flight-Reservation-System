@@ -1,19 +1,14 @@
-.label {
-    -fx-font-size: 14px;
-    -fx-text-fill: #333333; /* Text color */
-}
 
 .hbox {
     -fx-spacing: 20;
     -fx-padding: 10;
-    -fx-background-color: #f0f0f0; /* Background color */
+    -fx-background-color: #f0f0f0;
 }
 .AirportLabel{
     -fx-font-family: candara;
     -fx-font-style: italic;
     -fx-font-weight: bold;
     -fx-font-size: 35px;
-   // -fx-text-fill: b;
 }
 .PriceLabel{
     -fx-background-color: #6a8fb3;
@@ -52,15 +47,15 @@
 .label {
     -fx-text-fill: white;
 }
-.Head .label{
+.Head Label{
     -fx-text-fill: Black;
-    -fx-font-family: "Arial", sans-serif; /* Specify your preferred font family */
-    -fx-font-size: 14px; /* Specify the font size */
+    -fx-font-family: "Arial", sans-serif;
+    -fx-font-size: 14px;
     -fx-font-weight: bold;
 }
 .title{
-        -fx-font-family: candara; /* Font family for the title label text */
-    -fx-font-size: 40px; /* Font size for the title label text */
+        -fx-font-family: candara;
+    -fx-font-size: 40px;
     -fx-font-weight: bold;
 }
 .passenger Label{
@@ -69,4 +64,22 @@
 }
 .box{
 -fx-background-color: #4a6d9e;
+}
+.name{
+    -fx-translate-x: 165;
+    -fx-translate-y: 29;
+}
+.id{
+    -fx-translate-x: 450;
+    -fx-translate-y: 29;
+}
+.seat{
+-fx-translate-x: 668;
+    -fx-translate-y: 29;
+}
+.panePassenger{
+-fx-pref-width: 900;
+    -fx-pref-height: 70;
+    -fx-min-height: 70;
+    -fx-max-height: 70;
 }
