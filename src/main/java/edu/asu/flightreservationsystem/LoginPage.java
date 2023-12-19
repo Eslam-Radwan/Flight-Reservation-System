@@ -131,14 +131,14 @@ public class LoginPage {
         grid.add(frsLabel, 0, 0, 2, 1);
 
         Label usernameLabel = new Label("Username:");
-        usernameLabel.setStyle("-fx-font-size: 16px; -fx-text-fill: black; -fx-font-weight: bold;");
+        usernameLabel.setStyle("-fx-font-size: 16px; -fx-text-fill: white; -fx-font-weight: bold;");
         grid.add(usernameLabel, 0, 1);
 
         usernameTextField = new TextField();
         grid.add(usernameTextField, 1, 1);
 
         Label passwordLabel = new Label("Password:");
-        passwordLabel.setStyle("-fx-font-size: 16px; -fx-text-fill: black; -fx-font-weight: bold;");
+        passwordLabel.setStyle("-fx-font-size: 16px; -fx-text-fill: white; -fx-font-weight: bold;");
         grid.add(passwordLabel, 0, 2);
 
         passwordField = new PasswordField();
@@ -147,8 +147,8 @@ public class LoginPage {
         loginButton = new Button("Login");
         signupButton = new Button("Signup");
 
-        loginButton.setStyle("-fx-background-color: #FF0000; -fx-text-fill: white;");
-        signupButton.setStyle("-fx-background-color: #008CBA; -fx-text-fill: white;");
+       // loginButton.setStyle("-fx-background-color: #FF0000; -fx-text-fill: white;");
+        //signupButton.setStyle("-fx-background-color: #008CBA; -fx-text-fill: white;");
 
         grid.add(loginButton, 0, 3);
         grid.add(signupButton, 1, 3);

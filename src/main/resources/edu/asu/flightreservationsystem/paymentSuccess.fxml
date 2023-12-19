@@ -21,7 +21,7 @@
       </Label>
       <ImageView fitHeight="185.0" fitWidth="202.0" layoutX="357.0" layoutY="274.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../7595571.png" />
+            <Image url="@../../../accepted.png" />
          </image>
       </ImageView>
    </children>
