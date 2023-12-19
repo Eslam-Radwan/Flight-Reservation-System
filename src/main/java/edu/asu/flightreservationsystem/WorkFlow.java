@@ -15,8 +15,8 @@ public class WorkFlow implements Serializable{
     public void work(Stage priamryStage)
     {
 
-        Admin localAdmin = makeLocalAdmin();
-        appUsers.add(localAdmin);
+//        Admin localAdmin = makeLocalAdmin();
+//        appUsers.add(localAdmin);
 
 
         LoginPage login = new LoginPage();
@@ -24,15 +24,15 @@ public class WorkFlow implements Serializable{
 
 
     }
-    private Admin makeLocalAdmin(){
-        Admin admin = new Admin();
-        admin.setFirstName("Ahmed");
-        admin.setLastName("Mohamed");
-        admin.setPassword("123");
-        admin.setUsername("admin");
-        admin.setEmailAddress("admin@gmail.com");
-        return admin;
-    }
+//    private Admin makeLocalAdmin(){
+//        Admin admin = new Admin();
+//        admin.setFirstName("Ahmed");
+//        admin.setLastName("Mohamed");
+//        admin.setPassword("123");
+//        admin.setUsername("admin");
+//        admin.setEmailAddress("admin@gmail.com");
+//        return admin;
+//    }
 
 
 

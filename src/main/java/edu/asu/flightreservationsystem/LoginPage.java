@@ -41,7 +41,19 @@ public class LoginPage {
                 else {
                      boolean check = isValidLogin(usernameTextField.getText(),passwordField.getText());
                      if(check){
-                         appUser.goToMainMenu(primaryStage);
+                         if(appUser instanceof User){
+                             User user = (User)appUser;
+                             UserData userData = UserData.getInstance();
+                             userData.setUserData(user);
+                                 user.goToMainMenu(primaryStage);
+
+                         }
+                         if(appUser instanceof Admin){
+                             Admin admin = (Admin)appUser;
+                             AdminData adminData = AdminData.getInstance();
+                             adminData.setAdmin(admin);
+                                 admin.goToMainMenu(primaryStage);
+                         }
                      }
                      else {
                          showError("The username or the password is wrong");
