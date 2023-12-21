@@ -35,11 +35,8 @@ public class Profile implements Initializable{
         email.setText(userData.getUserData().getEmailAddress());
         vbox.setAlignment(javafx.geometry.Pos.CENTER);
         vbox.setSpacing(30);
-        for(int i=0;i<userData.getUserData().getBookings().size();i++){
-            Pane p = createbookingpane(i);
-            p.getStyleClass().add("pane");
-            vbox.getChildren().add(p);
-        }
+        cleanbookings();
+        createbookings();
         vbox.getStyleClass().add("vbox");
     }
 
@@ -163,8 +160,25 @@ public class Profile implements Initializable{
             booking.getFlight().setNumberOfAvailableSeat(booking.getFlightClass(),-1);
         }
         UserData.getInstance().getUserData().getBookings().remove(i);
-        SwitchToSelectScene(e);
+
+        for (int j = vbox.getChildren().size() - 1; j >= 0; j--) {
+            vbox.getChildren().remove(j);
+        }
+        createbookings();
     }
 
-
+    private void createbookings(){
+        for(int i=0;i<userData.getUserData().getBookings().size();i++){
+            Pane p = createbookingpane(i);
+            p.getStyleClass().add("pane");
+            vbox.getChildren().add(p);
+        }
+    }
+    private void cleanbookings(){
+        for(int i=0;i<userData.getUserData().getBookings().size();i++){
+            if(userData.getUserData().getBookings().get(i).getNumberOfPassengers()==0){
+                userData.getUserData().getBookings().remove(i);
+            }
+        }
+    }
 }
