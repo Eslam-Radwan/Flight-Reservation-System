@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -50,7 +51,6 @@ public class FlightSelect implements Initializable {
     private Button previousFlight;
     @FXML
     private Button bookButton;
-
     @FXML
     private Label warningLabel;
     @FXML
@@ -61,7 +61,8 @@ public class FlightSelect implements Initializable {
     private Label date;
     @FXML
     private Label total;
-
+    @FXML
+    private Line linebetween;
 
     private BookingData bookingData = BookingData.getInstane();
     private int iterator;
@@ -85,6 +86,8 @@ public class FlightSelect implements Initializable {
         if (!selectedFlights.isEmpty()) {
             SetFirstFlight();
         } else {
+            linebetween.setVisible(false);
+
             warningLabel.setVisible(true);
             nextFlight.setVisible(false);
             previousFlight.setVisible(false);

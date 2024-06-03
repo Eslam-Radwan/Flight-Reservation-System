@@ -49,11 +49,11 @@
                         <Label fx:id="totalAmount" prefHeight="24.0" styleClass="totalAmount" />
                      </children>
                   </HBox>
-                  <Label fx:id="departureTime" layoutX="501.0" layoutY="83.0" styleClass="TimeLabel" text="Label" />
-                  <Label fx:id="departureAirport" layoutX="480.0" layoutY="29.0" styleClass="AirportLabel" text="Label" />
-                  <Line endX="75.199951171875" layoutX="687.0" layoutY="53.0" startX="-100.0" strokeLineCap="ROUND" strokeWidth="7.0" />
-                  <Label fx:id="arrivalAirport" layoutX="790.0" layoutY="26.0" styleClass="AirportLabel" text="Label" />
-                  <Label fx:id="arrivalTime" layoutX="811.0" layoutY="83.0" styleClass="TimeLabel" text="Label" />
+                  <Label fx:id="departureTime" layoutX="472.0" layoutY="83.0" styleClass="TimeLabel" text="Label" />
+                  <Label fx:id="departureAirport" alignment="CENTER_RIGHT" layoutX="451.0" layoutY="29.0" styleClass="AirportLabel" text="Label" />
+                  <Line endX="75.199951171875" layoutX="658.0" layoutY="53.0" startX="-100.0" strokeLineCap="ROUND" strokeWidth="7.0" />
+                  <Label fx:id="arrivalAirport" layoutX="757.0" layoutY="26.0" styleClass="AirportLabel" text="Label" />
+                  <Label fx:id="arrivalTime" layoutX="778.0" layoutY="83.0" styleClass="TimeLabel" text="Label" />
                </children>
             </Pane>
          </children>
