@@ -26,22 +26,22 @@
                                 <Font name="Berlin Sans FB Demi Bold" size="19.0" />
                             </font>
                         </Button>
-                        <Label layoutX="15.0" layoutY="105.0" prefHeight="41.0" prefWidth="83.0" text="Username:">
+                        <Label layoutX="15.0" layoutY="105.0" text="Username:">
                             <font>
                                 <Font name="Berlin Sans FB Demi Bold" size="17.0" />
                             </font>
                         </Label>
-                        <Label fx:id="email" layoutX="79.0" layoutY="146.0" prefHeight="41.0" prefWidth="226.0" text="Label">
+                        <Label fx:id="email" layoutX="79.0" layoutY="146.0" text="Label">
                             <font>
                                 <Font name="Berlin Sans FB Demi Bold" size="17.0" />
                             </font>
                         </Label>
-                        <Label layoutX="15.0" layoutY="146.0" prefHeight="41.0" prefWidth="64.0" text="E-mail:">
+                        <Label layoutX="15.0" layoutY="146.0" text="E-mail:">
                             <font>
                                 <Font name="Berlin Sans FB Demi Bold" size="17.0" />
                             </font>
                         </Label>
-                        <Label fx:id="username" layoutX="103.0" layoutY="105.0" prefHeight="41.0" prefWidth="128.0" text="Label">
+                        <Label fx:id="username" layoutX="103.0" layoutY="105.0" text="Label">
                             <font>
                                 <Font name="Berlin Sans FB Demi Bold" size="17.0" />
                             </font>
